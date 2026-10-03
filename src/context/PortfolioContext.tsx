@@ -33,7 +33,27 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        setData(parsed);
+        // Deep merge with initialPortfolioData to ensure all new fields exist
+        setData({
+          ...initialPortfolioData,
+          ...parsed,
+          profile: {
+            ...initialPortfolioData.profile,
+            ...(parsed.profile || {}),
+          },
+          contact: {
+            ...initialPortfolioData.contact,
+            ...(parsed.contact || {}),
+          },
+          stats: parsed.stats && parsed.stats.length > 0 ? parsed.stats : initialPortfolioData.stats,
+          projects: parsed.projects && parsed.projects.length > 0 ? parsed.projects : initialPortfolioData.projects,
+          experiences: parsed.experiences && parsed.experiences.length > 0 ? parsed.experiences : initialPortfolioData.experiences,
+          tools: parsed.tools && parsed.tools.length > 0 ? parsed.tools : initialPortfolioData.tools,
+          certifications: parsed.certifications && parsed.certifications.length > 0 ? parsed.certifications : initialPortfolioData.certifications,
+          academics: parsed.academics && parsed.academics.length > 0 ? parsed.academics : initialPortfolioData.academics,
+          thoughts: parsed.thoughts && parsed.thoughts.length > 0 ? parsed.thoughts : initialPortfolioData.thoughts,
+          socials: parsed.socials && parsed.socials.length > 0 ? parsed.socials : initialPortfolioData.socials,
+        });
         setHasCustomChanges(true);
       }
     } catch (e) {

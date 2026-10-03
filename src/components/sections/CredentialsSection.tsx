@@ -8,7 +8,9 @@ import { SectionHeading } from '@/components/common/SectionHeading';
 
 export const CredentialsSection = () => {
   const { data } = usePortfolio();
-  const { certifications, academics, profile } = data;
+  const certifications = data?.certifications || [];
+  const academics = data?.academics || [];
+  const profile = data?.profile || { languages: ['English', 'Bangla'], hobbies: ['Travel', 'Sports', 'Reading'] };
 
   return (
     <section id="credentials" className="py-12 sm:py-16">

@@ -71,7 +71,7 @@ export const CustomCursor = () => {
           y: mousePosition.y - (isHovered ? 24 : 16),
           width: isHovered ? 48 : 32,
           height: isHovered ? 48 : 32,
-          backgroundColor: isHovered ? 'rgba(197, 255, 65, 0.12)' : 'transparent',
+          backgroundColor: isHovered ? 'rgba(197, 255, 65, 0.12)' : 'rgba(197, 255, 65, 0)',
           borderColor: isHovered ? '#c5ff41' : 'rgba(197, 255, 65, 0.4)',
         }}
         transition={{
