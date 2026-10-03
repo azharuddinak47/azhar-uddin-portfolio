@@ -12,32 +12,31 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => v
   const { data, isEditMode } = usePortfolio();
   const { profile, stats } = data;
 
+  // Intelligently format headline so the last word is hollow and no word is duplicated
+  const fullHeadline = (
+    profile.heroHeadline?.includes(profile.heroHeadlineHollow || '')
+      ? profile.heroHeadline
+      : `${profile.heroHeadline || 'UI/UX'} ${profile.heroHeadlineHollow || 'DESIGNER'}`
+  ).trim();
+
+  const words = fullHeadline.split(/\s+/);
+  const hollowPart = words.length > 1 ? words.pop() : (profile.heroHeadlineHollow || 'DESIGNER');
+  const solidPart = words.join(' ') || (profile.heroHeadline || 'UI/UX');
+
   return (
     <section id="home" className="flex flex-col gap-10 pt-4 sm:pt-6">
       {/* Hero Headline Area */}
       <div className="flex flex-col items-start">
-        {/* Availability Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-4"
-        >
-          <Badge variant="lime" pulsing={profile.isAvailable}>
-            {profile.statusBadge}
-          </Badge>
-        </motion.div>
-
-        {/* Huge Display Headline matching Sawad (UI/UX DESIGNER) */}
+        {/* Huge Display Headline matching Sawad without duplication */}
         <motion.h1
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] leading-[0.92] mb-6 flex flex-wrap gap-x-4"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] leading-[0.92] mb-6 flex flex-col items-start"
         >
-          <span>{profile.heroHeadline}</span>
+          <span>{solidPart}</span>
           <span className="text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.3)] hover:[-webkit-text-stroke:1.5px_#c5ff41] transition-all duration-300">
-            {profile.heroHeadlineHollow}
+            {hollowPart}
           </span>
         </motion.h1>
 
