@@ -26,7 +26,7 @@ export default function Home() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   return (
-    <div className={`relative min-h-screen bg-[#131211] text-white selection:bg-[#c5ff41] selection:text-black ${isEditMode ? 'edit-active' : ''}`}>
+    <div className={`relative min-h-screen bg-[#131211] text-white selection:bg-[#1d6de3] selection:text-white ${isEditMode ? 'edit-active' : ''}`}>
       {/* Precision Custom Cursor */}
       <CustomCursor />
 
@@ -94,13 +94,13 @@ export default function Home() {
         <button
           type="button"
           onClick={() => setIsEditModalOpen(true)}
-          className="group flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#181715]/90 hover:bg-[#201f1c] text-[#c5ff41] border border-[#c5ff41]/40 hover:border-[#c5ff41] shadow-[0_8px_30px_rgba(0,0,0,0.6),0_0_15px_rgba(197,255,65,0.2)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-md"
+          className="group flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#181715]/90 hover:bg-[#201f1c] text-[#60a5fa] border border-[#1d6de3]/40 hover:border-[#1d6de3] shadow-[0_8px_30px_rgba(0,0,0,0.6),0_0_15px_rgba(29,109,227,0.25)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-md"
         >
-          <div className="w-6 h-6 rounded-full bg-[#c5ff41] text-black flex items-center justify-center font-bold text-xs">
+          <div className="w-6 h-6 rounded-full bg-[#1d6de3] text-white flex items-center justify-center font-bold text-xs shadow-[0_0_10px_rgba(29,109,227,0.4)]">
             <Edit3 size={13} />
           </div>
           <div className="flex flex-col text-left">
-            <span className="text-xs font-bold uppercase tracking-wider text-white group-hover:text-[#c5ff41] transition-colors">
+            <span className="text-xs font-bold uppercase tracking-wider text-white group-hover:text-[#60a5fa] transition-colors">
               Edit Portfolio
             </span>
             <span className="text-[10px] text-[#998f8f] -mt-0.5">

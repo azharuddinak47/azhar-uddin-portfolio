@@ -18,7 +18,6 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
     <section id="thoughts" className="py-20 sm:py-28 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
         <SectionHeading
-          badge="Articles & Perspectives"
           title="DESIGN THOUGHTS"
           subtitle="Insights, essays, and technical reflections on modern web engineering, interface psychology, and creative tooling."
         />
@@ -33,24 +32,24 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
               onClick={() => onSelectThought(thought)}
-              className="group cursor-pointer p-6 sm:p-8 rounded-[24px] bg-[#1c1b18] border border-white/8 hover:border-[#c5ff41]/40 transition-all duration-300 hover:-translate-y-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(197,255,65,0.1)] flex flex-col justify-between"
+              className="group cursor-pointer p-6 sm:p-8 rounded-[24px] bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all duration-300 hover:-translate-y-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(29,109,227,0.2)] flex flex-col justify-between"
             >
               <div>
                 {/* Metadata Row: Date & Read Time */}
                 <div className="flex items-center gap-3 text-xs text-[#998f8f] mb-4">
                   <span className="flex items-center gap-1.5 font-medium">
-                    <Calendar size={13} className="text-[#c5ff41]" />
+                    <Calendar size={13} className="text-[#60a5fa]" />
                     {thought.date}
                   </span>
                   <span>•</span>
                   <span className="flex items-center gap-1.5 font-medium px-2.5 py-0.5 rounded-full bg-[#131211] border border-white/5 text-neutral-300">
-                    <Clock size={12} className="text-[#c5ff41]" />
+                    <Clock size={12} className="text-[#60a5fa]" />
                     {thought.readTime}
                   </span>
                 </div>
 
                 {/* Article Title */}
-                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-[#c5ff41] transition-colors mb-3 leading-snug">
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-[#60a5fa] transition-colors mb-3 leading-snug">
                   {thought.title}
                 </h3>
 
@@ -63,10 +62,10 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
               {/* Action Link Footer */}
               <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-neutral-300 group-hover:text-white transition-colors">
                 <span className="flex items-center gap-2">
-                  <BookOpen size={14} className="text-[#c5ff41]" />
+                  <BookOpen size={14} className="text-[#60a5fa]" />
                   Read Full Article
                 </span>
-                <div className="w-8 h-8 rounded-full bg-[#131211] flex items-center justify-center text-neutral-400 group-hover:bg-[#c5ff41] group-hover:text-black transition-all">
+                <div className="w-8 h-8 rounded-full bg-[#131211] flex items-center justify-center text-neutral-400 group-hover:bg-[#1d6de3] group-hover:text-white transition-all shadow-md">
                   <ArrowUpRight size={15} />
                 </div>
               </div>

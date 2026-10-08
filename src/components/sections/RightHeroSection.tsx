@@ -2,135 +2,156 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Sparkles, FolderDown, Award } from 'lucide-react';
+import { Layers, PanelsTopLeft, ArrowRight } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
-import { Badge } from '@/components/common/Badge';
-import { Button } from '@/components/common/Button';
-import { Marquee } from '@/components/common/Marquee';
 
 export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }) => {
-  const { data, isEditMode } = usePortfolio();
+  const { data } = usePortfolio();
   const { profile, stats } = data;
 
-  // Intelligently format headline so the last word is hollow and no word is duplicated
-  const fullHeadline = (
-    profile.heroHeadline?.includes(profile.heroHeadlineHollow || '')
-      ? profile.heroHeadline
-      : `${profile.heroHeadline || 'UI/UX'} ${profile.heroHeadlineHollow || 'DESIGNER'}`
-  ).trim();
-
-  const words = fullHeadline.split(/\s+/);
-  const hollowPart = words.length > 1 ? words.pop() : (profile.heroHeadlineHollow || 'DESIGNER');
-  const solidPart = words.join(' ') || (profile.heroHeadline || 'UI/UX');
+  // Intelligently format headline: Line 1 = Solid White, Line 2 = Solid Dark Charcoal
+  const solidPart = profile.heroHeadline || 'PRODUCT';
+  const mutedPart = profile.heroHeadlineHollow || 'DESIGNER';
 
   return (
-    <section id="home" className="flex flex-col gap-10 pt-4 sm:pt-6">
-      {/* Hero Headline Area */}
-      <div className="flex flex-col items-start">
-        {/* Huge Display Headline matching Sawad without duplication */}
+    <section id="home" className="flex flex-col gap-10 pt-2 sm:pt-4">
+      {/* Huge Display Headline matching Sawad Framer screenshot */}
+      <div className="flex flex-col items-start leading-[0.88] select-text">
         <motion.h1
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] leading-[0.92] mb-6 flex flex-col items-start"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-start tracking-tight uppercase font-[family-name:var(--font-poppins)] select-text"
         >
-          <span>{solidPart}</span>
-          <span className="text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.3)] hover:[-webkit-text-stroke:1.5px_#c5ff41] transition-all duration-300">
-            {hollowPart}
+          {/* Line 1: Solid Crisp White */}
+          <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[90px] font-black text-white leading-[0.88] select-text cursor-text">
+            {solidPart}
+          </span>
+
+          {/* Line 2: Solid Dark Charcoal */}
+          <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[90px] font-black text-[#262422] hover:text-[#383533] transition-colors duration-300 leading-[0.88] select-text cursor-text">
+            {mutedPart}
           </span>
         </motion.h1>
 
-        {/* Subtitle & Bio */}
+        {/* Short Bio Subtitle matching Sawad */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-base sm:text-lg text-neutral-300 font-medium leading-relaxed max-w-2xl mb-3"
+          className="mt-6 sm:mt-8 text-sm sm:text-base text-[#998f8f] font-normal leading-relaxed max-w-xl select-text cursor-text"
         >
-          {profile.subHeadline}
+          {profile.subHeadline ||
+            'Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products.'}
         </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="text-sm sm:text-base text-[#998f8f] leading-relaxed max-w-2xl mb-8"
-        >
-          {profile.bio}
-        </motion.p>
-
-        {/* Quick CTA Actions */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="flex flex-wrap items-center gap-4"
-        >
-          <Button
-            variant="lime"
-            size="md"
-            href="#projects"
-            icon={<ArrowUpRight size={16} />}
-          >
-            Explore Projects
-          </Button>
-
-          <Button
-            variant="secondary"
-            size="md"
-            href="#contact"
-          >
-            Get In Touch
-          </Button>
-
-          <a
-            href={profile.behanceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1c1b18] hover:bg-[#252320] text-white border border-white/10 hover:border-[#c5ff41] transition-all flex items-center gap-1.5"
-          >
-            <span>Behance Profile</span>
-            <ArrowUpRight size={14} className="text-[#c5ff41]" />
-          </a>
-        </motion.div>
       </div>
 
-      {/* 3 Stats Metric Cards Grid (Matching Sawad) */}
+      {/* 3 Stats Numbers Row (Clean horizontal numbers matching screenshot) */}
       <motion.div
-        initial={{ opacity: 0, y: 25 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+        className="flex items-start gap-8 sm:gap-14 lg:gap-16 pt-2 select-text"
       >
         {stats.map((stat, index) => (
-          <div
-            key={stat.id || index}
-            className="p-5 sm:p-6 rounded-[24px] bg-[#1c1b18] border border-white/8 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 group shadow-[0_10px_30px_rgba(0,0,0,0.4)] flex flex-col justify-between"
-          >
-            <div className="flex flex-col">
-              <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#c5ff41] font-[family-name:var(--font-poppins)] mb-1 group-hover:scale-105 transition-transform origin-left">
-                {stat.value}
-              </span>
-              <span className="text-xs font-bold tracking-wider text-white uppercase">
-                {stat.label}
-              </span>
-              <span className="text-xs font-medium tracking-wider text-[#998f8f] uppercase">
-                {stat.sublabel}
-              </span>
-            </div>
-            <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] text-neutral-500">
-              <span>Verified Record</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c5ff41]" />
-            </div>
+          <div key={stat.id || index} className="flex flex-col items-start select-text">
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-white font-[family-name:var(--font-poppins)] tracking-tight leading-none mb-2 select-text cursor-text">
+              {stat.value}
+            </span>
+            <span className="text-[11px] sm:text-xs font-bold tracking-wider text-[#998f8f] uppercase leading-tight font-[family-name:var(--font-poppins)] select-text cursor-text">
+              {stat.label}
+              <br />
+              {stat.sublabel}
+            </span>
           </div>
         ))}
       </motion.div>
 
-      {/* Infinite Seamless Marquee Ticker */}
-      <div className="rounded-2xl overflow-hidden">
-        <Marquee items={profile.tickerItems} speed={24} />
-      </div>
+      {/* Two Feature Bento Cards matching screenshot */}
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.25 }}
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2 w-full"
+      >
+        {/* Left Bento Card: Vibrant Orange with Waves */}
+        <a
+          href="#projects"
+          draggable={false}
+          className="rounded-[24px] bg-[#eb5e28] p-6 sm:p-7 min-h-[200px] sm:min-h-[220px] flex flex-col justify-between relative overflow-hidden group shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 select-text"
+        >
+          {/* Subtle Decorative Wave Pattern */}
+          <div className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
+            <svg
+              viewBox="0 0 388 155"
+              className="w-full h-full object-cover scale-150"
+              fill="none"
+            >
+              <path
+                d="M 400.825 526.501 C 359.981 521.61 275.061 502.161 262.145 463.503 C 249.228 424.845 64.622 467.64 -26.068 493.869 L -1.845 151.05 C 71.348 136.783 216.884 99.23 213.496 63.159 C 209.26 18.069 245.759 11.716 307.691 18.653 C 369.624 25.591 361.774 9.523 393.416 2.626"
+                stroke="rgba(255, 255, 255, 0.45)"
+                strokeWidth="5"
+              />
+            </svg>
+          </div>
+
+          {/* Top Icon */}
+          <div className="relative z-10 text-white pointer-events-none">
+            <Layers size={28} strokeWidth={2.2} />
+          </div>
+
+          {/* Bottom Content Row */}
+          <div className="flex items-end justify-between gap-4 relative z-10 pt-6">
+            <span className="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-snug font-[family-name:var(--font-poppins)] max-w-[200px] select-text cursor-text">
+              DYNAMIC ANIMATION, MOTION DESIGN
+            </span>
+
+            <div className="w-8 h-8 rounded-lg border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#eb5e28] transition-all shrink-0">
+              <ArrowRight size={16} />
+            </div>
+          </div>
+        </a>
+
+        {/* Right Bento Card: Royal Blue (Photo Backdrop Match) with Zig-Zag */}
+        <a
+          href="#tools"
+          draggable={false}
+          className="rounded-[24px] bg-gradient-to-br from-[#1d6de3] via-[#1a5fb4] to-[#104480] p-6 sm:p-7 min-h-[200px] sm:min-h-[220px] flex flex-col justify-between relative overflow-hidden group shadow-[0_15px_35px_rgba(29,109,227,0.3)] hover:shadow-[0_20px_45px_rgba(29,109,227,0.45)] hover:-translate-y-1 transition-all duration-300 select-text"
+        >
+          {/* Subtle Decorative Zig-Zag Pattern */}
+          <div className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
+            <svg
+              viewBox="0 0 422 284"
+              className="w-full h-full object-cover scale-125"
+              fill="none"
+            >
+              <path
+                d="M 33.026 0.557 L 4.893 135.318 L 98.467 61.255 L 128.435 164.831 L 227.513 61.255 L 250.754 164.831 L 310.078 107.475 L 328.426 247.247 L 426.893 107.475 L 433.62 254.486 L 472.762 292.353"
+                stroke="rgba(255, 255, 255, 0.4)"
+                strokeWidth="5"
+              />
+            </svg>
+          </div>
+
+          {/* Top Icon */}
+          <div className="relative z-10 text-white pointer-events-none">
+            <PanelsTopLeft size={28} strokeWidth={2.2} />
+          </div>
+
+          {/* Bottom Content Row */}
+          <div className="flex items-end justify-between gap-4 relative z-10 pt-6">
+            <span className="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-snug font-[family-name:var(--font-poppins)] max-w-[210px] select-text cursor-text">
+              FRAMER, FIGMA, WORDPRESS, REACTJS
+            </span>
+
+            <div className="w-8 h-8 rounded-lg border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#165aa8] transition-all shrink-0">
+              <ArrowRight size={16} />
+            </div>
+          </div>
+        </a>
+      </motion.div>
     </section>
   );
 };

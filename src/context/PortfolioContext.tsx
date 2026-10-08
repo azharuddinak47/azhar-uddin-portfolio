@@ -16,7 +16,7 @@ interface PortfolioContextType {
   hasCustomChanges: boolean;
 }
 
-const STORAGE_KEY = 'azhar_portfolio_custom_data_v2';
+const STORAGE_KEY = 'azhar_portfolio_custom_data_v3';
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);
 

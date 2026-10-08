@@ -40,7 +40,7 @@ export const ArticleModal = ({ thought, onClose }: ArticleModalProps) => {
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/70 backdrop-blur-md border border-white/15 flex items-center justify-center text-white hover:bg-[#c5ff41] hover:text-black transition-all cursor-pointer"
+            className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/70 backdrop-blur-md border border-white/15 flex items-center justify-center text-white hover:bg-[#1d6de3] hover:text-white transition-all cursor-pointer"
           >
             <X size={18} />
           </button>
@@ -50,12 +50,12 @@ export const ArticleModal = ({ thought, onClose }: ArticleModalProps) => {
             {/* Meta */}
             <div className="flex items-center gap-3 text-xs text-[#998f8f] mb-4">
               <span className="flex items-center gap-1.5 font-medium">
-                <Calendar size={13} className="text-[#c5ff41]" />
+                <Calendar size={13} className="text-[#60a5fa]" />
                 {thought.date}
               </span>
               <span>•</span>
               <span className="flex items-center gap-1.5 font-medium px-2.5 py-0.5 rounded-full bg-[#131211] border border-white/5 text-neutral-300">
-                <Clock size={12} className="text-[#c5ff41]" />
+                <Clock size={12} className="text-[#60a5fa]" />
                 {thought.readTime}
               </span>
             </div>
@@ -95,7 +95,7 @@ export const ArticleModal = ({ thought, onClose }: ArticleModalProps) => {
               <button
                 type="button"
                 onClick={onClose}
-                className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#c5ff41] text-black hover:bg-[#d4ff68] transition-all"
+                className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1d6de3] text-white hover:bg-[#2563eb] transition-all shadow-[0_0_15px_rgba(29,109,227,0.35)]"
               >
                 Done Reading
               </button>

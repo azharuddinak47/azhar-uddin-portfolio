@@ -19,9 +19,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://azhar-portfolio.vercel.app'),
-  title: 'Azhar — Software Engineer & Creative Technologist',
+  title: 'Azhar — Product Designer & Creative Technologist',
   description: 'A sleek, modern portfolio engineered with Next.js, TypeScript, Framer Motion, and GSAP micro-animations. Fully customizable and responsive.',
-  keywords: ['Software Engineer', 'Portfolio', 'Full Stack Developer', 'Framer', 'Next.js', 'React', 'GSAP', 'TypeScript'],
+  keywords: ['Product Designer', 'UI/UX Designer', 'Portfolio', 'Figma', 'Framer', 'Next.js', 'React', 'TypeScript'],
   authors: [{ name: 'Azhar' }],
   creator: 'Azhar',
   openGraph: {
@@ -65,7 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
-      <body className="bg-[#131211] text-[#ffffff] min-h-screen selection:bg-[#c5ff41] selection:text-black">
+      <body className="bg-[#131211] text-[#ffffff] min-h-screen selection:bg-[#1d6de3] selection:text-white">
         <PortfolioProvider>
           {children}
         </PortfolioProvider>

@@ -38,7 +38,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/70 backdrop-blur-md border border-white/15 flex items-center justify-center text-white hover:bg-[#c5ff41] hover:text-black transition-all cursor-pointer"
+            className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/70 backdrop-blur-md border border-white/15 flex items-center justify-center text-white hover:bg-[#1d6de3] hover:text-white transition-all cursor-pointer"
           >
             <X size={18} />
           </button>
@@ -59,7 +59,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             <div className="p-6 sm:p-10 -mt-12 relative z-10">
               {/* Category & Year */}
               <div className="flex items-center gap-3 mb-3">
-                <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#c5ff41] text-black">
+                <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1d6de3] text-white">
                   {project.category}
                 </span>
                 {project.year && (
@@ -74,7 +74,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               <h2 className="text-3xl sm:text-4xl font-black text-white uppercase font-[family-name:var(--font-poppins)] tracking-tight mb-2">
                 {project.title}
               </h2>
-              <p className="text-base sm:text-lg font-semibold text-[#c5ff41] mb-6">
+              <p className="text-base sm:text-lg font-semibold text-[#60a5fa] mb-6">
                 {project.tagline}
               </p>
 
@@ -98,7 +98,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                         key={idx}
                         className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#131211] border border-white/10 text-neutral-200 flex items-center gap-1.5"
                       >
-                        <Tag size={12} className="text-[#c5ff41]" />
+                        <Tag size={12} className="text-[#60a5fa]" />
                         {tag}
                       </span>
                     ))}

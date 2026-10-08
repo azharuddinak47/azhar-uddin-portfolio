@@ -2,13 +2,45 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Download, ArrowUpRight, Award, Globe, Sparkles, ExternalLink } from 'lucide-react';
+import { Flame, ArrowUpRight, Sparkles, Mail } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
-import { Button } from '@/components/common/Button';
+
+// Custom Crisp SVG Icons matching Sawad Framer left-card design
+const DribbbleIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94" />
+    <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32" />
+    <path d="M8.5 2.5c4.78 6.57 6.64 10.27 8.86 19.34" />
+  </svg>
+);
+
+const TwitterIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+  </svg>
+);
+
+const InstagramIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
+const YoutubeIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="5" />
+    <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+  </svg>
+);
 
 export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal: () => void }) => {
   const { data, isEditMode } = usePortfolio();
   const { profile } = data;
+
+  const cardDescription = profile.subHeadline || 'A Product Designer who has crafted intuitive and impactful digital solutions.';
 
   return (
     <aside className="w-full lg:w-[350px] shrink-0 sticky top-28 self-start z-20">
@@ -16,117 +48,125 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal: () =>
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-[32px] bg-[#1c1b18] border border-white/10 p-6 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.7)] flex flex-col justify-between relative overflow-hidden group hover:border-white/20 transition-all duration-300"
+        className="rounded-[32px] bg-white text-[#111111] p-6 sm:p-7 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] flex flex-col items-center relative overflow-hidden group border border-white/20 transition-all duration-300"
       >
-        {/* Subtle decorative glow */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-[#c5ff41]/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Top-Left Decorative Dashed Arc */}
+        <div className="absolute -top-3 -left-3 w-40 h-24 pointer-events-none z-0">
+          <svg viewBox="0 0 194 100" className="w-full h-full" fill="#1b61a9">
+            <path d="M 0 34.544 L 3.22 33.201 C 4.186 35.732 5.256 38.221 6.429 40.663 L 3.329 42.293 C 2.113 39.757 1.002 37.172 0 34.544 Z M 7.294 49.71 L 10.246 47.806 C 11.613 50.127 13.073 52.392 14.622 54.596 L 11.828 56.748 C 10.223 54.464 8.711 52.116 7.294 49.71 Z M 16.894 63.37 L 19.509 60.989 C 21.22 63.047 23.012 65.037 24.881 66.953 L 22.454 69.543 C 20.522 67.557 18.667 65.498 16.894 63.369 Z M 28.47 75.232 L 30.69 72.449 C 32.693 74.197 34.764 75.864 36.9 77.447 L 34.895 80.41 C 32.688 78.767 30.544 77.04 28.47 75.232 Z M 41.7 85.029 L 43.471 81.912 C 45.712 83.304 48.011 84.603 50.36 85.804 L 48.836 89.061 C 46.403 87.816 44.022 86.471 41.7 85.029 Z M 56.27 92.473 L 57.53 89.093 C 59.958 90.083 62.428 90.966 64.934 91.737 L 63.955 95.216 C 61.354 94.415 58.79 93.5 56.27 92.473 Z M 71.836 97.256 L 72.519 93.701 C 73.429 93.891 74.342 94.067 75.251 94.225 C 76.906 94.514 78.569 94.754 80.238 94.947 L 79.861 98.552 C 77.167 98.245 74.489 97.813 71.836 97.256 Z M 87.974 99.1 L 88.046 95.474 C 90.656 95.532 93.266 95.474 95.871 95.301 L 96.088 98.921 C 93.387 99.099 90.68 99.159 87.974 99.101 Z M 103.652 94.44 C 106.238 94.042 108.805 93.535 111.348 92.92 L 112.127 96.454 C 109.493 97.088 106.834 97.613 104.157 98.027 L 103.652 94.439 Z M 118.899 90.762 C 121.391 89.934 123.848 89.006 126.265 87.979 L 127.572 91.337 C 125.07 92.402 122.526 93.364 119.946 94.22 Z M 133.4 84.59 C 135.738 83.362 138.023 82.036 140.251 80.618 L 142.053 83.717 C 139.745 85.184 137.379 86.556 134.959 87.829 L 133.4 84.589 Z M 146.773 76.083 C 148.89 74.477 150.937 72.782 152.91 71.002 L 155.175 73.749 C 153.128 75.594 151.004 77.351 148.808 79.016 Z M 158.611 65.4 C 160.436 63.446 162.174 61.412 163.821 59.306 L 166.505 61.601 C 164.795 63.791 162.988 65.904 161.092 67.935 Z M 168.516 52.75 C 170.003 50.493 171.409 48.184 172.731 45.826 L 175.721 47.665 C 174.354 50.096 172.904 52.479 171.372 54.81 Z M 176.507 38.612 C 177.694 36.166 178.817 33.682 179.881 31.164 L 183.049 32.633 C 181.963 35.204 180.81 37.745 179.592 40.256 Z M 182.922 23.537 C 183.887 20.966 184.809 18.379 185.688 15.777 L 188.956 16.991 C 188.056 19.634 187.126 22.262 186.148 24.862 Z M 188.238 7.924 C 189.062 5.288 189.858 2.645 190.641 -0.001 L 193.953 1.073 C 193.168 3.738 192.361 6.396 191.533 9.048 Z" />
+          </svg>
+        </div>
 
-        {/* Top: Portrait Image in Styled Frame */}
-        <div className="relative w-full aspect-[4/4.2] rounded-[24px] overflow-hidden bg-[#131211] border border-white/10 mb-6 shadow-inner group/img">
+        {/* Top: Portrait Image in Styled Rounded Frame */}
+        <div className="relative w-full max-w-[250px] aspect-[4/4.8] rounded-[22px] overflow-hidden bg-[#181716] shadow-sm mb-5 z-10 group/img">
           <img
             src={profile.avatarUrl || '/assets/avatar.jpg'}
             alt={profile.name}
-            className="w-full h-full object-cover object-[75%_38%] group-hover/img:scale-105 transition-all duration-500"
+            className="w-full h-full object-cover object-top group-hover/img:scale-105 transition-all duration-500"
           />
+        </div>
 
-          {/* Availability pill on the image */}
-          <div className="absolute top-3.5 left-3.5 z-10">
-            <div className="px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-[#131211]/90 backdrop-blur-md text-[#c5ff41] border border-[#c5ff41]/30 flex items-center gap-1.5 shadow-md">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c5ff41] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c5ff41]" />
-              </span>
-              <span>Available for Hire</span>
-            </div>
+        {/* Name matching Sawad typography */}
+        <h2 className="text-2xl sm:text-[28px] font-black text-[#111111] tracking-tight font-[family-name:var(--font-poppins)] text-center mb-3 z-10 select-text cursor-text">
+          {profile.name}
+        </h2>
+
+        {/* Sparkle/Flame Badge and Connecting Dashed Arc */}
+        <div className="relative flex items-center justify-center w-full mb-3 z-10 pointer-events-none">
+          {/* Dashed blue arc leading from the left edge to the badge */}
+          <div className="absolute right-[50%] mr-4 w-32 h-12 pointer-events-none">
+            <svg viewBox="0 0 120 50" className="w-full h-full overflow-visible">
+              <path
+                d="M -15,40 C 35,40 70,25 115,10"
+                fill="none"
+                stroke="#1b61a9"
+                strokeWidth="2.5"
+                strokeDasharray="4 4"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+
+          {/* Badge */}
+          <div className="w-8 h-8 rounded-full bg-[#1d6de3] text-white flex items-center justify-center shadow-[0_4px_14px_rgba(29,109,227,0.45)] relative z-10 transition-transform duration-300 hover:scale-110 pointer-events-auto">
+            <Flame size={17} className="fill-white text-white" />
           </div>
         </div>
 
-        {/* Name and Professional Title */}
-        <div className="mb-4">
-          <div className="flex items-center justify-between gap-2 mb-1">
-            <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight font-[family-name:var(--font-poppins)]">
-              {profile.name}
-            </h2>
-          </div>
-          <p className="text-sm font-bold text-[#c5ff41] tracking-wide uppercase">
-            {profile.role}
-          </p>
-        </div>
-
-        {/* Bio Summary */}
-        <p className="text-xs sm:text-[13px] text-[#998f8f] leading-relaxed mb-6 font-normal line-clamp-4">
-          {profile.bio}
+        {/* Short Subtitle / Bio matching Sawad */}
+        <p className="text-sm sm:text-[15px] font-medium text-[#6a6b6e] text-center leading-snug max-w-[270px] mb-6 z-10 font-[family-name:var(--font-poppins)] select-text cursor-text">
+          {cardDescription}
         </p>
 
-        {/* Direct Contact Pills */}
-        <div className="flex flex-col gap-2.5 mb-6 text-xs text-neutral-300">
+        {/* Social Media Row (Blue Outline Icons) */}
+        <div className="flex items-center justify-center gap-5 sm:gap-6 mb-6 z-10 text-[#1d6de3]">
+          <a
+            href={profile.behanceUrl || 'https://dribbble.com'}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Behance / Design Portfolio"
+            className="hover:scale-125 transition-transform duration-200"
+          >
+            <DribbbleIcon className="w-5 h-5 hover:text-[#1553a0]" />
+          </a>
+
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Twitter / X"
+            className="hover:scale-125 transition-transform duration-200"
+          >
+            <TwitterIcon className="w-5 h-5 hover:text-[#1553a0]" />
+          </a>
+
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram"
+            className="hover:scale-125 transition-transform duration-200"
+          >
+            <InstagramIcon className="w-5 h-5 hover:text-[#1553a0]" />
+          </a>
+
+          <a
+            href={profile.linkedinUrl || 'https://youtube.com'}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn / Video Channel"
+            className="hover:scale-125 transition-transform duration-200"
+          >
+            <YoutubeIcon className="w-5 h-5 hover:text-[#1553a0]" />
+          </a>
+        </div>
+
+        {/* Bottom Actions for Azhar (Get in touch CTA & Edit Mode) */}
+        <div className="w-full flex flex-col gap-2 pt-2 border-t border-black/5 z-10">
+          <a
+            href="#contact"
+            className="w-full py-3 px-5 rounded-2xl bg-[#111111] hover:bg-[#252525] text-white font-bold text-xs uppercase tracking-wider text-center transition-all flex items-center justify-center gap-1.5 shadow-md hover:shadow-lg"
+          >
+            <span>Let&apos;s Work Together</span>
+            <ArrowUpRight size={14} className="text-[#60a5fa]" />
+          </a>
+
           <a
             href={`mailto:${profile.email}`}
-            className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[#131211] border border-white/5 hover:border-[#c5ff41]/40 hover:text-[#c5ff41] transition-colors truncate"
+            className="text-[11px] text-[#888888] hover:text-[#111111] font-medium text-center truncate transition-colors py-1 flex items-center justify-center gap-1.5 select-text cursor-text"
           >
-            <Mail size={14} className="text-[#c5ff41] shrink-0" />
-            <span className="truncate font-medium">{profile.email}</span>
+            <Mail size={12} className="text-[#1d6de3]" />
+            <span>{profile.email}</span>
           </a>
-
-          <a
-            href={`tel:${profile.phone}`}
-            className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[#131211] border border-white/5 hover:border-[#c5ff41]/40 hover:text-[#c5ff41] transition-colors"
-          >
-            <Phone size={14} className="text-[#c5ff41] shrink-0" />
-            <span className="font-medium">{profile.phone}</span>
-          </a>
-
-          <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[#131211] border border-white/5 text-[#998f8f]">
-            <MapPin size={14} className="text-[#c5ff41] shrink-0" />
-            <span className="font-medium truncate">{profile.location}</span>
-          </div>
-        </div>
-
-        {/* Social Links Row (Behance, LinkedIn, etc.) */}
-        <div className="flex items-center gap-2 mb-6">
-          <a
-            href={profile.behanceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Behance Portfolio"
-            className="flex-1 py-2.5 px-3 rounded-xl bg-[#131211] border border-white/10 hover:border-[#c5ff41] hover:text-[#c5ff41] text-xs font-bold uppercase tracking-wider text-center transition-all flex items-center justify-center gap-1.5"
-          >
-            <span>Behance</span>
-            <ArrowUpRight size={12} />
-          </a>
-
-          <a
-            href={profile.linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="LinkedIn Profile"
-            className="flex-1 py-2.5 px-3 rounded-xl bg-[#131211] border border-white/10 hover:border-[#c5ff41] hover:text-[#c5ff41] text-xs font-bold uppercase tracking-wider text-center transition-all flex items-center justify-center gap-1.5"
-          >
-            <span>LinkedIn</span>
-            <ArrowUpRight size={12} />
-          </a>
-        </div>
-
-        {/* Main CTA: Let's Work Together */}
-        <div className="flex flex-col gap-2.5 pt-2">
-          <Button
-            variant="lime"
-            size="md"
-            href="#contact"
-            className="w-full justify-center shadow-lg"
-            icon={<ArrowUpRight size={16} />}
-          >
-            Let&apos;s Work Together
-          </Button>
 
           {isEditMode && (
             <button
               type="button"
               onClick={onOpenEditModal}
-              className="w-full py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#f46c38] text-white hover:bg-[#ff7e4a] transition-all flex items-center justify-center gap-1.5"
+              className="w-full mt-1 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#1d6de3] text-white hover:bg-[#1553a0] transition-all flex items-center justify-center gap-1.5 shadow-sm"
             >
-              <Sparkles size={13} />
-              Edit Profile Info
+              <Sparkles size={12} />
+              <span>Edit Card Details</span>
             </button>
           )}
         </div>

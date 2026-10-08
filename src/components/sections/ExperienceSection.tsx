@@ -18,9 +18,8 @@ export const ExperienceSection = () => {
     <section id="experience" className="py-20 sm:py-28 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
         <SectionHeading
-          badge="Career Journey"
-          title="12 YEARS OF EXPERIENCE"
-          subtitle="A track record of engineering scalable applications, designing resilient component systems, and leading high-performing teams."
+          title={`${data.stats[0]?.value || '+2'} YEARS OF EXPERIENCE`}
+          subtitle="A track record of crafting intuitive digital products, designing resilient component systems, and leading user-centered design solutions."
         />
 
         {/* Experience Timeline Cards */}
@@ -38,24 +37,24 @@ export const ExperienceSection = () => {
                 onClick={() => toggleExpand(exp.id)}
                 className={`group cursor-pointer rounded-[24px] bg-[#1c1b18] border transition-all duration-300 p-6 sm:p-8 ${
                   isExpanded
-                    ? 'border-[#c5ff41]/50 bg-[#21201d] shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(197,255,65,0.08)]'
+                    ? 'border-[#1d6de3]/50 bg-[#161d27] shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(29,109,227,0.15)]'
                     : 'border-white/8 hover:border-white/20 hover:bg-[#1f1e1b]'
                 }`}
               >
                 {/* Header row */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div className="flex items-start sm:items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#131211] border border-white/10 flex items-center justify-center text-[#c5ff41] shrink-0 group-hover:border-[#c5ff41]/40 transition-colors">
+                    <div className="w-12 h-12 rounded-2xl bg-[#131211] border border-white/10 flex items-center justify-center text-[#3b82f6] shrink-0 group-hover:border-[#1d6de3]/40 transition-colors">
                       <Briefcase size={22} />
                     </div>
 
                     <div>
                       <div className="flex items-center gap-3 flex-wrap">
-                        <h3 className="text-xl sm:text-2xl font-black text-white uppercase font-[family-name:var(--font-poppins)] tracking-tight group-hover:text-[#c5ff41] transition-colors">
+                        <h3 className="text-xl sm:text-2xl font-black text-white uppercase font-[family-name:var(--font-poppins)] tracking-tight group-hover:text-[#60a5fa] transition-colors">
                           {exp.company}
                         </h3>
                         {index === 0 && (
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#c5ff41]/15 text-[#c5ff41] border border-[#c5ff41]/30">
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#1d6de3]/15 text-[#60a5fa] border border-[#1d6de3]/30">
                             Current
                           </span>
                         )}
@@ -69,11 +68,11 @@ export const ExperienceSection = () => {
                   {/* Period Badge & Expand Trigger */}
                   <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
                     <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#131211] border border-white/5 text-xs font-semibold text-[#998f8f]">
-                      <Calendar size={13} className="text-[#c5ff41]" />
+                      <Calendar size={13} className="text-[#3b82f6]" />
                       <span>{exp.period}</span>
                     </div>
 
-                    <div className={`p-2 rounded-full bg-white/5 text-neutral-400 group-hover:text-white transition-transform duration-300 ${isExpanded ? 'rotate-90 text-[#c5ff41]' : ''}`}>
+                    <div className={`p-2 rounded-full bg-white/5 text-neutral-400 group-hover:text-white transition-transform duration-300 ${isExpanded ? 'rotate-90 text-[#3b82f6]' : ''}`}>
                       <ChevronRight size={16} />
                     </div>
                   </div>
@@ -99,7 +98,7 @@ export const ExperienceSection = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-1">
                       {exp.highlights.map((h, hIdx) => (
                         <div key={hIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-300">
-                          <CheckCircle2 size={16} className="text-[#c5ff41] shrink-0 mt-0.5" />
+                          <CheckCircle2 size={16} className="text-[#3b82f6] shrink-0 mt-0.5" />
                           <span>{h}</span>
                         </div>
                       ))}

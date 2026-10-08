@@ -15,7 +15,7 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
   return (
     <section id="home" className="relative pt-28 sm:pt-36 md:pt-40 pb-16 overflow-hidden">
       {/* Subtle background glow accents */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[#c5ff41]/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[#1d6de3]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-1/3 right-10 w-[300px] h-[300px] bg-[#f46c38]/4 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
@@ -45,7 +45,7 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
               {profile.heroHeadline.split(' ').map((word, i) => (
                 <span key={i} className="inline-block mr-3">
                   {word === 'ENGINEER' ? (
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#c5ff41]">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#60a5fa]">
                       {word}
                     </span>
                   ) : (
@@ -64,9 +64,9 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
             >
               <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-2">
                 <span>{profile.name}</span>
-                <span className="text-[#c5ff41] text-sm">✦</span>
+                <span className="text-[#60a5fa] text-sm">✦</span>
               </h2>
-              <p className="text-sm sm:text-base text-[#c5ff41] font-medium mt-1">
+              <p className="text-sm sm:text-base text-[#60a5fa] font-medium mt-1">
                 {profile.subHeadline}
               </p>
             </motion.div>
@@ -149,14 +149,14 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
                       className="px-3.5 py-2 rounded-xl bg-[#181715]/90 backdrop-blur-md border border-white/10 text-[11px] sm:text-xs font-bold text-white tracking-wider uppercase font-[family-name:var(--font-poppins)] shadow-lg flex items-center justify-between"
                     >
                       <span>{badge}</span>
-                      <span className="w-2 h-2 rounded-full bg-[#c5ff41]" />
+                      <span className="w-2 h-2 rounded-full bg-[#1d6de3]" />
                     </motion.div>
                   ))}
                 </div>
               </div>
 
               {/* Decorative Corner Glow */}
-              <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#c5ff41]/20 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#1d6de3]/25 rounded-full blur-2xl pointer-events-none" />
             </div>
           </motion.div>
         </div>
@@ -175,7 +175,7 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
               className="relative p-6 sm:p-8 rounded-[24px] bg-[#1c1b18] border border-white/8 hover:border-white/20 transition-all duration-300 hover:-translate-y-1.5 group shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
             >
               <div className="flex flex-col">
-                <span className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#c5ff41] font-[family-name:var(--font-poppins)] mb-2 group-hover:scale-105 transition-transform origin-left">
+                <span className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#1d6de3] font-[family-name:var(--font-poppins)] mb-2 group-hover:scale-105 transition-transform origin-left">
                   {stat.value}
                 </span>
                 <span className="text-xs sm:text-sm font-bold tracking-wider text-white uppercase">
@@ -185,7 +185,7 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
                   {stat.sublabel}
                 </span>
               </div>
-              <div className="absolute top-6 right-6 w-2 h-2 rounded-full bg-white/10 group-hover:bg-[#c5ff41] transition-colors" />
+              <div className="absolute top-6 right-6 w-2 h-2 rounded-full bg-white/10 group-hover:bg-[#1d6de3] transition-colors" />
             </div>
           ))}
         </motion.div>

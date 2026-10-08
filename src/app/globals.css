@@ -8,9 +8,14 @@
   --bg-card-hover: #23211e;
   --bg-card-subtle: #191816;
   
-  --accent-lime: #c5ff41;
-  --accent-lime-dim: rgba(197, 255, 65, 0.15);
-  --accent-lime-glow: rgba(197, 255, 65, 0.35);
+  --accent-primary: #1d6de3;
+  --accent-primary-light: #60a5fa;
+  --accent-primary-dim: rgba(29, 109, 227, 0.15);
+  --accent-primary-glow: rgba(29, 109, 227, 0.35);
+
+  --accent-lime: #1d6de3;
+  --accent-lime-dim: rgba(29, 109, 227, 0.15);
+  --accent-lime-glow: rgba(29, 109, 227, 0.35);
   
   --accent-orange: #f46c38;
   --accent-orange-dim: rgba(244, 108, 56, 0.15);
@@ -21,7 +26,7 @@
   
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.18);
-  --border-lime: rgba(197, 255, 65, 0.4);
+  --border-lime: rgba(29, 109, 227, 0.4);
 
   --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -34,6 +39,52 @@ html {
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+}
+
+/* Universal text selection & interaction fixes */
+*, *::before, *::after {
+  -webkit-user-drag: none;
+}
+
+/* Enable text selection everywhere by default */
+p, span, h1, h2, h3, h4, h5, h6, a, li, label, strong, em, b, i, blockquote, code, pre, td, th {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+/* Proper text cursor on readable text */
+p, span, h1, h2, h3, h4, h5, h6, label, blockquote {
+  cursor: text;
+}
+
+/* Interactive elements maintain pointer cursor */
+a, button, [role="button"], .cursor-pointer, summary {
+  cursor: pointer !important;
+}
+
+/* Links do not drag when user is trying to select text */
+a, a * {
+  -webkit-user-drag: none;
+}
+
+/* Inputs and textareas */
+input, textarea {
+  cursor: text !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+/* Native select controls */
+select, option {
+  cursor: pointer !important;
+  color-scheme: dark;
+}
+
+/* Selection highlight styling */
+::selection {
+  background-color: #1d6de3 !important;
+  color: #ffffff !important;
 }
 
 body {
@@ -42,8 +93,8 @@ body {
   min-height: 100vh;
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(197, 255, 65, 0.06), transparent),
-    radial-gradient(ellipse 60% 40% at 85% 60%, rgba(244, 108, 56, 0.04), transparent);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(29, 109, 227, 0.12), transparent),
+    radial-gradient(ellipse 60% 40% at 85% 60%, rgba(29, 109, 227, 0.05), transparent);
   color: var(--text-primary);
   overflow-x: hidden;
 }

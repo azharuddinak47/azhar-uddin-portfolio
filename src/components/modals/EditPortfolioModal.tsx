@@ -64,18 +64,18 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-4xl rounded-[32px] bg-[#1a1916] border border-[#c5ff41]/30 shadow-[0_25px_80px_rgba(0,0,0,0.95)] overflow-hidden z-10 my-6 flex flex-col max-h-[92vh]"
+          className="relative w-full max-w-4xl rounded-[32px] bg-[#1a1916] border border-[#1d6de3]/30 shadow-[0_25px_80px_rgba(0,0,0,0.95)] overflow-hidden z-10 my-6 flex flex-col max-h-[92vh]"
         >
           {/* Header Bar */}
           <div className="p-5 sm:p-6 border-b border-white/10 bg-[#161513] flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#c5ff41] text-black flex items-center justify-center font-bold">
+              <div className="w-10 h-10 rounded-2xl bg-[#1d6de3] text-white flex items-center justify-center font-bold shadow-[0_0_15px_rgba(29,109,227,0.4)]">
                 <Sparkles size={20} />
               </div>
               <div>
                 <h2 className="text-xl font-black text-white uppercase tracking-tight font-[family-name:var(--font-poppins)] flex items-center gap-2">
                   <span>Portfolio Editor</span>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-[#c5ff41]/20 text-[#c5ff41] border border-[#c5ff41]/30 font-semibold uppercase">
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-[#1d6de3]/20 text-[#60a5fa] border border-[#1d6de3]/30 font-semibold uppercase">
                     Live
                   </span>
                 </h2>
@@ -113,7 +113,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                 onClick={() => setActiveTab(tab.id as TabType)}
                 className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                   activeTab === tab.id
-                    ? 'bg-[#c5ff41] text-black font-bold shadow-[0_0_12px_rgba(197,255,65,0.3)]'
+                    ? 'bg-[#1d6de3] text-white font-bold shadow-[0_0_12px_rgba(29,109,227,0.35)]'
                     : 'text-[#998f8f] hover:text-white hover:bg-white/5'
                 }`}
               >
@@ -140,7 +140,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                         ...formData,
                         profile: { ...formData.profile, name: e.target.value }
                       })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#c5ff41] focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
                     />
                   </div>
 
@@ -155,7 +155,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                         ...formData,
                         profile: { ...formData.profile, role: e.target.value }
                       })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#c5ff41] focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -172,7 +172,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                         ...formData,
                         profile: { ...formData.profile, heroHeadline: e.target.value }
                       })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#c5ff41] focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
                     />
                   </div>
 
@@ -187,7 +187,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                         ...formData,
                         profile: { ...formData.profile, heroHeadlineHollow: e.target.value }
                       })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#c5ff41] focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -204,7 +204,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                         ...formData,
                         profile: { ...formData.profile, email: e.target.value }
                       })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#c5ff41] focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
                     />
                   </div>
 
@@ -219,7 +219,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                         ...formData,
                         profile: { ...formData.profile, phone: e.target.value }
                       })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#c5ff41] focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -236,7 +236,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                         ...formData,
                         profile: { ...formData.profile, behanceUrl: e.target.value }
                       })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#c5ff41] focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
                     />
                   </div>
 
@@ -251,7 +251,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                         ...formData,
                         profile: { ...formData.profile, linkedinUrl: e.target.value }
                       })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#c5ff41] focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -267,7 +267,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                       ...formData,
                       profile: { ...formData.profile, bio: e.target.value }
                     })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#c5ff41] focus:outline-none resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none resize-none"
                   />
                 </div>
               </div>
@@ -279,7 +279,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {formData.stats.map((stat, idx) => (
                     <div key={stat.id || idx} className="p-4 rounded-2xl bg-[#131211] border border-white/8 space-y-3">
-                      <span className="text-xs font-bold text-[#c5ff41] block">Card #{idx + 1}</span>
+                      <span className="text-xs font-bold text-[#60a5fa] block">Card #{idx + 1}</span>
                       <div>
                         <label className="block text-[11px] text-neutral-400 mb-1">Value (e.g. +2)</label>
                         <input
@@ -348,7 +348,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                       };
                       setFormData({ ...formData, projects: [newProj, ...formData.projects] });
                     }}
-                    className="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#c5ff41] text-black flex items-center gap-1.5"
+                    className="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1d6de3] text-white flex items-center gap-1.5 shadow-[0_0_12px_rgba(29,109,227,0.3)]"
                   >
                     <Plus size={14} /> Add Project
                   </button>
@@ -358,7 +358,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                   {formData.projects.map((proj, pIdx) => (
                     <div key={proj.id} className="p-4 sm:p-5 rounded-2xl bg-[#131211] border border-white/8 space-y-3">
                       <div className="flex items-center justify-between gap-3">
-                        <span className="text-xs font-bold text-[#c5ff41]">#{pIdx + 1} - {proj.title}</span>
+                        <span className="text-xs font-bold text-[#60a5fa]">#{pIdx + 1} - {proj.title}</span>
                         <button
                           type="button"
                           onClick={() => {
@@ -513,7 +513,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                     <div key={tool.id} className="p-4 rounded-2xl bg-[#131211] border border-white/8 space-y-2">
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-bold text-white">{tool.name}</span>
-                        <span className="text-[10px] text-[#c5ff41] bg-[#c5ff41]/10 px-2 py-0.5 rounded-full">{tool.level}</span>
+                        <span className="text-[10px] text-[#60a5fa] bg-[#1d6de3]/15 px-2 py-0.5 rounded-full">{tool.level}</span>
                       </div>
                       <input
                         type="text"
@@ -535,7 +535,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
             {activeTab === 'credentials' && (
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#c5ff41] mb-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#60a5fa] mb-3">
                     Certifications
                   </h4>
                   {formData.certifications.map((cert, cIdx) => (
@@ -646,7 +646,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
 
             <div className="flex items-center gap-3">
               {saveToast && (
-                <span className="text-xs text-[#c5ff41] font-bold flex items-center gap-1">
+                <span className="text-xs text-[#60a5fa] font-bold flex items-center gap-1">
                   <Check size={14} /> Saved & Applied Live!
                 </span>
               )}

@@ -52,7 +52,7 @@ export const Footer = () => {
             <span className="font-bold text-xl tracking-tight text-white font-[family-name:var(--font-poppins)]">
               {data.profile.name}
             </span>
-            <span className="text-[#c5ff41] text-xs font-bold px-2 py-0.5 rounded-full bg-[#c5ff41]/10 border border-[#c5ff41]/20">
+            <span className="text-[#60a5fa] text-xs font-bold px-2 py-0.5 rounded-full bg-[#1d6de3]/15 border border-[#1d6de3]/30">
               PRO
             </span>
           </div>
@@ -69,7 +69,7 @@ export const Footer = () => {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-[#1c1b18] text-[#998f8f] hover:text-[#c5ff41] hover:bg-[#252320] border border-white/5 hover:border-[#c5ff41]/30 transition-all duration-300 hover:scale-110 active:scale-95"
+              className="p-3 rounded-full bg-[#1c1b18] text-[#998f8f] hover:text-[#60a5fa] hover:bg-[#252320] border border-white/5 hover:border-[#1d6de3]/40 transition-all duration-300 hover:scale-110 active:scale-95"
               aria-label={social.platform}
             >
               {getSocialIcon(social.platform) || <span>{social.platform[0]}</span>}
@@ -82,10 +82,10 @@ export const Footer = () => {
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#998f8f] hover:text-[#c5ff41] transition-colors group cursor-pointer"
+            className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#998f8f] hover:text-[#60a5fa] transition-colors group cursor-pointer"
           >
             <span>Back to Top</span>
-            <div className="p-1.5 rounded-full bg-[#1c1b18] group-hover:bg-[#c5ff41] group-hover:text-black transition-colors">
+            <div className="p-1.5 rounded-full bg-[#1c1b18] group-hover:bg-[#1d6de3] group-hover:text-white transition-colors">
               <ArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />
             </div>
           </button>

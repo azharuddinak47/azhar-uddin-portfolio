@@ -27,7 +27,6 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
       <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Heading */}
         <SectionHeading
-          badge="Featured Works"
           title="RECENT PROJECTS"
           subtitle="A curated selection of cutting-edge web applications, interactive templates, and digital design systems."
           action={
@@ -35,7 +34,7 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
               <button
                 type="button"
                 onClick={onOpenEditModal}
-                className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-[#c5ff41] text-black hover:bg-[#d4ff68] transition-all flex items-center gap-1.5"
+                className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1d6de3] text-white hover:bg-[#2563eb] transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(29,109,227,0.35)]"
               >
                 <Plus size={14} /> Add Project
               </button>
@@ -52,7 +51,7 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
               onClick={() => setActiveFilter(cat)}
               className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 ${
                 activeFilter === cat
-                  ? 'bg-[#c5ff41] text-black shadow-[0_0_15px_rgba(197,255,65,0.3)]'
+                  ? 'bg-[#1d6de3] text-white shadow-[0_0_15px_rgba(29,109,227,0.4)]'
                   : 'bg-[#1c1b18] text-[#998f8f] hover:text-white hover:bg-[#252320] border border-white/5'
               }`}
             >
@@ -73,7 +72,7 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 onClick={() => onSelectProject(project)}
-                className="group relative cursor-pointer flex flex-col rounded-[28px] overflow-hidden bg-[#1c1b18] border border-white/8 hover:border-[#c5ff41]/40 transition-all duration-500 hover:-translate-y-2 shadow-[0_15px_35px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.7),0_0_25px_rgba(197,255,65,0.15)]"
+                className="group relative cursor-pointer flex flex-col rounded-[28px] overflow-hidden bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all duration-500 hover:-translate-y-2 shadow-[0_15px_35px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.7),0_0_25px_rgba(29,109,227,0.2)]"
               >
                 {/* Project Image Container with 16:10 Aspect Ratio */}
                 <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#151413]">
@@ -99,7 +98,7 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
                   </div>
 
                   {/* Circular Hover Arrow Button */}
-                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#131211]/80 backdrop-blur-md border border-white/15 flex items-center justify-center text-white group-hover:bg-[#c5ff41] group-hover:text-black group-hover:border-[#c5ff41] transition-all duration-300 z-10 shadow-lg">
+                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#131211]/80 backdrop-blur-md border border-white/15 flex items-center justify-center text-white group-hover:bg-[#1d6de3] group-hover:text-white group-hover:border-[#1d6de3] transition-all duration-300 z-10 shadow-lg">
                     <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                 </div>
@@ -108,7 +107,7 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
                 <div className="p-6 sm:p-7 flex flex-col justify-between flex-grow">
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] group-hover:text-[#c5ff41] transition-colors">
+                      <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] group-hover:text-[#60a5fa] transition-colors">
                         {project.title}
                       </h3>
                     </div>
