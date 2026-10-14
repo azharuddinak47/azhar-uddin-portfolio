@@ -22,7 +22,7 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: false, amount: 0.15 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col pt-0 pb-4 scroll-mt-28 relative select-text"
+      className="flex flex-col pt-0 pb-4 scroll-mt-40 relative select-text"
     >
       <div>
         <SectionHeading

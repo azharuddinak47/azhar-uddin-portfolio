@@ -35,7 +35,7 @@ export default function Home() {
         <Navbar />
 
         {/* Two-Column Master Layout matching Sawad Framer */}
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-24 sm:pt-28 pb-20">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-32 sm:pt-36 lg:pt-40 pb-20">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start w-full relative">
             {/* Left Column: Sticky Profile Card - always solid, crisp, and never faded */}
             <SidebarProfileCard />
