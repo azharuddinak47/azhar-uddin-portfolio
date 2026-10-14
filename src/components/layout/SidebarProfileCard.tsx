@@ -43,12 +43,12 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal?: () =
   const cardDescription = profile.subHeadline || 'A Product Designer who has crafted intuitive and impactful digital solutions.';
 
   return (
-    <aside className="w-full lg:w-[350px] shrink-0 static lg:sticky lg:top-28 lg:self-start z-20">
+    <aside className="w-full lg:w-[350px] shrink-0 static lg:sticky lg:top-24 lg:self-start z-20">
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-[28px] sm:rounded-[32px] bg-white text-[#111111] p-5 sm:p-7 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] flex flex-col items-center relative overflow-hidden group border border-white/20 transition-all duration-300"
+        className="rounded-[28px] sm:rounded-[32px] bg-white text-[#111111] p-5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] flex flex-col items-center relative overflow-hidden group border border-white/20 transition-all duration-300"
       >
         {/* Top-Left Decorative Dashed Arc */}
         <div className="absolute -top-3 -left-3 w-40 h-24 pointer-events-none z-0">
@@ -58,7 +58,7 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal?: () =
         </div>
 
         {/* Top: Portrait Image in Styled Rounded Frame */}
-        <div className="relative w-full max-w-[250px] aspect-[4/4.8] rounded-[22px] overflow-hidden bg-[#181716] shadow-sm mb-5 z-10 group/img">
+        <div className="relative w-full max-w-[210px] aspect-[4/4.7] rounded-[22px] overflow-hidden bg-[#181716] shadow-sm mb-4 z-10 group/img">
           <img
             src={profile.avatarUrl || '/assets/avatar.jpg'}
             alt={profile.name}
@@ -69,15 +69,15 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal?: () =
         {/* Name matching Sawad typography */}
         <h2
           style={{ color: '#111111' }}
-          className="text-2xl sm:text-[28px] font-black !text-[#111111] tracking-tight font-[family-name:var(--font-poppins)] text-center mb-3 z-10 select-text cursor-text"
+          className="text-xl sm:text-2xl font-black !text-[#111111] tracking-tight font-[family-name:var(--font-poppins)] text-center mb-2 z-10 select-text cursor-text"
         >
           {profile.name?.trim() || 'Md Azhar Uddin'}
         </h2>
 
         {/* Sparkle/Flame Badge and Connecting Dashed Arc */}
-        <div className="relative flex items-center justify-center w-full mb-3 z-10 pointer-events-none">
+        <div className="relative flex items-center justify-center w-full mb-2 z-10 pointer-events-none">
           {/* Dashed blue arc leading from the left edge to the badge */}
-          <div className="absolute right-[50%] mr-4 w-32 h-12 pointer-events-none">
+          <div className="absolute right-[50%] mr-4 w-28 h-10 pointer-events-none">
             <svg viewBox="0 0 120 50" className="w-full h-full overflow-visible">
               <path
                 d="M -15,40 C 35,40 70,25 115,10"
@@ -91,21 +91,21 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal?: () =
           </div>
 
           {/* Badge */}
-          <div className="w-8 h-8 rounded-full bg-[#1d6de3] text-white flex items-center justify-center shadow-[0_4px_14px_rgba(29,109,227,0.45)] relative z-10 transition-transform duration-300 hover:scale-110 pointer-events-auto">
-            <Flame size={17} className="fill-white text-white" />
+          <div className="w-7 h-7 rounded-full bg-[#1d6de3] text-white flex items-center justify-center shadow-[0_4px_14px_rgba(29,109,227,0.45)] relative z-10 transition-transform duration-300 hover:scale-110 pointer-events-auto">
+            <Flame size={15} className="fill-white text-white" />
           </div>
         </div>
 
         {/* Short Subtitle / Bio matching Sawad */}
         <p
           style={{ color: '#6a6b6e' }}
-          className="text-sm sm:text-[15px] font-medium !text-[#6a6b6e] text-center leading-snug max-w-[270px] mb-6 z-10 font-[family-name:var(--font-poppins)] select-text cursor-text"
+          className="text-xs sm:text-[13px] font-medium !text-[#6a6b6e] text-center leading-snug max-w-[260px] mb-4 z-10 font-[family-name:var(--font-poppins)] select-text cursor-text"
         >
           {cardDescription}
         </p>
 
         {/* Social Media Row (Blue Brand Icons: Dribbble, Behance, Facebook, Instagram, LinkedIn) */}
-        <div className="flex items-center justify-center gap-4 sm:gap-5 mb-6 z-10 text-[#1d6de3]">
+        <div className="flex items-center justify-center gap-4 mb-4 z-10 text-[#1d6de3]">
           <a
             href={profile.dribbbleUrl && profile.dribbbleUrl !== 'https://dribbble.com' ? profile.dribbbleUrl : 'https://dribbble.com/azharuddin-uiux'}
             target="_blank"
