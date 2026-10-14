@@ -33,10 +33,10 @@ export const SectionHeading = ({
       <div className="flex w-full items-center justify-between gap-4 flex-wrap">
         <div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] select-text cursor-text leading-none mt-0 pt-0"
           >
             {title}

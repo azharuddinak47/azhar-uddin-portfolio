@@ -19,10 +19,10 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
   return (
     <motion.section
       id="projects"
-      initial={{ opacity: 0, y: 25 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: false, amount: 0.15 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="flex flex-col pt-0 pb-4 scroll-mt-28 relative select-text"
     >
       {/* Top Header without line or extra spacing */}
