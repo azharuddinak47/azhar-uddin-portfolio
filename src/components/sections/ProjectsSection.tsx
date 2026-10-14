@@ -9,11 +9,11 @@ import { ProjectItem } from '@/types/portfolio';
 
 interface ProjectsSectionProps {
   onSelectProject: (project: ProjectItem) => void;
-  onOpenEditModal: () => void;
+  onOpenEditModal?: () => void;
 }
 
-export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSectionProps) => {
-  const { data, isEditMode, theme } = usePortfolio();
+export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
+  const { data, theme } = usePortfolio();
   const isDark = theme === 'dark';
 
   return (
@@ -32,17 +32,6 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
           subtitle="Curated digital products, design systems, and mobile applications."
           className="mb-0"
           showDivider={false}
-          action={
-            isEditMode ? (
-              <button
-                type="button"
-                onClick={onOpenEditModal}
-                className="px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1d6de3] text-white hover:bg-[#2563eb] transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(29,109,227,0.35)] cursor-pointer"
-              >
-                <Plus size={13} /> Add
-              </button>
-            ) : undefined
-          }
         />
       </div>
 

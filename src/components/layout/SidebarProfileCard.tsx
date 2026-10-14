@@ -36,8 +36,8 @@ const LinkedInIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
   </svg>
 );
 
-export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal: () => void }) => {
-  const { data, isEditMode } = usePortfolio();
+export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {}) => {
+  const { data } = usePortfolio();
   const { profile } = data;
 
   const cardDescription = profile.subHeadline || 'A Product Designer who has crafted intuitive and impactful digital solutions.';
@@ -179,17 +179,6 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal: () =>
             <Mail size={12} className="text-[#1d6de3]" />
             <span>{profile.email}</span>
           </a>
-
-          {isEditMode && (
-            <button
-              type="button"
-              onClick={onOpenEditModal}
-              className="w-full mt-1 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#1d6de3] text-white hover:bg-[#1553a0] transition-all flex items-center justify-center gap-1.5 shadow-sm"
-            >
-              <Sparkles size={12} />
-              <span>Edit Card Details</span>
-            </button>
-          )}
         </div>
       </motion.div>
     </aside>

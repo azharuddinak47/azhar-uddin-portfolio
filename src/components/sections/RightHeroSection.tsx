@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Layers, PanelsTopLeft, ArrowRight } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 
-export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }) => {
+export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {}) => {
   const { data } = usePortfolio();
   const { profile, stats } = data;
 

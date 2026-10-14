@@ -22,8 +22,8 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'thoughts', label: 'Thoughts', href: '#thoughts', icon: SquarePen },
 ];
 
-export const Navbar = ({ onOpenEditModal }: { onOpenEditModal: () => void }) => {
-  const { isEditMode, theme } = usePortfolio();
+export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {}) => {
+  const { theme } = usePortfolio();
   const isDark = theme === 'dark';
   const [activeSection, setActiveSection] = useState('home');
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -182,17 +182,6 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal: () => void }) => 
         {/* Cassette Player — plays Country Roads */}
         <CassettePlayer onPlayingChange={setIsPlaying} />
 
-        {/* Edit Mode Quick Trigger */}
-        {isEditMode && (
-          <button
-            type="button"
-            onClick={onOpenEditModal}
-            title="Edit Portfolio (Ctrl+E)"
-            className="ml-1 p-1.5 rounded-full bg-[#1d6de3] text-white hover:scale-110 transition-transform shadow-[0_0_12px_rgba(29,109,227,0.6)]"
-          >
-            <Sparkles size={16} />
-          </button>
-        )}
         </nav>
       </motion.div>
     </header>
