@@ -19,7 +19,7 @@ interface PortfolioContextType {
   setTheme: (theme: 'dark' | 'light') => void;
 }
 
-const STORAGE_KEY = 'azhar_portfolio_custom_data_v5';
+const STORAGE_KEY = 'azhar_portfolio_custom_data_v6';
 const THEME_KEY = 'azhar_portfolio_theme';
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);

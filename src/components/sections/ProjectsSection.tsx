@@ -55,7 +55,13 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.35, delay: index * 0.05 }}
-              onClick={() => onSelectProject(project)}
+              onClick={() => {
+                if (project.link) {
+                  window.open(project.link, '_blank', 'noopener,noreferrer');
+                } else {
+                  onSelectProject(project);
+                }
+              }}
               className={`group relative cursor-pointer flex items-center justify-between gap-4 sm:gap-6 rounded-[22px] sm:rounded-[26px] p-3 sm:p-4 md:p-5 transition-all duration-300 hover:-translate-y-0.5 ${
                 isDark
                   ? 'bg-[#161513] hover:bg-[#1c1b18] border border-white/[0.07] hover:border-white/20 shadow-[0_10px_25px_rgba(0,0,0,0.45)]'
