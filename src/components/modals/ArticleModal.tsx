@@ -37,7 +37,7 @@ export const ArticleModal = ({ thought, onClose }: ArticleModalProps) => {
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className={`relative w-full max-w-3xl rounded-[32px] overflow-hidden z-10 my-8 flex flex-col max-h-[90vh] transition-colors ${
             isDark
-              ? 'bg-[#1c1b18] border border-white/15 text-white shadow-[0_25px_70px_rgba(0,0,0,0.9)]'
+              ? 'bg-[#16202a] border border-[#1d6de3]/20 text-white shadow-[0_25px_70px_rgba(0,0,0,0.9)]'
               : 'bg-white border border-neutral-200 text-neutral-900 shadow-[0_25px_70px_rgba(0,0,0,0.18)]'
           }`}
         >
@@ -66,7 +66,7 @@ export const ArticleModal = ({ thought, onClose }: ArticleModalProps) => {
               <span>•</span>
               <span className={`flex items-center gap-1.5 font-semibold px-2.5 py-0.5 rounded-full transition-colors ${
                 isDark
-                  ? 'bg-[#131211] border border-white/10 text-neutral-300'
+                  ? 'bg-[#11181F] border border-white/10 text-neutral-300'
                   : 'bg-neutral-100 border border-neutral-300/80 text-neutral-800 shadow-xs'
               }`}>
                 <Clock size={12} className={isDark ? 'text-[#60a5fa]' : 'text-[#1d6de3]'} />

@@ -43,7 +43,7 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
               onClick={() => onSelectThought(thought)}
               className={`group cursor-pointer p-5 sm:p-6 rounded-[24px] border transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between gap-5 ${
                 isDark
-                  ? 'bg-[#1c1b18] border-white/8 hover:border-[#1d6de3]/45 shadow-[0_10px_25px_rgba(0,0,0,0.35)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_18px_rgba(29,109,227,0.18)]'
+                  ? 'bg-[#16202a] hover:bg-[#1e2c3a] border-[#1d6de3]/15 hover:border-[#1d6de3]/35 shadow-[0_10px_25px_rgba(0,0,0,0.35)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_18px_rgba(29,109,227,0.18)]'
                   : 'bg-white border-black/7 hover:border-[#1d6de3]/40 shadow-sm hover:shadow-md'
               }`}
             >
@@ -57,7 +57,7 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
                   <span>•</span>
                   <span className={`flex items-center gap-1 font-semibold px-2 py-0.5 rounded-full text-[11px] transition-colors ${
                     isDark
-                      ? 'bg-[#131211] border border-white/5 text-neutral-300'
+                      ? 'bg-[#11181F] border border-white/5 text-neutral-300'
                       : 'bg-neutral-100 border border-neutral-300/80 text-neutral-800 shadow-xs'
                   }`}>
                     <Clock size={11} className={isDark ? 'text-[#60a5fa]' : 'text-[#1d6de3]'} />
@@ -74,7 +74,7 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
 
                 {/* Excerpt */}
                 <p className={`text-xs sm:text-sm leading-relaxed line-clamp-3 ${
-                  isDark ? 'text-[#998f8f]' : 'text-neutral-600'
+                  isDark ? 'text-neutral-400' : 'text-neutral-600'
                 }`}>
                   {thought.excerpt}
                 </p>
@@ -87,7 +87,7 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
                 <span>Read Full Essay</span>
                 <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
                   isDark
-                    ? 'bg-[#131211] border border-white/10 text-white group-hover:bg-[#1d6de3] group-hover:border-[#1d6de3]'
+                    ? 'bg-[#11181F] border border-white/10 text-white group-hover:bg-[#1d6de3] group-hover:border-[#1d6de3]'
                     : 'bg-neutral-100 border border-neutral-300 text-neutral-800 group-hover:bg-[#1d6de3] group-hover:text-white group-hover:border-[#1d6de3]'
                 }`}>
                   <ArrowUpRight size={13} />

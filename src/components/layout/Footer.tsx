@@ -71,7 +71,7 @@ export const Footer = () => {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={`w-full border-t py-12 px-6 sm:px-12 relative overflow-hidden transition-colors ${
         isDark
-          ? 'border-white/10 bg-[#100f0e]'
+          ? 'border-[#1d6de3]/15 bg-[#0e141a]'
           : 'border-black/6 bg-white shadow-[0_-4px_20px_rgba(0,0,0,0.02)]'
       }`}
     >
@@ -86,7 +86,7 @@ export const Footer = () => {
               PRO
             </span>
           </div>
-          <p className="text-xs text-[#998f8f] max-w-sm">
+          <p className="text-xs text-neutral-400 max-w-sm">
             Crafting world-class digital experiences with modern web technologies, thoughtful animation, and precision engineering.
           </p>
         </div>
@@ -101,7 +101,7 @@ export const Footer = () => {
               rel="noopener noreferrer"
               className={`p-3 rounded-full transition-all duration-300 hover:scale-110 active:scale-95 ${
                 isDark
-                  ? 'bg-[#1c1b18] text-[#998f8f] hover:text-[#60a5fa] hover:bg-[#252320] border border-white/5 hover:border-[#1d6de3]/40'
+                  ? 'bg-[#16202a] text-neutral-300 hover:text-[#60a5fa] hover:bg-[#1e2c3a] border border-[#1d6de3]/15 hover:border-[#1d6de3]/40'
                   : 'bg-[#f1f3f5] text-neutral-600 hover:text-[#1d6de3] hover:bg-[#e9ecef] border border-black/5 hover:border-[#1d6de3]/30 shadow-xs'
               }`}
               aria-label={social.platform}
@@ -117,13 +117,13 @@ export const Footer = () => {
             type="button"
             onClick={scrollToTop}
             className={`flex items-center gap-2 text-xs font-semibold uppercase tracking-wider transition-colors group cursor-pointer ${
-              isDark ? 'text-[#998f8f] hover:text-[#60a5fa]' : 'text-neutral-600 hover:text-[#1d6de3]'
+              isDark ? 'text-neutral-400 hover:text-[#60a5fa]' : 'text-neutral-600 hover:text-[#1d6de3]'
             }`}
           >
             <span>Back to Top</span>
             <div className={`p-1.5 rounded-full transition-colors ${
               isDark
-                ? 'bg-[#1c1b18] group-hover:bg-[#1d6de3] group-hover:text-white'
+                ? 'bg-[#16202a] border border-[#1d6de3]/15 group-hover:bg-[#1d6de3] group-hover:text-white'
                 : 'bg-[#f1f3f5] border border-black/5 group-hover:bg-[#1d6de3] group-hover:text-white'
             }`}>
               <ArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />

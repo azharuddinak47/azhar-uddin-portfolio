@@ -38,7 +38,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className={`relative w-full max-w-3xl rounded-[32px] overflow-hidden z-10 my-8 flex flex-col max-h-[90vh] transition-colors ${
             isDark
-              ? 'bg-[#1c1b18] border border-white/15 text-white shadow-[0_25px_70px_rgba(0,0,0,0.9)]'
+              ? 'bg-[#16202a] border border-[#1d6de3]/20 text-white shadow-[0_25px_70px_rgba(0,0,0,0.9)]'
               : 'bg-white border border-neutral-200 text-neutral-900 shadow-[0_25px_70px_rgba(0,0,0,0.18)]'
           }`}
         >
@@ -59,13 +59,13 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           {/* Scrollable Container */}
           <div className="overflow-y-auto no-scrollbar">
             {/* Banner Image */}
-            <div className={`relative w-full aspect-[16/9] overflow-hidden ${isDark ? 'bg-[#131211]' : 'bg-neutral-100'}`}>
+            <div className={`relative w-full aspect-[16/9] overflow-hidden ${isDark ? 'bg-[#11181F]' : 'bg-neutral-100'}`}>
               <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-full object-cover"
               />
-              <div className={`absolute inset-0 bg-gradient-to-t ${isDark ? 'from-[#1c1b18] via-transparent to-black/30' : 'from-white via-transparent to-black/20'}`} />
+              <div className={`absolute inset-0 bg-gradient-to-t ${isDark ? 'from-[#16202a] via-transparent to-black/30' : 'from-white via-transparent to-black/20'}`} />
             </div>
 
             {/* Content Details */}
@@ -136,7 +136,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                   onClick={onClose}
                   className={`px-5 py-3 text-sm font-semibold rounded-full transition-all duration-300 active:scale-[0.98] cursor-pointer ml-auto ${
                     isDark
-                      ? 'bg-[#1c1b18] text-white hover:bg-[#252320] border border-white/15'
+                      ? 'bg-[#16202a] text-white hover:bg-[#1e2c3a] border border-[#1d6de3]/20'
                       : 'bg-neutral-100 text-neutral-800 hover:bg-neutral-200 border border-neutral-300 shadow-xs'
                   }`}
                 >

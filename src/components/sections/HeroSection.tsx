@@ -128,7 +128,7 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
           >
             <div className="relative w-full max-w-[380px] sm:max-w-[420px] aspect-[4/5] rounded-[32px] overflow-hidden p-2.5 bg-gradient-to-b from-white/15 to-white/5 border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.8)] group">
               {/* Inner Portrait Container */}
-              <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-[#1c1b18]">
+              <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-[#11181F]">
                 <img
                   src={profile.avatarUrl || '/assets/avatar.jpg'}
                   alt={profile.name}
@@ -136,7 +136,7 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
                 />
 
                 {/* Subtle vignette gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#131211] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#11181F] via-transparent to-transparent opacity-80" />
 
                 {/* Floating Badges on Portrait (Matching Framer Layout) */}
                 <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2 z-10">
@@ -146,7 +146,7 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 + idx * 0.15 }}
-                      className="px-3.5 py-2 rounded-xl bg-[#181715]/90 backdrop-blur-md border border-white/10 text-[11px] sm:text-xs font-bold text-white tracking-wider uppercase font-[family-name:var(--font-poppins)] shadow-lg flex items-center justify-between"
+                      className="px-3.5 py-2 rounded-xl bg-[#16202a]/90 backdrop-blur-md border border-[#1d6de3]/20 text-[11px] sm:text-xs font-bold text-white tracking-wider uppercase font-[family-name:var(--font-poppins)] shadow-lg flex items-center justify-between"
                     >
                       <span>{badge}</span>
                       <span className="w-2 h-2 rounded-full bg-[#1d6de3]" />
@@ -172,7 +172,7 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
           {stats.map((stat, index) => (
             <div
               key={stat.id || index}
-              className="relative p-6 sm:p-8 rounded-[24px] bg-[#1c1b18] border border-white/8 hover:border-white/20 transition-all duration-300 hover:-translate-y-1.5 group shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
+              className="relative p-6 sm:p-8 rounded-[24px] bg-[#16202a] border border-[#1d6de3]/15 hover:border-[#1d6de3]/35 transition-all duration-300 hover:-translate-y-1.5 group shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
             >
               <div className="flex flex-col">
                 <span className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#1d6de3] font-[family-name:var(--font-poppins)] mb-2 group-hover:scale-105 transition-transform origin-left">
@@ -181,7 +181,7 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
                 <span className="text-xs sm:text-sm font-bold tracking-wider text-white uppercase">
                   {stat.label}
                 </span>
-                <span className="text-xs sm:text-sm font-medium tracking-wider text-[#998f8f] uppercase">
+                <span className="text-xs sm:text-sm font-medium tracking-wider text-neutral-400 uppercase">
                   {stat.sublabel}
                 </span>
               </div>

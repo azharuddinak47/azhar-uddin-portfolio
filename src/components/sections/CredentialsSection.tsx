@@ -32,12 +32,12 @@ export const CredentialsSection = () => {
           {/* Certifications Card matching Reference Screenshot */}
           <div className={`p-5 sm:p-6 rounded-[24px] border transition-all flex flex-col justify-between ${
             isDark
-              ? 'bg-[#1c1b18] border-white/8 hover:border-[#1d6de3]/45 shadow-[0_10px_25px_rgba(0,0,0,0.35)]'
+              ? 'bg-[#16202a] border-[#1d6de3]/15 hover:border-[#1d6de3]/45 shadow-[0_10px_25px_rgba(0,0,0,0.45)]'
               : 'bg-white border-black/7 hover:border-[#1d6de3]/40 shadow-sm hover:shadow-md'
           }`}>
             <div>
               <div className={`flex items-center justify-between gap-3 mb-5 pb-3 border-b ${
-                isDark ? 'border-white/5' : 'border-black/6'
+                isDark ? 'border-white/10' : 'border-black/6'
               }`}>
                 <h3 className={`text-base sm:text-lg font-bold font-[family-name:var(--font-poppins)] ${
                   isDark ? 'text-white' : 'text-neutral-900'
@@ -128,7 +128,7 @@ export const CredentialsSection = () => {
           {/* Education Card */}
           <div className={`p-5 sm:p-6 rounded-[24px] border transition-all flex flex-col justify-between ${
             isDark
-              ? 'bg-[#1c1b18] border-white/8 hover:border-[#1d6de3]/45 shadow-[0_10px_25px_rgba(0,0,0,0.35)]'
+              ? 'bg-[#16202a] border-[#1d6de3]/15 hover:border-[#1d6de3]/45 shadow-[0_10px_25px_rgba(0,0,0,0.45)]'
               : 'bg-white border-black/7 hover:border-[#1d6de3]/40 shadow-sm hover:shadow-md'
           }`}>
             <div>
@@ -151,7 +151,7 @@ export const CredentialsSection = () => {
                   <div
                     key={edu.id}
                     className={`p-3.5 rounded-xl border space-y-1 transition-colors ${
-                      isDark ? 'bg-[#131211] border-white/5' : 'bg-[#f8f9fa] border-black/6'
+                      isDark ? 'bg-[#11181F] border-white/5' : 'bg-[#f8f9fa] border-black/6'
                     }`}
                   >
                     <div className="flex items-start justify-between gap-2">

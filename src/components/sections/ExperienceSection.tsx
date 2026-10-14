@@ -47,8 +47,8 @@ export const ExperienceSection = () => {
                 className={`group cursor-pointer rounded-[22px] border transition-all duration-300 p-5 sm:p-6 ${
                   isDark
                     ? isExpanded
-                      ? 'border-[#1d6de3]/50 bg-[#161d27] shadow-[0_12px_30px_rgba(0,0,0,0.5),0_0_20px_rgba(29,109,227,0.12)]'
-                      : 'border-white/8 hover:border-white/20 bg-[#1c1b18] hover:bg-[#1f1e1b]'
+                      ? 'border-[#1d6de3]/50 bg-[#16202a] shadow-[0_12px_30px_rgba(0,0,0,0.5),0_0_20px_rgba(29,109,227,0.18)]'
+                      : 'border-[#1d6de3]/15 hover:border-[#1d6de3]/35 bg-[#16202a] hover:bg-[#1e2c3a] shadow-md'
                     : isExpanded
                       ? 'border-[#1d6de3]/40 bg-[#f0f7ff] shadow-[0_8px_25px_rgba(29,109,227,0.08)]'
                       : 'border-black/7 hover:border-black/15 bg-white hover:bg-[#fcfcfd] shadow-sm'
@@ -58,7 +58,7 @@ export const ExperienceSection = () => {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                   <div className="flex items-center gap-3.5">
                     <div className={`w-11 h-11 rounded-xl border flex items-center justify-center text-[#3b82f6] shrink-0 group-hover:border-[#1d6de3]/40 transition-colors overflow-hidden p-1 ${
-                      isDark ? 'bg-[#131211] border-white/10' : 'bg-[#f1f3f5] border-black/8'
+                      isDark ? 'bg-[#11181F] border-white/10' : 'bg-[#f1f3f5] border-black/8'
                     }`}>
                       {exp.logo ? (
                         <img
@@ -93,7 +93,7 @@ export const ExperienceSection = () => {
                   {/* Period Badge & Expand Trigger */}
                   <div className="flex items-center justify-between sm:justify-end gap-2.5 shrink-0">
                     <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold ${
-                      isDark ? 'bg-[#131211] border border-white/5 text-[#998f8f]' : 'bg-[#f1f3f5] border border-black/5 text-neutral-600'
+                      isDark ? 'bg-[#11181F] border border-white/5 text-[#998f8f]' : 'bg-[#f1f3f5] border border-black/5 text-neutral-600'
                     }`}>
                       <Calendar size={12} className="text-[#3b82f6]" />
                       <span>{exp.period}</span>

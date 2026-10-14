@@ -47,12 +47,12 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
               onClick={() => onSelectProject(project)}
               className={`group relative cursor-pointer flex items-center justify-between gap-4 sm:gap-6 rounded-[22px] sm:rounded-[26px] p-3 sm:p-4 md:p-5 transition-all duration-300 hover:-translate-y-0.5 ${
                 isDark
-                  ? 'bg-[#161513] hover:bg-[#1c1b18] border border-white/[0.07] hover:border-white/20 shadow-[0_10px_25px_rgba(0,0,0,0.45)]'
+                  ? 'bg-[#16202a] hover:bg-[#1e2c3a] border border-[#1d6de3]/15 hover:border-[#1d6de3]/35 shadow-[0_10px_25px_rgba(0,0,0,0.45)]'
                   : 'bg-white hover:bg-[#faf9f6] border border-black/8 hover:border-black/15 shadow-sm hover:shadow-md'
               }`}
             >
               {/* Left: Project Image Thumbnail */}
-              <div className="relative w-24 h-18 sm:w-32 sm:h-24 md:w-38 md:h-26 rounded-xl sm:rounded-2xl overflow-hidden shrink-0 bg-[#121110] border border-white/10 group-hover:border-[#1d6de3]/40 transition-all duration-300">
+              <div className="relative w-24 h-18 sm:w-32 sm:h-24 md:w-38 md:h-26 rounded-xl sm:rounded-2xl overflow-hidden shrink-0 bg-[#11181F] border border-white/10 group-hover:border-[#1d6de3]/40 transition-all duration-300">
                 <img
                   src={project.image}
                   alt={project.title}

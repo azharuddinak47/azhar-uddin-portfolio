@@ -163,7 +163,7 @@ export const ContactSection = () => {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className={`w-full px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl border text-sm sm:text-base outline-none transition-all select-text ${
                       isDark
-                        ? 'bg-[#262422] border-white/10 text-white placeholder-[#6a6b6e] focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/20 shadow-xs'
+                        ? 'bg-[#16222f] border-white/10 text-white placeholder-[#8a99a8] focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/25 shadow-xs'
                         : 'bg-white border-black/10 text-neutral-900 placeholder-neutral-400 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:border-black/20'
                     }`}
                   />
@@ -188,7 +188,7 @@ export const ContactSection = () => {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className={`w-full px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl border text-sm sm:text-base outline-none transition-all select-text ${
                       isDark
-                        ? 'bg-[#262422] border-white/10 text-white placeholder-[#6a6b6e] focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/20 shadow-xs'
+                        ? 'bg-[#16222f] border-white/10 text-white placeholder-[#8a99a8] focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/25 shadow-xs'
                         : 'bg-white border-black/10 text-neutral-900 placeholder-neutral-400 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:border-black/20'
                     }`}
                   />
@@ -212,7 +212,7 @@ export const ContactSection = () => {
                     onClick={() => setIsDropdownOpen((prev) => !prev)}
                     className={`w-full px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl border text-left text-sm sm:text-base outline-none transition-all flex items-center justify-between cursor-pointer ${
                       isDark
-                        ? 'bg-[#262422] border-white/10 text-white hover:border-white/20 focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/20 shadow-xs'
+                        ? 'bg-[#16222f] border-white/10 text-white hover:border-white/20 focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/25 shadow-xs'
                         : 'bg-white border-black/10 text-neutral-900 hover:border-black/20 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-[0_1px_3px_rgba(0,0,0,0.04)]'
                     }`}
                   >
@@ -242,7 +242,7 @@ export const ContactSection = () => {
                         transition={{ duration: 0.15 }}
                         className={`absolute top-full left-0 right-0 mt-2 p-1.5 rounded-xl border z-50 flex flex-col gap-1 backdrop-blur-xl ${
                           isDark
-                            ? 'bg-[#201e1c] border-white/10 shadow-[0_15px_35px_rgba(0,0,0,0.85)]'
+                            ? 'bg-[#131c26] border-white/10 shadow-[0_15px_35px_rgba(0,0,0,0.85)]'
                             : 'bg-white border-black/10 shadow-[0_12px_32px_rgba(0,0,0,0.08)]'
                         }`}
                       >
@@ -260,7 +260,7 @@ export const ContactSection = () => {
                                 isSelected
                                   ? 'bg-[#1d6de3] text-white font-semibold shadow-sm'
                                   : isDark
-                                  ? 'text-neutral-200 hover:bg-[#2c2a27] hover:text-white'
+                                  ? 'text-neutral-200 hover:bg-[#1e2c3a] hover:text-white'
                                   : 'text-neutral-800 hover:bg-[#f1f3f5] hover:text-neutral-950'
                               }`}
                             >
@@ -295,7 +295,7 @@ export const ContactSection = () => {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className={`w-full px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl border text-sm sm:text-base outline-none transition-all min-h-[95px] resize-none select-text ${
                     isDark
-                      ? 'bg-[#262422] border-white/10 text-white placeholder-[#6a6b6e] focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/20 shadow-xs'
+                      ? 'bg-[#16222f] border-white/10 text-white placeholder-[#8a99a8] focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/25 shadow-xs'
                       : 'bg-white border-black/10 text-neutral-900 placeholder-neutral-400 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:border-black/20'
                   }`}
                 />

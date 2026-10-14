@@ -33,7 +33,7 @@ export const Button = ({
   const variantClasses = {
     lime: 'bg-[#1d6de3] text-white hover:bg-[#2563eb] shadow-[0_0_20px_rgba(29,109,227,0.35)] hover:shadow-[0_0_30px_rgba(29,109,227,0.55)] border border-[#3b82f6]/40',
     primary: 'bg-white text-black hover:bg-neutral-200 border border-white',
-    secondary: 'bg-[#1c1b18] text-white hover:bg-[#252320] border border-white/10 hover:border-white/20',
+    secondary: 'bg-[#16202a] text-white hover:bg-[#1e2c3a] border border-[#1d6de3]/20 hover:border-[#1d6de3]/40',
     outline: 'bg-transparent text-white border border-white/20 hover:border-[#1d6de3] hover:text-[#60a5fa]',
     ghost: 'bg-transparent text-neutral-400 hover:text-white hover:bg-white/5',
   }[variant];
