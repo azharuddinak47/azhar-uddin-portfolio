@@ -21,11 +21,11 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
   return (
     <motion.section
       id="home"
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col justify-between min-h-0 lg:h-[682px] lg:min-h-[682px] pt-4 lg:pt-1 scroll-mt-24 lg:scroll-mt-28 relative select-text"
+      viewport={{ once: false, amount: 0.25, margin: '-60px 0px -60px 0px' }}
+      transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+      className="flex flex-col justify-between min-h-[calc(100vh-8rem)] pt-4 lg:pt-1 scroll-mt-28 lg:scroll-mt-32 relative select-text"
     >
       {/* Huge Display Headline matching Sawad Framer screenshot — fades on scroll */}
       <motion.div

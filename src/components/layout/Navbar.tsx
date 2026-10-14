@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Folder, Briefcase, Wrench, SquarePen, Sparkles } from 'lucide-react';
+import { Home, Folder, Briefcase, Wrench, SquarePen, Mail } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import { CassettePlayer } from '@/components/ui/CassettePlayer';
 import { MeshGradientGlow } from '@/components/ui/MeshGradientGlow';
@@ -20,6 +20,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'experience', label: 'Experience', href: '#experience', icon: Briefcase },
   { id: 'tools', label: 'Tools', href: '#tools', icon: Wrench },
   { id: 'thoughts', label: 'Thoughts', href: '#thoughts', icon: SquarePen },
+  { id: 'contact', label: 'Contact', href: '#contact', icon: Mail },
 ];
 
 export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {}) => {

@@ -18,11 +18,11 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
   return (
     <motion.section
       id="thoughts"
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 0, y: 35 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.15 }}
-      transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col py-2 sm:py-4 scroll-mt-24 lg:scroll-mt-28 relative select-text"
+      viewport={{ once: false, amount: 0.2, margin: '-60px 0px -60px 0px' }}
+      transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+      className="flex flex-col justify-center min-h-[calc(100vh-8rem)] py-8 scroll-mt-28 lg:scroll-mt-32 relative select-text"
     >
       <div>
         <SectionHeading

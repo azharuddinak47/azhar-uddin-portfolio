@@ -47,7 +47,7 @@ export default function Home() {
             <SidebarProfileCard />
 
             {/* Right Column: Scrollable Feed */}
-            <main className="flex-1 w-full min-w-0 flex flex-col gap-28 sm:gap-36 lg:gap-40">
+            <main className="flex-1 w-full min-w-0 flex flex-col gap-16 sm:gap-20 lg:gap-24">
             {/* Hero Section */}
             <RightHeroSection />
 
