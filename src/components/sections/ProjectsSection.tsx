@@ -34,7 +34,7 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
     ? data.projects
     : data.projects.filter(p => p.category === activeFilter);
 
-  const ITEMS_PER_PAGE = isMobile ? 1 : 2;
+  const ITEMS_PER_PAGE = 4;
   const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE);
 
   // Keep page in bounds if filter changes
@@ -129,81 +129,56 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
         </div>
       </div>
 
-      {/* Projects Showcase: 2 Cards Side-by-Side */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+      {/* Projects Showcase: Clean Horizontal Cards matching reference layout */}
+      <div className="flex flex-col gap-3.5 sm:gap-4">
         <AnimatePresence mode="wait">
           {currentProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, scale: 0.98, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.98, y: -15 }}
-              transition={{ duration: 0.35, delay: index * 0.06 }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.35, delay: index * 0.05 }}
               onClick={() => onSelectProject(project)}
-              className="group relative cursor-pointer flex flex-col justify-between rounded-[24px] overflow-hidden bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all duration-300 hover:-translate-y-1 shadow-[0_12px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.65),0_0_20px_rgba(29,109,227,0.18)]"
+              className={`group relative cursor-pointer flex items-center justify-between gap-4 sm:gap-6 rounded-[22px] sm:rounded-[26px] p-3 sm:p-4 md:p-5 transition-all duration-300 hover:-translate-y-0.5 ${
+                isDark
+                  ? 'bg-[#161513] hover:bg-[#1c1b18] border border-white/[0.07] hover:border-white/20 shadow-[0_10px_25px_rgba(0,0,0,0.45)]'
+                  : 'bg-white hover:bg-[#faf9f6] border border-black/8 hover:border-black/15 shadow-sm hover:shadow-md'
+              }`}
             >
-              {/* Project Image Container */}
-              <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#151413]">
+              {/* Left: Project Image Thumbnail */}
+              <div className="relative w-24 h-18 sm:w-32 sm:h-24 md:w-38 md:h-26 rounded-xl sm:rounded-2xl overflow-hidden shrink-0 bg-[#121110] border border-white/10 group-hover:border-[#1d6de3]/40 transition-all duration-300">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-600 ease-out group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1c1b18] via-transparent to-black/20 opacity-80 group-hover:opacity-50 transition-opacity" />
-
-                {/* Floating Category Badge */}
-                <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5 z-10">
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[#1d6de3] !text-white shadow-md">
-                    {project.category}
-                  </span>
-                  {project.year && (
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-black/75 backdrop-blur-md !text-white border border-white/20 shadow-xs">
-                      {project.year}
-                    </span>
-                  )}
-                </div>
-
-                {/* Circular Hover Arrow Button */}
-                <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-black/75 backdrop-blur-md border border-white/20 flex items-center justify-center !text-white group-hover:bg-[#1d6de3] group-hover:border-[#1d6de3] transition-all duration-300 z-10 shadow-md">
-                  <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 !text-white" />
-                </div>
               </div>
 
-              {/* Project Details Footer */}
-              <div className="p-4 sm:p-5 flex flex-col justify-between flex-1">
-                <div>
-                  <h3 className={`text-lg sm:text-xl font-black tracking-tight uppercase font-[family-name:var(--font-poppins)] transition-colors leading-snug line-clamp-1 mb-1 ${
+              {/* Middle: Title & Tagline/Category */}
+              <div className="flex-1 min-w-0 pr-2">
+                <h3
+                  className={`text-lg sm:text-2xl font-black tracking-tight font-[family-name:var(--font-poppins)] transition-colors truncate mb-1 sm:mb-1.5 ${
                     isDark ? 'text-white group-hover:text-[#60a5fa]' : 'text-neutral-900 group-hover:text-[#1d6de3]'
-                  }`}>
-                    {project.title}
-                  </h3>
-                  <p className={`text-xs sm:text-sm font-medium line-clamp-2 mb-3 ${
-                    isDark ? 'text-[#998f8f]' : 'text-neutral-600'
-                  }`}>
-                    {project.tagline || project.description}
-                  </p>
-                </div>
+                  }`}
+                >
+                  {project.title}
+                </h3>
+                <p
+                  className={`text-xs sm:text-sm md:text-base font-medium truncate ${
+                    isDark ? 'text-[#8a8a8e]' : 'text-neutral-600'
+                  }`}
+                >
+                  {project.tagline || project.category}
+                </p>
+              </div>
 
-                {/* Tags */}
-                {project.tags && project.tags.length > 0 && (
-                  <div className={`flex flex-wrap gap-1.5 pt-2.5 border-t ${
-                    isDark ? 'border-white/5' : 'border-neutral-200'
-                  }`}>
-                    {project.tags.slice(0, 4).map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className={`px-2 py-0.5 rounded-md text-[10px] font-medium tracking-wide transition-colors ${
-                          isDark
-                            ? 'bg-white/5 text-[#998f8f] group-hover:text-neutral-200'
-                            : 'bg-neutral-100 text-neutral-700 border border-neutral-200 group-hover:text-neutral-900 group-hover:border-neutral-300'
-                        }`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
+              {/* Right: Orange Diagonal Arrow matching reference design */}
+              <div className="self-start sm:self-center pt-2 sm:pt-0 pr-1 sm:pr-3 shrink-0">
+                <ArrowUpRight
+                  size={24}
+                  className="text-[#f46c38] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+                />
               </div>
             </motion.div>
           ))}
@@ -212,7 +187,7 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
 
       {/* Bottom Pagination Dots */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-1.5 pt-3">
+        <div className="flex items-center justify-center gap-1.5 pt-4">
           {Array.from({ length: totalPages }).map((_, idx) => (
             <button
               key={idx}
