@@ -21,7 +21,7 @@ export const ExperienceSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.15 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col pt-1 pb-4 scroll-mt-28 lg:scroll-mt-32 relative select-text"
+      className="flex flex-col pt-0 pb-4 scroll-mt-28 relative select-text"
     >
       <div>
         <SectionHeading

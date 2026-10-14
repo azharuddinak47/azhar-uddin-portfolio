@@ -25,7 +25,7 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.25, margin: '-60px 0px -60px 0px' }}
       transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col gap-7 sm:gap-9 pt-4 lg:pt-1 scroll-mt-28 lg:scroll-mt-32 relative select-text"
+      className="flex flex-col gap-7 sm:gap-9 pt-0 scroll-mt-28 relative select-text"
     >
       {/* Huge Display Headline matching Sawad Framer screenshot — fades on scroll */}
       <motion.div
