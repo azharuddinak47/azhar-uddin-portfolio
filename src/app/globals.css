@@ -59,9 +59,9 @@ html.light,
   --text-secondary: #4b5563;
   --text-muted: #6b7280;
   
-  --border-subtle: rgba(0, 0, 0, 0.06);
-  --border-strong: rgba(0, 0, 0, 0.12);
-  --border-lime: rgba(29, 109, 227, 0.35);
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  --border-strong: rgba(0, 0, 0, 0.08);
+  --border-lime: rgba(29, 109, 227, 0.25);
 }
 
 html {
@@ -372,8 +372,8 @@ html.light .bg-\[\#181715\]\/90 {
 
 html.light .bg-\[\#1c1b18\] {
   background-color: #ffffff !important;
-  border-color: rgba(0, 0, 0, 0.07) !important;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+  border-color: rgba(0, 0, 0, 0.04) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02), 0 1px 2px -1px rgba(0, 0, 0, 0.02) !important;
 }
 
 html.light .bg-\[\#181716\] {
@@ -382,23 +382,23 @@ html.light .bg-\[\#181716\] {
 
 html.light .bg-\[\#151413\] {
   background-color: #ffffff !important;
-  border-color: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.04) !important;
 }
 
 html.light .bg-\[\#100f0e\] {
   background-color: #ffffff !important;
-  border-color: rgba(0, 0, 0, 0.07) !important;
+  border-color: rgba(0, 0, 0, 0.04) !important;
 }
 
 html.light .bg-\[\#161d27\] {
   background-color: #f0f7ff !important;
-  border-color: rgba(29, 109, 227, 0.25) !important;
+  border-color: rgba(29, 109, 227, 0.15) !important;
 }
 
 html.light .bg-\[\#11181F\] {
-  background-color: #ffffff !important;
-  border-color: rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  background-color: #f8f9fa !important;
+  border-color: rgba(0, 0, 0, 0.04) !important;
+  box-shadow: none !important;
 }
 
 html.light .hover\:bg-\[\#16222c\]:hover {

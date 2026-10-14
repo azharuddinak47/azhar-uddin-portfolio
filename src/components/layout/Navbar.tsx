@@ -84,8 +84,8 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
                 ? 'border-[#1d6de3]/40 shadow-[0_12px_32px_rgba(15,45,80,0.7)]'
                 : 'border-[#1d6de3]/25 shadow-[0_15px_40px_rgba(15,45,80,0.65)]'
               : isPlaying
-                ? 'border-black/10 shadow-[0_12px_32px_rgba(0,0,0,0.12)]'
-                : 'border-black/10 shadow-[0_8px_24px_rgba(0,0,0,0.08)]'
+                ? 'border-black/[0.06] shadow-[0_4px_16px_rgba(0,0,0,0.04)]'
+                : 'border-black/[0.04] shadow-[0_2px_10px_rgba(0,0,0,0.03)]'
           }`}
         >
           {/* Background layer strictly under the navbar — clips mesh gradient to the pill shape */}

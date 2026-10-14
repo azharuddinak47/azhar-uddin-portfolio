@@ -44,7 +44,7 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
               className={`group cursor-pointer p-5 sm:p-6 rounded-[24px] border transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between gap-5 ${
                 isDark
                   ? 'bg-[#16202a] hover:bg-[#1e2c3a] border-[#1d6de3]/15 hover:border-[#1d6de3]/35 shadow-[0_10px_25px_rgba(0,0,0,0.35)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_18px_rgba(29,109,227,0.18)]'
-                  : 'bg-white border-black/7 hover:border-[#1d6de3]/40 shadow-sm hover:shadow-md'
+                  : 'bg-white border-black/[0.04] hover:border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
               }`}
             >
               <div>

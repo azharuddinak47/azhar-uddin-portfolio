@@ -33,11 +33,11 @@ export const CredentialsSection = () => {
           <div className={`p-5 sm:p-6 rounded-[24px] border transition-all flex flex-col justify-between ${
             isDark
               ? 'bg-[#16202a] border-[#1d6de3]/15 hover:border-[#1d6de3]/45 shadow-[0_10px_25px_rgba(0,0,0,0.45)]'
-              : 'bg-white border-black/7 hover:border-[#1d6de3]/40 shadow-sm hover:shadow-md'
+              : 'bg-white border-black/[0.04] hover:border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
           }`}>
             <div>
               <div className={`flex items-center justify-between gap-3 mb-5 pb-3 border-b ${
-                isDark ? 'border-white/10' : 'border-black/6'
+                isDark ? 'border-white/10' : 'border-black/[0.04]'
               }`}>
                 <h3 className={`text-base sm:text-lg font-bold font-[family-name:var(--font-poppins)] ${
                   isDark ? 'text-white' : 'text-neutral-900'
@@ -129,7 +129,7 @@ export const CredentialsSection = () => {
           <div className={`p-5 sm:p-6 rounded-[24px] border transition-all flex flex-col justify-between ${
             isDark
               ? 'bg-[#16202a] border-[#1d6de3]/15 hover:border-[#1d6de3]/45 shadow-[0_10px_25px_rgba(0,0,0,0.45)]'
-              : 'bg-white border-black/7 hover:border-[#1d6de3]/40 shadow-sm hover:shadow-md'
+              : 'bg-white border-black/[0.04] hover:border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
           }`}>
             <div>
               <div className="flex items-center gap-3 mb-4">

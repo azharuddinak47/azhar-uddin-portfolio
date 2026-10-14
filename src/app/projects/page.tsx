@@ -186,7 +186,7 @@ export default function ProjectsArchivePage() {
                 className={`group cursor-pointer rounded-[28px] overflow-hidden border transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between ${
                   isDark
                     ? 'bg-[#16202a] hover:bg-[#1e2c3a] border-[#1d6de3]/15 hover:border-[#1d6de3]/40 shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(29,109,227,0.2)]'
-                    : 'bg-white hover:bg-[#faf9f6] border-black/8 hover:border-black/15 shadow-sm hover:shadow-xl'
+                    : 'bg-white hover:bg-[#fcfcfd] border-black/[0.04] hover:border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)]'
                 }`}
               >
                 <div>

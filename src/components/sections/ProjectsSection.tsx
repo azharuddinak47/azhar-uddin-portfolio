@@ -48,7 +48,7 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
             className={`group relative cursor-pointer flex items-center justify-between gap-4 sm:gap-6 rounded-[22px] sm:rounded-[26px] p-3 sm:p-4 md:p-5 transition-all duration-300 hover:-translate-y-0.5 ${
               isDark
                 ? 'bg-[#16202a] hover:bg-[#1e2c3a] border border-[#1d6de3]/15 hover:border-[#1d6de3]/35 shadow-[0_10px_25px_rgba(0,0,0,0.45)]'
-                : 'bg-white hover:bg-[#faf9f6] border border-black/8 hover:border-black/15 shadow-sm hover:shadow-md'
+                : 'bg-white hover:bg-[#fcfcfd] border border-black/[0.04] hover:border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
             }`}
           >
             {/* Left: Project Image Thumbnail */}

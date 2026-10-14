@@ -50,8 +50,8 @@ export const ExperienceSection = () => {
                       ? 'border-[#1d6de3]/50 bg-[#16202a] shadow-[0_12px_30px_rgba(0,0,0,0.5),0_0_20px_rgba(29,109,227,0.18)]'
                       : 'border-[#1d6de3]/15 hover:border-[#1d6de3]/35 bg-[#16202a] hover:bg-[#1e2c3a] shadow-md'
                     : isExpanded
-                      ? 'border-[#1d6de3]/40 bg-[#f0f7ff] shadow-[0_8px_25px_rgba(29,109,227,0.08)]'
-                      : 'border-black/7 hover:border-black/15 bg-white hover:bg-[#fcfcfd] shadow-sm'
+                      ? 'border-[#1d6de3]/30 bg-[#f0f7ff] shadow-[0_4px_16px_rgba(29,109,227,0.06)]'
+                      : 'border-black/[0.04] hover:border-black/[0.08] bg-white hover:bg-[#fcfcfd] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
                 }`}
               >
                 {/* Header row */}
