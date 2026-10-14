@@ -6,7 +6,8 @@ import { Layers, PanelsTopLeft, ArrowRight } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 
 export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {}) => {
-  const { data } = usePortfolio();
+  const { data, theme } = usePortfolio();
+  const isDark = theme === 'dark';
   const { profile, stats } = data;
 
   // Scroll-linked fade: as user scrolls down, hero headline text smoothly fades out before going under the navbar
@@ -129,14 +130,18 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
           </div>
         </a>
 
-        {/* Right Bento Card: Royal Blue (Photo Backdrop Match) with Zig-Zag */}
+        {/* Right Bento Card: White in Day/Light mode, Royal Blue in Night/Dark mode */}
         <a
           href="#tools"
           draggable={false}
-          className="rounded-[24px] bg-gradient-to-br from-[#1d6de3] via-[#1a5fb4] to-[#104480] p-6 sm:p-7 min-h-[200px] sm:min-h-[220px] flex flex-col justify-between relative overflow-hidden group shadow-[0_15px_35px_rgba(29,109,227,0.3)] hover:shadow-[0_20px_45px_rgba(29,109,227,0.45)] hover:-translate-y-1 transition-all duration-300 select-text"
+          className={`rounded-[24px] p-6 sm:p-7 min-h-[200px] sm:min-h-[220px] flex flex-col justify-between relative overflow-hidden group transition-all duration-300 select-text hover:-translate-y-1 ${
+            isDark
+              ? 'bg-gradient-to-br from-[#1d6de3] via-[#1a5fb4] to-[#104480] shadow-[0_15px_35px_rgba(29,109,227,0.3)] hover:shadow-[0_20px_45px_rgba(29,109,227,0.45)]'
+              : 'bg-white border border-black/10 shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:shadow-[0_18px_40px_rgba(0,0,0,0.14)]'
+          }`}
         >
           {/* Subtle Decorative Zig-Zag Pattern */}
-          <div className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
+          <div className={`absolute inset-0 w-full h-full pointer-events-none transition-opacity ${isDark ? 'opacity-20' : 'opacity-25'}`}>
             <svg
               viewBox="0 0 422 284"
               className="w-full h-full object-cover scale-125"
@@ -144,24 +149,34 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
             >
               <path
                 d="M 33.026 0.557 L 4.893 135.318 L 98.467 61.255 L 128.435 164.831 L 227.513 61.255 L 250.754 164.831 L 310.078 107.475 L 328.426 247.247 L 426.893 107.475 L 433.62 254.486 L 472.762 292.353"
-                stroke="rgba(255, 255, 255, 0.4)"
+                stroke={isDark ? 'rgba(255, 255, 255, 0.4)' : 'rgba(29, 109, 227, 0.35)'}
                 strokeWidth="5"
               />
             </svg>
           </div>
 
           {/* Top Icon */}
-          <div className="relative z-10 text-white pointer-events-none">
+          <div className={`relative z-10 pointer-events-none transition-colors ${isDark ? 'text-white' : 'text-[#1d6de3]'}`}>
             <PanelsTopLeft size={28} strokeWidth={2.2} />
           </div>
 
           {/* Bottom Content Row */}
           <div className="flex items-end justify-between gap-4 relative z-10 pt-6">
-            <span className="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-snug font-[family-name:var(--font-poppins)] max-w-[210px] select-text cursor-text">
+            <span
+              className={`text-base sm:text-lg font-black uppercase tracking-tight leading-snug font-[family-name:var(--font-poppins)] max-w-[210px] select-text cursor-text transition-colors ${
+                isDark ? 'text-white' : 'text-[#111111]'
+              }`}
+            >
               FRAMER, FIGMA, WORDPRESS, REACTJS
             </span>
 
-            <div className="w-8 h-8 rounded-lg border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-[#165aa8] transition-all shrink-0">
+            <div
+              className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all shrink-0 ${
+                isDark
+                  ? 'border border-white/40 text-white group-hover:bg-white group-hover:text-[#165aa8]'
+                  : 'border border-black/15 text-[#111111] group-hover:bg-[#1d6de3] group-hover:border-[#1d6de3] group-hover:text-white'
+              }`}
+            >
               <ArrowRight size={16} />
             </div>
           </div>
