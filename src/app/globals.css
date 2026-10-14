@@ -437,7 +437,9 @@ html.light .bg-black *,
 html.light .bg-\[\#111111\],
 html.light .bg-\[\#111111\] *,
 html.light .bg-\[\#242220\],
-html.light .bg-\[\#242220\] * {
+html.light .bg-\[\#242220\] *,
+html.light a[href="#tools"],
+html.light a[href="#tools"] * {
   color: #ffffff !important;
 }
 
