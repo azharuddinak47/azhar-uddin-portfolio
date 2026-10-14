@@ -85,7 +85,7 @@ export const ContactSection = () => {
       id="contact"
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once: false, amount: 0.15 }}
       transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
       className="flex flex-col py-2 scroll-mt-24 lg:scroll-mt-28 relative select-text"
     >
@@ -94,8 +94,8 @@ export const ContactSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-start leading-[0.88] mb-6 sm:mb-8 select-text"
         >
           <span className={`text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight uppercase font-[family-name:var(--font-poppins)] select-text cursor-text transition-colors duration-300 ${
@@ -112,8 +112,8 @@ export const ContactSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.6, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
           className="w-full flex-1 flex flex-col justify-between"
         >
           {submitted ? (

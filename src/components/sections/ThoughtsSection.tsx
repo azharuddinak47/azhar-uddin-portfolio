@@ -20,7 +20,7 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
       id="thoughts"
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once: false, amount: 0.15 }}
       transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
       className="flex flex-col py-2 sm:py-4 scroll-mt-24 lg:scroll-mt-28 relative select-text"
     >
@@ -38,8 +38,8 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
               key={thought.id || index}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               onClick={() => onSelectThought(thought)}
               className="group cursor-pointer p-5 sm:p-6 rounded-[24px] bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_25px_rgba(0,0,0,0.35)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_18px_rgba(29,109,227,0.18)] flex flex-col justify-between gap-5"
             >

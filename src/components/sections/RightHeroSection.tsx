@@ -23,8 +23,8 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => v
       id="home"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: false, amount: 0.1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="flex flex-col justify-between min-h-0 lg:h-[682px] lg:min-h-[682px] pt-4 lg:pt-1 scroll-mt-24 lg:scroll-mt-28 relative select-text"
     >
       {/* Huge Display Headline matching Sawad Framer screenshot — fades on scroll */}
@@ -65,8 +65,8 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => v
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
         className="flex items-start gap-8 sm:gap-14 lg:gap-16 pt-2 select-text"
       >
         {stats.map((stat, index) => (
@@ -87,8 +87,8 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => v
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.25 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2 w-full"
       >
         {/* Left Bento Card: Vibrant Orange with Waves */}

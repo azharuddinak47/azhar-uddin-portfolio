@@ -19,7 +19,7 @@ export const ExperienceSection = () => {
       id="experience"
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once: false, amount: 0.15 }}
       transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
       className="flex flex-col py-2 scroll-mt-24 lg:scroll-mt-28 relative select-text"
     >
@@ -40,8 +40,8 @@ export const ExperienceSection = () => {
                 key={exp.id}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
+                viewport={{ once: false, amount: 0.15 }}
+                transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => toggleExpand(exp.id)}
                 className={`group cursor-pointer rounded-[22px] bg-[#1c1b18] border transition-all duration-300 p-5 sm:p-6 ${
                   isExpanded
