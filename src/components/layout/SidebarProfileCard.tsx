@@ -67,7 +67,10 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal: () =>
         </div>
 
         {/* Name matching Sawad typography */}
-        <h2 className="text-2xl sm:text-[28px] font-black text-[#111111] tracking-tight font-[family-name:var(--font-poppins)] text-center mb-3 z-10 select-text cursor-text">
+        <h2
+          style={{ color: '#111111' }}
+          className="text-2xl sm:text-[28px] font-black !text-[#111111] tracking-tight font-[family-name:var(--font-poppins)] text-center mb-3 z-10 select-text cursor-text"
+        >
           {profile.name?.trim() || 'Md Azhar Uddin'}
         </h2>
 
@@ -94,7 +97,10 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal: () =>
         </div>
 
         {/* Short Subtitle / Bio matching Sawad */}
-        <p className="text-sm sm:text-[15px] font-medium text-[#6a6b6e] text-center leading-snug max-w-[270px] mb-6 z-10 font-[family-name:var(--font-poppins)] select-text cursor-text">
+        <p
+          style={{ color: '#6a6b6e' }}
+          className="text-sm sm:text-[15px] font-medium !text-[#6a6b6e] text-center leading-snug max-w-[270px] mb-6 z-10 font-[family-name:var(--font-poppins)] select-text cursor-text"
+        >
           {cardDescription}
         </p>
 
