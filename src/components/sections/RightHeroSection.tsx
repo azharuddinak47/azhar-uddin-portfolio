@@ -25,7 +25,7 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.25, margin: '-60px 0px -60px 0px' }}
       transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col justify-between min-h-[calc(100vh-8rem)] pt-4 lg:pt-1 scroll-mt-28 lg:scroll-mt-32 relative select-text"
+      className="flex flex-col gap-7 sm:gap-9 pt-4 lg:pt-1 scroll-mt-28 lg:scroll-mt-32 relative select-text"
     >
       {/* Huge Display Headline matching Sawad Framer screenshot — fades on scroll */}
       <motion.div
@@ -54,7 +54,7 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-6 sm:mt-8 text-sm sm:text-base text-[#998f8f] font-normal leading-relaxed max-w-xl select-text cursor-text"
+          className="mt-4 sm:mt-5 text-sm sm:text-base text-[#998f8f] font-normal leading-relaxed max-w-xl select-text cursor-text"
         >
           {profile.subHeadline ||
             'Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products.'}
@@ -67,11 +67,11 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
         transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="flex items-start gap-8 sm:gap-14 lg:gap-16 pt-2 select-text"
+        className="flex items-start gap-8 sm:gap-14 lg:gap-16 pt-1 select-text"
       >
         {stats.map((stat, index) => (
           <div key={stat.id || index} className="flex flex-col items-start select-text">
-            <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-white font-[family-name:var(--font-poppins)] tracking-tight leading-none mb-2 select-text cursor-text">
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-white font-[family-name:var(--font-poppins)] tracking-tight leading-none mb-1.5 select-text cursor-text">
               {stat.value}
             </span>
             <span className="text-[11px] sm:text-xs font-bold tracking-wider text-[#998f8f] uppercase leading-tight font-[family-name:var(--font-poppins)] select-text cursor-text">
@@ -89,7 +89,7 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
         transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2 w-full"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-1 w-full"
       >
         {/* Left Bento Card: Vibrant Orange with Waves */}
         <a
