@@ -50,6 +50,13 @@ export const PullRopeSwitch = () => {
   const [isPulling, setIsPulling] = useState(false);
   const [flashGlow, setFlashGlow] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [rippleTransition, setRippleTransition] = useState<{
+    targetTheme: 'dark' | 'light';
+    x: number;
+    y: number;
+  } | null>(null);
+
+  const handleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -68,6 +75,70 @@ export const PullRopeSwitch = () => {
   const baseRopeLength = isMobile ? 55 : 120; // resting length in pixels
   const ropeHeight = useTransform(springY, (val) => baseRopeLength + val);
 
+  // Perform theme transition radiating smoothly from the rope's exact handle position
+  const executeThemeTransition = () => {
+    const nextTheme = isDark ? 'light' : 'dark';
+
+    // Calculate exact center coordinates of the pull handle
+    let x = isMobile ? 24 : 100;
+    let y = baseRopeLength + 30;
+
+    if (handleRef.current) {
+      const rect = handleRef.current.getBoundingClientRect();
+      x = rect.left + rect.width / 2;
+      y = rect.top + rect.height / 2;
+    }
+
+    // Modern View Transition API with circular clip-path reveal if supported
+    const doc = document as unknown as {
+      startViewTransition?: (callback: () => void) => { ready: Promise<void> };
+    };
+
+    if (typeof doc.startViewTransition === 'function') {
+      const transition = doc.startViewTransition(() => {
+        toggleTheme();
+      });
+
+      transition.ready.then(() => {
+        const maxRadius = Math.hypot(
+          Math.max(x, window.innerWidth - x),
+          Math.max(y, window.innerHeight - y)
+        );
+
+        document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${x}px ${y}px)`,
+              `circle(${maxRadius}px at ${x}px ${y}px)`,
+            ],
+          },
+          {
+            duration: 650,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            pseudoElement: '::view-transition-new(root)',
+          }
+        );
+      });
+    } else {
+      // High-performance Framer Motion overlay ripple fallback
+      setRippleTransition({
+        targetTheme: nextTheme,
+        x,
+        y,
+      });
+
+      // Switch theme mid-expansion
+      setTimeout(() => {
+        toggleTheme();
+      }, 250);
+
+      // Clean up overlay after smooth expansion finishes
+      setTimeout(() => {
+        setRippleTransition(null);
+      }, 700);
+    }
+  };
+
   // Trigger switch on click
   const handleClick = () => {
     setIsPulling(true);
@@ -77,7 +148,7 @@ export const PullRopeSwitch = () => {
     dragY.set(50);
     setTimeout(() => {
       dragY.set(0);
-      toggleTheme();
+      executeThemeTransition();
       triggerFlash();
       setIsPulling(false);
     }, 140);
@@ -97,7 +168,7 @@ export const PullRopeSwitch = () => {
     setIsPulling(false);
     if (info.offset.y > 28 || info.velocity.y > 250) {
       playPullCordClick();
-      toggleTheme();
+      executeThemeTransition();
       triggerFlash();
     }
     dragY.set(0);
@@ -183,6 +254,7 @@ export const PullRopeSwitch = () => {
 
         {/* Draggable Pull Handle / Bobble at end of cord */}
         <motion.div
+          ref={handleRef}
           drag="y"
           dragConstraints={{ top: 0, bottom: 70 }}
           dragElastic={0.18}
@@ -288,6 +360,36 @@ export const PullRopeSwitch = () => {
           </AnimatePresence>
         </motion.div>
       </motion.div>
+
+      {/* Screen-wide Circular Expanding Theme Wave Radiating From Rope */}
+      <AnimatePresence>
+        {rippleTransition && (
+          <motion.div
+            initial={{
+              clipPath: `circle(0px at ${rippleTransition.x}px ${rippleTransition.y}px)`,
+              opacity: 1,
+            }}
+            animate={{
+              clipPath: `circle(250vmax at ${rippleTransition.x}px ${rippleTransition.y}px)`,
+              opacity: 1,
+            }}
+            exit={{ opacity: 0 }}
+            transition={{
+              duration: 0.65,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="fixed inset-0 pointer-events-none z-[9999]"
+            style={{
+              backgroundColor:
+                rippleTransition.targetTheme === 'dark' ? '#11181F' : '#f6f5f3',
+              boxShadow:
+                rippleTransition.targetTheme === 'dark'
+                  ? 'inset 0 0 100px rgba(0,0,0,0.5)'
+                  : 'inset 0 0 100px rgba(29,109,227,0.1)',
+            }}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };
