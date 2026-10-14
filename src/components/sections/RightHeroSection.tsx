@@ -159,7 +159,7 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
           {/* Bottom Content Row */}
           <div className="flex items-end justify-between gap-4 relative z-10 pt-6">
             <span className="text-base sm:text-lg font-black !text-white uppercase tracking-tight leading-snug font-[family-name:var(--font-poppins)] max-w-[210px] select-text cursor-text">
-              FRAMER, FIGMA, WORDPRESS, REACTJS
+              FIGMA, ANTIGRAVITY, NOTION, REACTJS
             </span>
 
             <div className="w-8 h-8 rounded-lg border !border-white/40 flex items-center justify-center !text-white group-hover:bg-white group-hover:!text-[#165aa8] transition-all shrink-0">

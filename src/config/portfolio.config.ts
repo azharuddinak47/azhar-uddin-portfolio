@@ -247,45 +247,38 @@ export const initialPortfolioData: PortfolioData = {
   "tools": [
     {
       "id": "tool-1",
-      "name": "Framer",
-      "category": "Website Builder",
-      "icon": "/assets/tools/framer.svg",
-      "description": "Interactive website design, responsive layouts, CMS, dynamic animations, and production deployment."
-    },
-    {
-      "id": "tool-2",
       "name": "Figma",
       "category": "Design Tool",
       "icon": "/assets/tools/figma-color.svg",
       "description": "Design systems, auto-layout, component variants, wireframes, and interactive clickable prototypes."
     },
     {
-      "id": "tool-3",
-      "name": "Lemon Squeezy",
-      "category": "Payments Provider",
-      "icon": "/assets/tools/lemonsqueezy.svg",
-      "description": "Global merchant of record, digital product sales, checkout integration, and subscription billing."
-    },
-    {
-      "id": "tool-4",
+      "id": "tool-2",
       "name": "ChatGPT",
       "category": "AI Assistant",
       "icon": "/assets/tools/chatgpt.svg",
       "description": "UX copy generation, concept ideation, user research synthesis, and workflow acceleration."
     },
     {
-      "id": "tool-5",
+      "id": "tool-3",
+      "name": "Photopea",
+      "category": "Image Editing",
+      "icon": "/assets/tools/photopea.svg",
+      "description": "Advanced raster graphics editing, asset export, mockup preparation, and photo retouching."
+    },
+    {
+      "id": "tool-4",
       "name": "Notion",
       "category": "Productivity Tool",
       "icon": "/assets/tools/notion.svg",
       "description": "Project roadmaps, user research databases, design documentation, and sprint tracking."
     },
     {
-      "id": "tool-6",
-      "name": "Nextjs",
-      "category": "React framework",
-      "icon": "/assets/tools/nextjs-wordmark.svg",
-      "description": "Server-side rendering, modern React web applications, optimized performance, and API routes."
+      "id": "tool-5",
+      "name": "Antigravity",
+      "category": "Website Builder",
+      "icon": "/assets/tools/antigravity.png",
+      "description": "Agentic AI web development, generative interface engineering, full-stack prototyping, and rapid deployment."
     }
   ],
   "certifications": [
