@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 
@@ -44,7 +45,13 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full border-t border-white/10 bg-[#100f0e] py-12 px-6 sm:px-12 relative overflow-hidden">
+    <motion.footer
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className="w-full border-t border-white/10 bg-[#100f0e] py-12 px-6 sm:px-12 relative overflow-hidden"
+    >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left: Brand & Statement */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2">
@@ -95,6 +102,6 @@ export const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };

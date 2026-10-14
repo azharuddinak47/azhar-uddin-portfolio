@@ -14,9 +14,13 @@ interface PortfolioContextType {
   resetToDefault: () => void;
   exportConfigJson: () => void;
   hasCustomChanges: boolean;
+  theme: 'dark' | 'light';
+  toggleTheme: () => void;
+  setTheme: (theme: 'dark' | 'light') => void;
 }
 
 const STORAGE_KEY = 'azhar_portfolio_custom_data_v3';
+const THEME_KEY = 'azhar_portfolio_theme';
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);
 
@@ -24,12 +28,37 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
   const [data, setData] = useState<PortfolioData>(initialPortfolioData);
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const [hasCustomChanges, setHasCustomChanges] = useState<boolean>(false);
+  const [theme, setThemeState] = useState<'dark' | 'light'>('dark');
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
-  // Load saved customization from localStorage on mount
+  const applyTheme = (t: 'dark' | 'light') => {
+    if (typeof document === 'undefined') return;
+    const root = document.documentElement;
+    if (t === 'light') {
+      root.classList.remove('dark');
+      root.classList.add('light');
+      root.setAttribute('data-theme', 'light');
+      root.style.colorScheme = 'light';
+    } else {
+      root.classList.remove('light');
+      root.classList.add('dark');
+      root.setAttribute('data-theme', 'dark');
+      root.style.colorScheme = 'dark';
+    }
+  };
+
+  // Load saved customization and theme from localStorage on mount
   useEffect(() => {
     setIsMounted(true);
     try {
+      const savedTheme = localStorage.getItem(THEME_KEY) as 'dark' | 'light' | null;
+      if (savedTheme === 'dark' || savedTheme === 'light') {
+        setThemeState(savedTheme);
+        applyTheme(savedTheme);
+      } else {
+        applyTheme('dark');
+      }
+
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
@@ -61,12 +90,34 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  // Listen for keyboard shortcut "Ctrl + E" or "Shift + E" to toggle edit mode
+  const toggleTheme = () => {
+    setThemeState(prev => {
+      const next = prev === 'dark' ? 'light' : 'dark';
+      try {
+        localStorage.setItem(THEME_KEY, next);
+      } catch (e) {}
+      applyTheme(next);
+      return next;
+    });
+  };
+
+  const setTheme = (newTheme: 'dark' | 'light') => {
+    setThemeState(newTheme);
+    try {
+      localStorage.setItem(THEME_KEY, newTheme);
+    } catch (e) {}
+    applyTheme(newTheme);
+  };
+
+  // Listen for keyboard shortcuts "Ctrl + E" (edit mode) and "Alt + T" (theme toggle)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'e') {
         e.preventDefault();
         setIsEditMode(prev => !prev);
+      } else if (e.altKey && e.key.toLowerCase() === 't') {
+        e.preventDefault();
+        toggleTheme();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -135,7 +186,10 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
         updateField,
         resetToDefault,
         exportConfigJson,
-        hasCustomChanges
+        hasCustomChanges,
+        theme,
+        toggleTheme,
+        setTheme
       }}
     >
       {children}

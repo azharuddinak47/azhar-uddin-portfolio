@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, GraduationCap, Languages, Heart, ExternalLink, CheckCircle } from 'lucide-react';
+import { Award, GraduationCap } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import { SectionHeading } from '@/components/common/SectionHeading';
 
@@ -10,129 +10,107 @@ export const CredentialsSection = () => {
   const { data } = usePortfolio();
   const certifications = data?.certifications || [];
   const academics = data?.academics || [];
-  const profile = data?.profile || { languages: ['English', 'Bangla'], hobbies: ['Travel', 'Sports', 'Reading'] };
 
   return (
-    <section id="credentials" className="py-12 sm:py-16">
-      <SectionHeading
-        title="CERTIFICATIONS & EDUCATION"
-        subtitle="Professional credentials, academic degrees, and multidisciplinary capabilities."
-      />
+    <motion.section
+      id="credentials"
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+      className="flex flex-col py-2 scroll-mt-24 lg:scroll-mt-28 relative select-text"
+    >
+      <div>
+        <SectionHeading
+          title="CERTIFICATIONS & EDUCATION"
+          subtitle="Professional credentials, academic degrees, and multidisciplinary capabilities."
+          className="mb-4"
+        />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Certifications Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="p-6 sm:p-7 rounded-[28px] bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all flex flex-col justify-between"
-        >
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-[#1d6de3]/15 text-[#60a5fa] border border-[#1d6de3]/30 flex items-center justify-center">
-                <Award size={20} />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-white uppercase font-[family-name:var(--font-poppins)]">
-                  Certifications
-                </h3>
-                <span className="text-xs text-[#998f8f]">Verified Professional Credentials</span>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              {certifications.map((cert) => (
-                <div
-                  key={cert.id}
-                  className="p-4 rounded-2xl bg-[#131211] border border-white/5 space-y-1.5"
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="text-sm font-bold text-white leading-snug">
-                      {cert.title}
-                    </span>
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-[#1d6de3]/20 text-[#60a5fa] border border-[#1d6de3]/30 shrink-0">
-                      Verified
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs text-[#998f8f]">
-                    <span>{cert.issuer}</span>
-                    <span className="text-[#60a5fa] font-medium">{cert.date}</span>
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          {/* Certifications Card */}
+          <div className="p-5 sm:p-6 rounded-[24px] bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all flex flex-col justify-between shadow-[0_10px_25px_rgba(0,0,0,0.35)]">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#1d6de3]/15 text-[#60a5fa] border border-[#1d6de3]/30 flex items-center justify-center">
+                  <Award size={19} />
                 </div>
-              ))}
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-white uppercase font-[family-name:var(--font-poppins)]">
+                    Certifications
+                  </h3>
+                  <span className="text-[11px] text-[#998f8f]">Verified Professional Credentials</span>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {certifications.slice(0, 3).map((cert) => (
+                  <div
+                    key={cert.id}
+                    className="p-3.5 rounded-xl bg-[#131211] border border-white/5 space-y-1"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <span className="text-xs sm:text-sm font-bold text-white leading-snug">
+                        {cert.title}
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase bg-[#1d6de3]/20 text-[#60a5fa] border border-[#1d6de3]/30 shrink-0">
+                        Verified
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between text-[11px] text-[#998f8f]">
+                      <span>{cert.issuer}</span>
+                      <span className="text-[#60a5fa] font-medium">{cert.date}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-xs text-[#998f8f]">
-            <CheckCircle size={14} className="text-[#60a5fa]" />
-            <span>Covers Foundations of UX Design, Wireframing, Prototyping & Usability Testing</span>
-          </div>
-        </motion.div>
-
-        {/* Academics & Languages Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="p-6 sm:p-7 rounded-[28px] bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all flex flex-col justify-between"
-        >
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-[#1d6de3]/15 text-[#60a5fa] border border-[#1d6de3]/30 flex items-center justify-center">
-                <GraduationCap size={20} />
+          {/* Education Card */}
+          <div className="p-5 sm:p-6 rounded-[24px] bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all flex flex-col justify-between shadow-[0_10px_25px_rgba(0,0,0,0.35)]">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#1d6de3]/15 text-[#60a5fa] border border-[#1d6de3]/30 flex items-center justify-center">
+                  <GraduationCap size={19} />
+                </div>
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-white uppercase font-[family-name:var(--font-poppins)]">
+                    Education
+                  </h3>
+                  <span className="text-[11px] text-[#998f8f]">Academic Background & Degrees</span>
+                </div>
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-white uppercase font-[family-name:var(--font-poppins)]">
-                  Academics
-                </h3>
-                <span className="text-xs text-[#998f8f]">Formal Education</span>
-              </div>
-            </div>
 
-            <div className="space-y-3 mb-6">
-              {academics.map((acad) => (
-                <div
-                  key={acad.id}
-                  className="p-3.5 rounded-2xl bg-[#131211] border border-white/5 flex items-center justify-between gap-3"
-                >
-                  <div>
-                    <span className="text-xs font-bold text-white block">
-                      {acad.degree}
-                    </span>
-                    <span className="text-[11px] text-[#998f8f]">
-                      {acad.institution}
-                    </span>
+              <div className="space-y-3">
+                {academics.slice(0, 2).map((edu) => (
+                  <div
+                    key={edu.id}
+                    className="p-3.5 rounded-xl bg-[#131211] border border-white/5 space-y-1"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <span className="text-xs sm:text-sm font-bold text-white leading-snug">
+                        {edu.degree}
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase bg-white/10 text-neutral-300 shrink-0">
+                        Degree
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between text-[11px] text-[#998f8f]">
+                      <span>{edu.institution}</span>
+                      <span className="text-[#60a5fa] font-medium">{edu.period}</span>
+                    </div>
                   </div>
-                  <span className="text-xs font-semibold text-[#60a5fa] shrink-0">
-                    {acad.period}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Languages & Hobbies */}
-            <div className="grid grid-cols-2 gap-3 pt-3 border-t border-white/5 text-xs">
-              <div className="p-3 rounded-xl bg-[#131211]">
-                <div className="flex items-center gap-1.5 text-neutral-400 mb-1 font-semibold uppercase text-[10px]">
-                  <Languages size={12} className="text-[#60a5fa]" />
-                  <span>Languages</span>
-                </div>
-                <span className="font-bold text-white text-xs">{profile.languages.join(', ')}</span>
-              </div>
-
-              <div className="p-3 rounded-xl bg-[#131211]">
-                <div className="flex items-center gap-1.5 text-neutral-400 mb-1 font-semibold uppercase text-[10px]">
-                  <Heart size={12} className="text-[#f46c38]" />
-                  <span>Hobbies</span>
-                </div>
-                <span className="font-bold text-white text-xs">{profile.hobbies.join(', ')}</span>
+                ))}
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </section>
+
+      <div className="pt-4 text-center text-xs text-[#888888]">
+        Certified in advanced interaction design, usability engineering, and UX research
+      </div>
+    </motion.section>
   );
 };

@@ -12,6 +12,10 @@ export const initialPortfolioData: PortfolioData = {
     "phone": "+8801743484818",
     "behanceUrl": "https://www.behance.net/azharuddin-uiux",
     "linkedinUrl": "https://linkedin.com/in/azhar-uiux",
+    "dribbbleUrl": "https://dribbble.com",
+    "twitterUrl": "https://x.com",
+    "facebookUrl": "https://facebook.com",
+    "instagramUrl": "https://instagram.com",
     "statusBadge": "AVAILABLE FOR NEW PROJECTS & CONTRACTS",
     "isAvailable": true,
     "avatarUrl": "/assets/avatar.jpg",
@@ -45,13 +49,13 @@ export const initialPortfolioData: PortfolioData = {
   "stats": [
     {
       "id": "stat-1",
-      "value": "+2",
+      "value": "+3",
       "label": "YEARS OF",
       "sublabel": "EXPERIENCE"
     },
     {
       "id": "stat-2",
-      "value": "+50",
+      "value": "+60",
       "label": "PROJECTS",
       "sublabel": "COMPLETED"
     },

@@ -227,6 +227,21 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-1.5">
+                      Dribbble URL
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.profile.dribbbleUrl || ''}
+                      onChange={e => setFormData({
+                        ...formData,
+                        profile: { ...formData.profile, dribbbleUrl: e.target.value }
+                      })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-1.5">
                       Behance URL
                     </label>
                     <input
@@ -239,7 +254,41 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                       className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
                     />
                   </div>
+                </div>
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-1.5">
+                      Facebook URL
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.profile.facebookUrl || ''}
+                      onChange={e => setFormData({
+                        ...formData,
+                        profile: { ...formData.profile, facebookUrl: e.target.value }
+                      })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-1.5">
+                      Instagram URL
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.profile.instagramUrl || ''}
+                      onChange={e => setFormData({
+                        ...formData,
+                        profile: { ...formData.profile, instagramUrl: e.target.value }
+                      })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-1.5">
                       LinkedIn URL
@@ -250,6 +299,21 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                       onChange={e => setFormData({
                         ...formData,
                         profile: { ...formData.profile, linkedinUrl: e.target.value }
+                      })}
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-1.5">
+                      Twitter / X URL (Optional)
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.profile.twitterUrl || ''}
+                      onChange={e => setFormData({
+                        ...formData,
+                        profile: { ...formData.profile, twitterUrl: e.target.value }
                       })}
                       className="w-full px-4 py-2.5 rounded-xl bg-[#121110] border border-white/10 text-white text-sm focus:border-[#1d6de3] focus:outline-none"
                     />

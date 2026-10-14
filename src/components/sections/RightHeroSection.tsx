@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Layers, PanelsTopLeft, ArrowRight } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 
@@ -9,14 +9,29 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => v
   const { data } = usePortfolio();
   const { profile, stats } = data;
 
+  // Scroll-linked fade: as user scrolls down, hero headline text smoothly fades out before going under the navbar
+  const { scrollY } = useScroll();
+  const headlineOpacity = useTransform(scrollY, [0, 220], [1, 0]);
+  const headlineY = useTransform(scrollY, [0, 220], [0, -30]);
+
   // Intelligently format headline: Line 1 = Solid White, Line 2 = Solid Dark Charcoal
   const solidPart = profile.heroHeadline || 'PRODUCT';
   const mutedPart = profile.heroHeadlineHollow || 'DESIGNER';
 
   return (
-    <section id="home" className="flex flex-col gap-10 pt-2 sm:pt-4">
-      {/* Huge Display Headline matching Sawad Framer screenshot */}
-      <div className="flex flex-col items-start leading-[0.88] select-text">
+    <motion.section
+      id="home"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+      className="flex flex-col justify-between min-h-0 lg:h-[682px] lg:min-h-[682px] pt-4 lg:pt-1 scroll-mt-24 lg:scroll-mt-28 relative select-text"
+    >
+      {/* Huge Display Headline matching Sawad Framer screenshot — fades on scroll */}
+      <motion.div
+        style={{ opacity: headlineOpacity, y: headlineY }}
+        className="flex flex-col items-start leading-[0.88] select-text"
+      >
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,8 +43,8 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => v
             {solidPart}
           </span>
 
-          {/* Line 2: Solid Dark Charcoal */}
-          <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[90px] font-black text-[#262422] hover:text-[#383533] transition-colors duration-300 leading-[0.88] select-text cursor-text">
+          {/* Line 2: Neon Light Only Stroke Mode */}
+          <span className="neon-stroke text-5xl sm:text-7xl md:text-8xl lg:text-[90px] font-black leading-[0.88] select-text cursor-text mt-1 sm:mt-1.5">
             {mutedPart}
           </span>
         </motion.h1>
@@ -44,7 +59,7 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => v
           {profile.subHeadline ||
             'Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products.'}
         </motion.p>
-      </div>
+      </motion.div>
 
       {/* 3 Stats Numbers Row (Clean horizontal numbers matching screenshot) */}
       <motion.div
@@ -152,6 +167,6 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => v
           </div>
         </a>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };

@@ -80,6 +80,10 @@ export interface ProfileConfig {
   phone: string;
   behanceUrl: string;
   linkedinUrl: string;
+  dribbbleUrl?: string;
+  twitterUrl?: string;
+  facebookUrl?: string;
+  instagramUrl?: string;
   statusBadge: string;
   isAvailable: boolean;
   avatarUrl: string;

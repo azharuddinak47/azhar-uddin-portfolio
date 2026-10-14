@@ -47,8 +47,12 @@ export const metadata: Metadata = {
     images: ['/assets/og_image.png'],
   },
   icons: {
-    icon: '/assets/logo.png',
-    apple: '/assets/logo.png',
+    icon: [
+      { url: '/assets/avatar.jpg', type: 'image/jpeg' },
+      { url: '/favicon.ico' },
+    ],
+    shortcut: '/assets/avatar.jpg',
+    apple: '/assets/avatar.jpg',
   },
 };
 
@@ -64,8 +68,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
-      <body className="bg-[#131211] text-[#ffffff] min-h-screen selection:bg-[#1d6de3] selection:text-white">
+    <html lang="en" suppressHydrationWarning className={`dark ${poppins.variable} ${inter.variable}`} data-theme="dark">
+      <head>
+        <link rel="icon" href="/assets/avatar.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/assets/avatar.jpg" />
+      </head>
+      <body className="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen selection:bg-[#1d6de3] selection:text-white transition-colors duration-300">
         <PortfolioProvider>
           {children}
         </PortfolioProvider>

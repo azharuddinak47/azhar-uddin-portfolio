@@ -15,6 +15,8 @@ import { ProjectModal } from '@/components/modals/ProjectModal';
 import { ArticleModal } from '@/components/modals/ArticleModal';
 import { EditPortfolioModal } from '@/components/modals/EditPortfolioModal';
 import { CustomCursor } from '@/components/ui/CustomCursor';
+import { PullRopeSwitch } from '@/components/ui/PullRopeSwitch';
+import { SmoothScroll } from '@/components/common/SmoothScroll';
 import { ProjectItem, ThoughtItem } from '@/types/portfolio';
 import { usePortfolio } from '@/context/PortfolioContext';
 import { Edit3 } from 'lucide-react';
@@ -26,21 +28,31 @@ export default function Home() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   return (
-    <div className={`relative min-h-screen bg-[#131211] text-white selection:bg-[#1d6de3] selection:text-white ${isEditMode ? 'edit-active' : ''}`}>
-      {/* Precision Custom Cursor */}
-      <CustomCursor />
+    <SmoothScroll>
+      <div className={`relative min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] selection:bg-[#1d6de3] selection:text-white transition-colors duration-300 ${isEditMode ? 'edit-active' : ''}`}>
+        {/* Precision Custom Cursor */}
+        <CustomCursor />
 
-      {/* Floating Navigation Bar */}
-      <Navbar onOpenEditModal={() => setIsEditModalOpen(true)} />
+        {/* Interactive Ceiling Pull-Rope Theme Switch */}
+        <PullRopeSwitch />
 
-      {/* Two-Column Master Layout matching Sawad Framer */}
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-28 sm:pt-36 pb-20">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start w-full">
-          {/* Left Column: Sticky Profile Card */}
-          <SidebarProfileCard onOpenEditModal={() => setIsEditModalOpen(true)} />
+        {/* Floating Navigation Bar */}
+        <Navbar onOpenEditModal={() => setIsEditModalOpen(true)} />
 
-          {/* Right Column: Scrollable Feed */}
-          <main className="flex-1 w-full min-w-0 flex flex-col gap-16 sm:gap-24 overflow-hidden">
+        {/* Top viewport scroll fade mask: smoothly dissolves text and objects as they scroll up under the navbar */}
+        <div
+          aria-hidden="true"
+          className="fixed top-0 left-0 right-0 h-32 sm:h-40 pointer-events-none z-30 bg-gradient-to-b from-[var(--bg-primary)] via-[var(--bg-primary)]/75 to-transparent transition-colors duration-300"
+        />
+
+        {/* Two-Column Master Layout matching Sawad Framer */}
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-28 sm:pt-36 pb-20">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start w-full">
+            {/* Left Column: Sticky Profile Card */}
+            <SidebarProfileCard onOpenEditModal={() => setIsEditModalOpen(true)} />
+
+            {/* Right Column: Scrollable Feed */}
+            <main className="flex-1 w-full min-w-0 flex flex-col gap-28 sm:gap-36 lg:gap-40">
             {/* Hero Section */}
             <RightHeroSection onOpenEditModal={() => setIsEditModalOpen(true)} />
 
@@ -110,5 +122,6 @@ export default function Home() {
         </button>
       </div>
     </div>
+    </SmoothScroll>
   );
 }

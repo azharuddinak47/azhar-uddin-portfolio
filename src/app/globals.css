@@ -32,14 +32,50 @@
   --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Light Mode Theme Tokens */
+html.light,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-primary: #f6f5f3;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #faf9f6;
+  --bg-card-subtle: #f0eee9;
+  
+  --accent-primary: #1d6de3;
+  --accent-primary-light: #2563eb;
+  --accent-primary-dim: rgba(29, 109, 227, 0.08);
+  --accent-primary-glow: rgba(29, 109, 227, 0.2);
+
+  --accent-lime: #1d6de3;
+  --accent-lime-dim: rgba(29, 109, 227, 0.08);
+  --accent-lime-glow: rgba(29, 109, 227, 0.2);
+  
+  --accent-orange: #f46c38;
+  --accent-orange-dim: rgba(244, 108, 56, 0.12);
+  
+  --text-primary: #151413;
+  --text-secondary: #57534e;
+  --text-muted: #847e77;
+  
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --border-lime: rgba(29, 109, 227, 0.35);
+}
+
 html {
-  scroll-behavior: smooth;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color-scheme: dark;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.light {
+  color-scheme: light;
 }
 
 /* Universal text selection & interaction fixes */
@@ -230,3 +266,320 @@ h1, h2, h3, h4, h5, h6 {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* =========================================================
+   TUBELIGHT NEON STROKE EFFECT (ONLY STROKE, PURE NEON LIGHT)
+   ========================================================= */
+.tubelight-stroke,
+.neon-stroke {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 1.8px #60a5fa;
+  text-shadow: none !important;
+  filter: 
+    drop-shadow(0 0 1px #ffffff)
+    drop-shadow(0 0 4px #38bdf8)
+    drop-shadow(0 0 12px #1d6de3)
+    drop-shadow(0 0 28px rgba(29, 109, 227, 0.65));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  letter-spacing: -0.015em;
+  user-select: text;
+}
+
+.tubelight-stroke:hover,
+.neon-stroke:hover {
+  -webkit-text-stroke: 2px #93c5fd;
+  filter: 
+    drop-shadow(0 0 2px #ffffff)
+    drop-shadow(0 0 6px #38bdf8)
+    drop-shadow(0 0 18px #1d6de3)
+    drop-shadow(0 0 38px rgba(29, 109, 227, 0.85));
+  transform: translateY(-1px);
+}
+
+/* Light mode adaptation for pure neon stroke */
+html.light .tubelight-stroke,
+html.light .neon-stroke {
+  -webkit-text-stroke: 1.8px #1d6de3;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: none !important;
+  filter: 
+    drop-shadow(0 0 1px #1d6de3)
+    drop-shadow(0 0 6px rgba(29, 109, 227, 0.55))
+    drop-shadow(0 0 18px rgba(29, 109, 227, 0.3));
+}
+
+html.light .tubelight-stroke:hover,
+html.light .neon-stroke:hover {
+  -webkit-text-stroke: 2.2px #1553a0;
+  filter: 
+    drop-shadow(0 0 2px #1d6de3)
+    drop-shadow(0 0 10px rgba(29, 109, 227, 0.75))
+    drop-shadow(0 0 24px rgba(29, 109, 227, 0.45));
+}
+
+/* =========================================================
+   LIGHT MODE ADAPTIVE STYLES
+   ========================================================= */
+html.light body {
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(29, 109, 227, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 85% 60%, rgba(244, 108, 56, 0.04), transparent);
+  color: var(--text-primary);
+}
+
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: var(--text-primary);
+}
+
+/* Background overrides for Light Mode */
+html.light .bg-\[\#131211\] {
+  background-color: var(--bg-primary) !important;
+}
+
+html.light .bg-\[\#131211\]\/80 {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+}
+
+html.light .bg-\[\#181715\] {
+  background-color: var(--bg-secondary) !important;
+}
+
+html.light .bg-\[\#181715\]\/90 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+html.light .bg-\[\#1c1b18\] {
+  background-color: var(--bg-card) !important;
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+html.light .bg-\[\#181716\] {
+  background-color: var(--bg-card-subtle) !important;
+}
+
+html.light .bg-\[\#151413\] {
+  background-color: #edeae3 !important;
+}
+
+html.light .bg-\[\#100f0e\] {
+  background-color: #eae7e0 !important;
+}
+
+html.light .bg-\[\#161d27\] {
+  background-color: #eff6ff !important;
+}
+
+html.light .hover\:bg-\[\#23211e\]:hover,
+html.light .hover\:bg-\[\#1f1e1b\]:hover,
+html.light .hover\:bg-\[\#252320\]:hover,
+html.light .hover\:bg-\[\#201f1c\]:hover {
+  background-color: #f7f5f0 !important;
+}
+
+/* Text overrides in Light Mode */
+html.light .text-white {
+  color: var(--text-primary) !important;
+}
+
+html.light .text-\[\#ffffff\] {
+  color: var(--text-primary) !important;
+}
+
+html.light .text-\[\#998f8f\] {
+  color: var(--text-secondary) !important;
+}
+
+html.light .text-neutral-400 {
+  color: var(--text-secondary) !important;
+}
+
+html.light .text-neutral-300 {
+  color: #374151 !important;
+}
+
+html.light .text-neutral-500 {
+  color: var(--text-muted) !important;
+}
+
+/* Elements that must always retain white text */
+html.light .bg-\[\#1d6de3\],
+html.light .bg-\[\#1d6de3\] *,
+html.light .bg-\[\#2563eb\],
+html.light .bg-\[\#2563eb\] *,
+html.light .bg-\[\#f46c38\],
+html.light .bg-\[\#f46c38\] *,
+html.light .bg-\[\#eb5e28\],
+html.light .bg-\[\#eb5e28\] *,
+html.light .bg-black,
+html.light .bg-black *,
+html.light .bg-\[\#111111\],
+html.light .bg-\[\#111111\] *,
+html.light .bg-\[\#242220\],
+html.light .bg-\[\#242220\] * {
+  color: #ffffff !important;
+}
+
+/* Light mode form input controls */
+html.light input:not([type="submit"]):not([type="button"]),
+html.light textarea,
+html.light select {
+  background-color: #ffffff !important;
+  color: #151413 !important;
+  border-color: #d1d5db !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+html.light input:not([type="submit"]):not([type="button"]):focus,
+html.light textarea:focus,
+html.light select:focus {
+  border-color: #1d6de3 !important;
+  box-shadow: 0 0 0 3px rgba(29, 109, 227, 0.15) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+html.light .bg-\[\#262422\] {
+  background-color: #ffffff !important;
+  color: #151413 !important;
+  border-color: #d1d5db !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+html.light .bg-\[\#201e1c\] {
+  background-color: #ffffff !important;
+  color: #151413 !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light .bg-\[\#1c1a18\] {
+  background-color: #ffffff !important;
+  color: #151413 !important;
+  border-color: #e5e7eb !important;
+}
+
+/* Light mode borders */
+html.light .border-white\/5,
+html.light .border-white\/8,
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20 {
+  border-color: var(--border-subtle) !important;
+}
+
+html.light .border-white\/25,
+html.light .border-white\/30 {
+  border-color: var(--border-strong) !important;
+}
+
+html.light .hover\:border-white\/20:hover {
+  border-color: var(--border-strong) !important;
+}
+
+/* Light mode Glass Panels */
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light .glass-nav {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(0, 0, 0, 0.09) !important;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .framer-card {
+  background: var(--bg-card);
+  border-color: var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+html.light .framer-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-strong);
+  box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.12), 0 0 20px -8px var(--accent-lime-dim);
+}
+
+/* Light mode tooltips */
+html.light .bg-\[\#242220\] {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+html.light .bg-\[\#242220\] * {
+  color: #ffffff !important;
+}
+
+/* Light mode scrollbar */
+html.light ::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #d4d0c8;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #b8b4ac;
+}
+
+/* Modal Close Buttons */
+.modal-close-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html.light .modal-close-btn-light {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: #171717 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+html.light .modal-close-btn-light svg {
+  color: #171717 !important;
+}
+
+html.light .modal-close-btn-light:hover {
+  background-color: #1d6de3 !important;
+  border-color: #1d6de3 !important;
+  color: #ffffff !important;
+}
+
+html.light .modal-close-btn-light:hover svg {
+  color: #ffffff !important;
+}
+
+/* Lenis Smooth Scroll Styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+
