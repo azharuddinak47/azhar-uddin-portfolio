@@ -478,6 +478,37 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                         </div>
                       </div>
 
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[11px] text-neutral-400 mb-1">Behance / Case Study URL</label>
+                          <input
+                            type="text"
+                            value={proj.link || ''}
+                            onChange={e => {
+                              const updated = [...formData.projects];
+                              updated[pIdx].link = e.target.value;
+                              setFormData({ ...formData, projects: updated });
+                            }}
+                            placeholder="https://www.behance.net/gallery/..."
+                            className="w-full px-3 py-1.5 rounded-lg bg-black border border-white/10 text-white text-xs"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[11px] text-neutral-400 mb-1">Direct Figma Link URL</label>
+                          <input
+                            type="text"
+                            value={proj.figmaLink || ''}
+                            onChange={e => {
+                              const updated = [...formData.projects];
+                              updated[pIdx].figmaLink = e.target.value;
+                              setFormData({ ...formData, projects: updated });
+                            }}
+                            placeholder="https://www.figma.com/design/..."
+                            className="w-full px-3 py-1.5 rounded-lg bg-black border border-white/10 text-white text-xs"
+                          />
+                        </div>
+                      </div>
+
                       <div>
                         <label className="block text-[11px] text-neutral-400 mb-1">Description</label>
                         <textarea
