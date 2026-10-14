@@ -40,7 +40,7 @@ export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
         if (targetElement) {
           e.preventDefault();
           lenis.scrollTo(targetElement as HTMLElement, {
-            offset: -96,
+            offset: -112,
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           });

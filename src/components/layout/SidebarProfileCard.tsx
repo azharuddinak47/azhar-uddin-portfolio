@@ -43,7 +43,7 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal?: () =
   const cardDescription = profile.subHeadline || 'A Product Designer who has crafted intuitive and impactful digital solutions.';
 
   return (
-    <aside className="w-full lg:w-[350px] shrink-0 static lg:sticky lg:top-24 lg:self-start z-20">
+    <aside className="w-full lg:w-[350px] shrink-0 static lg:sticky lg:top-28 lg:self-start z-40">
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
