@@ -7,7 +7,8 @@ import { usePortfolio } from '@/context/PortfolioContext';
 import { SectionHeading } from '@/components/common/SectionHeading';
 
 export const ExperienceSection = () => {
-  const { data } = usePortfolio();
+  const { data, theme } = usePortfolio();
+  const isDark = theme === 'dark';
   const [expandedId, setExpandedId] = useState<string | null>(data.experiences[0]?.id || null);
 
   const toggleExpand = (id: string) => {
@@ -43,16 +44,22 @@ export const ExperienceSection = () => {
                 viewport={{ once: false, amount: 0.15 }}
                 transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => toggleExpand(exp.id)}
-                className={`group cursor-pointer rounded-[22px] bg-[#1c1b18] border transition-all duration-300 p-5 sm:p-6 ${
-                  isExpanded
-                    ? 'border-[#1d6de3]/50 bg-[#161d27] shadow-[0_12px_30px_rgba(0,0,0,0.5),0_0_20px_rgba(29,109,227,0.12)]'
-                    : 'border-white/8 hover:border-white/20 hover:bg-[#1f1e1b]'
+                className={`group cursor-pointer rounded-[22px] border transition-all duration-300 p-5 sm:p-6 ${
+                  isDark
+                    ? isExpanded
+                      ? 'border-[#1d6de3]/50 bg-[#161d27] shadow-[0_12px_30px_rgba(0,0,0,0.5),0_0_20px_rgba(29,109,227,0.12)]'
+                      : 'border-white/8 hover:border-white/20 bg-[#1c1b18] hover:bg-[#1f1e1b]'
+                    : isExpanded
+                      ? 'border-[#1d6de3]/40 bg-[#f0f7ff] shadow-[0_8px_25px_rgba(29,109,227,0.08)]'
+                      : 'border-black/7 hover:border-black/15 bg-white hover:bg-[#fcfcfd] shadow-sm'
                 }`}
               >
                 {/* Header row */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                   <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-xl bg-[#131211] border border-white/10 flex items-center justify-center text-[#3b82f6] shrink-0 group-hover:border-[#1d6de3]/40 transition-colors overflow-hidden p-1">
+                    <div className={`w-11 h-11 rounded-xl border flex items-center justify-center text-[#3b82f6] shrink-0 group-hover:border-[#1d6de3]/40 transition-colors overflow-hidden p-1 ${
+                      isDark ? 'bg-[#131211] border-white/10' : 'bg-[#f1f3f5] border-black/8'
+                    }`}>
                       {exp.logo ? (
                         <img
                           src={exp.logo}
@@ -66,7 +73,9 @@ export const ExperienceSection = () => {
 
                     <div>
                       <div className="flex items-center gap-2.5 flex-wrap">
-                        <h3 className="text-lg sm:text-xl font-black text-white uppercase font-[family-name:var(--font-poppins)] tracking-tight group-hover:text-[#60a5fa] transition-colors">
+                        <h3 className={`text-lg sm:text-xl font-black uppercase font-[family-name:var(--font-poppins)] tracking-tight transition-colors ${
+                          isDark ? 'text-white group-hover:text-[#60a5fa]' : 'text-neutral-900 group-hover:text-[#1d6de3]'
+                        }`}>
                           {exp.company}
                         </h3>
                         {index === 0 && (
@@ -75,7 +84,7 @@ export const ExperienceSection = () => {
                           </span>
                         )}
                       </div>
-                      <p className="text-xs sm:text-sm font-medium text-neutral-300">
+                      <p className={`text-xs sm:text-sm font-medium ${isDark ? 'text-neutral-300' : 'text-neutral-600'}`}>
                         {exp.role}
                       </p>
                     </div>
@@ -83,19 +92,23 @@ export const ExperienceSection = () => {
 
                   {/* Period Badge & Expand Trigger */}
                   <div className="flex items-center justify-between sm:justify-end gap-2.5 shrink-0">
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#131211] border border-white/5 text-[11px] font-semibold text-[#998f8f]">
+                    <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold ${
+                      isDark ? 'bg-[#131211] border border-white/5 text-[#998f8f]' : 'bg-[#f1f3f5] border border-black/5 text-neutral-600'
+                    }`}>
                       <Calendar size={12} className="text-[#3b82f6]" />
                       <span>{exp.period}</span>
                     </div>
 
-                    <div className={`p-1.5 rounded-full bg-white/5 text-neutral-400 group-hover:text-white transition-transform duration-300 ${isExpanded ? 'rotate-90 text-[#3b82f6]' : ''}`}>
+                    <div className={`p-1.5 rounded-full transition-transform duration-300 ${
+                      isDark ? 'bg-white/5 text-neutral-400 group-hover:text-white' : 'bg-black/5 text-neutral-600 group-hover:text-neutral-950'
+                    } ${isExpanded ? 'rotate-90 text-[#3b82f6]' : ''}`}>
                       <ChevronRight size={14} />
                     </div>
                   </div>
                 </div>
 
                 {/* Description Body */}
-                <p className="mt-3 text-xs sm:text-sm text-[#998f8f] leading-relaxed">
+                <p className={`mt-3 text-xs sm:text-sm leading-relaxed ${isDark ? 'text-[#998f8f]' : 'text-neutral-600'}`}>
                   {exp.description}
                 </p>
 
@@ -106,14 +119,16 @@ export const ExperienceSection = () => {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.25 }}
-                    className="mt-3.5 pt-3.5 border-t border-white/5 flex flex-col gap-2"
+                    className={`mt-3.5 pt-3.5 border-t flex flex-col gap-2 ${
+                      isDark ? 'border-white/5' : 'border-black/6'
+                    }`}
                   >
-                    <span className="text-[10px] font-bold tracking-wider uppercase text-neutral-400">
+                    <span className={`text-[10px] font-bold tracking-wider uppercase ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>
                       Key Highlights:
                     </span>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-0.5">
                       {exp.highlights.map((h, hIdx) => (
-                        <div key={hIdx} className="flex items-start gap-2 text-xs text-neutral-300">
+                        <div key={hIdx} className={`flex items-start gap-2 text-xs ${isDark ? 'text-neutral-300' : 'text-neutral-700'}`}>
                           <CheckCircle2 size={14} className="text-[#3b82f6] shrink-0 mt-0.5" />
                           <span>{h}</span>
                         </div>

@@ -7,7 +7,8 @@ import { usePortfolio } from '@/context/PortfolioContext';
 import { SectionHeading } from '@/components/common/SectionHeading';
 
 export const CredentialsSection = () => {
-  const { data } = usePortfolio();
+  const { data, theme } = usePortfolio();
+  const isDark = theme === 'dark';
   const certifications = data?.certifications || [];
   const academics = data?.academics || [];
 
@@ -29,10 +30,18 @@ export const CredentialsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
           {/* Certifications Card matching Reference Screenshot */}
-          <div className="p-5 sm:p-6 rounded-[24px] bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all flex flex-col justify-between shadow-[0_10px_25px_rgba(0,0,0,0.35)]">
+          <div className={`p-5 sm:p-6 rounded-[24px] border transition-all flex flex-col justify-between ${
+            isDark
+              ? 'bg-[#1c1b18] border-white/8 hover:border-[#1d6de3]/45 shadow-[0_10px_25px_rgba(0,0,0,0.35)]'
+              : 'bg-white border-black/7 hover:border-[#1d6de3]/40 shadow-sm hover:shadow-md'
+          }`}>
             <div>
-              <div className="flex items-center justify-between gap-3 mb-5 pb-3 border-b border-white/5">
-                <h3 className="text-base sm:text-lg font-bold text-white font-[family-name:var(--font-poppins)]">
+              <div className={`flex items-center justify-between gap-3 mb-5 pb-3 border-b ${
+                isDark ? 'border-white/5' : 'border-black/6'
+              }`}>
+                <h3 className={`text-base sm:text-lg font-bold font-[family-name:var(--font-poppins)] ${
+                  isDark ? 'text-white' : 'text-neutral-900'
+                }`}>
                   Licenses & certifications
                 </h3>
                 <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#1d6de3]/15 text-[#60a5fa] border border-[#1d6de3]/30">
@@ -91,16 +100,24 @@ export const CredentialsSection = () => {
                   href="https://www.coursera.org/account/accomplishments/verify/G6LRKUOR1MSY"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-2.5 rounded-xl bg-[#11181F] hover:bg-[#16222c] border border-white/10 hover:border-[#1d6de3]/40 transition-all group mt-2"
+                  className={`flex items-center gap-3 p-2.5 rounded-xl border transition-all group mt-2 ${
+                    isDark
+                      ? 'bg-[#11181F] hover:bg-[#16222c] border-white/10 hover:border-[#1d6de3]/40'
+                      : 'bg-[#f8f9fa] hover:bg-[#f1f3f5] border-black/8 hover:border-[#1d6de3]/40 shadow-xs'
+                  }`}
                 >
-                  <div className="w-24 h-15 rounded-lg overflow-hidden bg-white shrink-0 border border-white/15">
+                  <div className={`w-24 h-15 rounded-lg overflow-hidden bg-white shrink-0 border ${
+                    isDark ? 'border-white/15' : 'border-black/10 shadow-xs'
+                  }`}>
                     <img
                       src="/assets/google_cert.png"
                       alt="Google UX Design Certificate Preview"
                       className="w-full h-full object-cover object-left group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#60a5fa] transition-colors leading-snug">
+                  <span className={`text-xs sm:text-sm font-semibold transition-colors leading-snug ${
+                    isDark ? 'text-white group-hover:text-[#60a5fa]' : 'text-neutral-900 group-hover:text-[#1d6de3]'
+                  }`}>
                     Google UX Design Professional Certificate
                   </span>
                 </a>
@@ -109,17 +126,23 @@ export const CredentialsSection = () => {
           </div>
 
           {/* Education Card */}
-          <div className="p-5 sm:p-6 rounded-[24px] bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all flex flex-col justify-between shadow-[0_10px_25px_rgba(0,0,0,0.35)]">
+          <div className={`p-5 sm:p-6 rounded-[24px] border transition-all flex flex-col justify-between ${
+            isDark
+              ? 'bg-[#1c1b18] border-white/8 hover:border-[#1d6de3]/45 shadow-[0_10px_25px_rgba(0,0,0,0.35)]'
+              : 'bg-white border-black/7 hover:border-[#1d6de3]/40 shadow-sm hover:shadow-md'
+          }`}>
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#1d6de3]/15 text-[#60a5fa] border border-[#1d6de3]/30 flex items-center justify-center">
                   <GraduationCap size={19} />
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-white uppercase font-[family-name:var(--font-poppins)]">
+                  <h3 className={`text-base sm:text-lg font-bold uppercase font-[family-name:var(--font-poppins)] ${
+                    isDark ? 'text-white' : 'text-neutral-900'
+                  }`}>
                     Education
                   </h3>
-                  <span className="text-[11px] text-[#998f8f]">Academic Background & Degrees</span>
+                  <span className={`text-[11px] ${isDark ? 'text-[#998f8f]' : 'text-neutral-500'}`}>Academic Background & Degrees</span>
                 </div>
               </div>
 
@@ -127,13 +150,19 @@ export const CredentialsSection = () => {
                 {academics.slice(0, 2).map((edu) => (
                   <div
                     key={edu.id}
-                    className="p-3.5 rounded-xl bg-[#131211] border border-white/5 space-y-1"
+                    className={`p-3.5 rounded-xl border space-y-1 transition-colors ${
+                      isDark ? 'bg-[#131211] border-white/5' : 'bg-[#f8f9fa] border-black/6'
+                    }`}
                   >
                     <div className="flex items-start justify-between gap-2">
-                      <span className="text-xs sm:text-sm font-bold text-white leading-snug">
+                      <span className={`text-xs sm:text-sm font-bold leading-snug ${
+                        isDark ? 'text-white' : 'text-neutral-900'
+                      }`}>
                         {edu.degree}
                       </span>
-                      <span className="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase bg-white/10 text-neutral-300 shrink-0">
+                      <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold uppercase shrink-0 ${
+                        isDark ? 'bg-white/10 text-neutral-300' : 'bg-black/5 text-neutral-700 border border-black/5'
+                      }`}>
                         Degree
                       </span>
                     </div>

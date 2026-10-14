@@ -164,7 +164,7 @@ export const ContactSection = () => {
                     className={`w-full px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl border text-sm sm:text-base outline-none transition-all select-text ${
                       isDark
                         ? 'bg-[#262422] border-white/10 text-white placeholder-[#6a6b6e] focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/20 shadow-xs'
-                        : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-sm hover:border-neutral-400'
+                        : 'bg-white border-black/10 text-neutral-900 placeholder-neutral-400 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:border-black/20'
                     }`}
                   />
                 </div>
@@ -189,7 +189,7 @@ export const ContactSection = () => {
                     className={`w-full px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl border text-sm sm:text-base outline-none transition-all select-text ${
                       isDark
                         ? 'bg-[#262422] border-white/10 text-white placeholder-[#6a6b6e] focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/20 shadow-xs'
-                        : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-sm hover:border-neutral-400'
+                        : 'bg-white border-black/10 text-neutral-900 placeholder-neutral-400 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:border-black/20'
                     }`}
                   />
                 </div>
@@ -213,7 +213,7 @@ export const ContactSection = () => {
                     className={`w-full px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl border text-left text-sm sm:text-base outline-none transition-all flex items-center justify-between cursor-pointer ${
                       isDark
                         ? 'bg-[#262422] border-white/10 text-white hover:border-white/20 focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/20 shadow-xs'
-                        : 'bg-white border-neutral-300 text-neutral-900 hover:border-neutral-400 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-sm'
+                        : 'bg-white border-black/10 text-neutral-900 hover:border-black/20 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-[0_1px_3px_rgba(0,0,0,0.04)]'
                     }`}
                   >
                     <span
@@ -243,7 +243,7 @@ export const ContactSection = () => {
                         className={`absolute top-full left-0 right-0 mt-2 p-1.5 rounded-xl border z-50 flex flex-col gap-1 backdrop-blur-xl ${
                           isDark
                             ? 'bg-[#201e1c] border-white/10 shadow-[0_15px_35px_rgba(0,0,0,0.85)]'
-                            : 'bg-white border-neutral-200 shadow-[0_15px_35px_rgba(0,0,0,0.12)]'
+                            : 'bg-white border-black/10 shadow-[0_12px_32px_rgba(0,0,0,0.08)]'
                         }`}
                       >
                         {BUDGET_OPTIONS.map((opt) => {
@@ -261,7 +261,7 @@ export const ContactSection = () => {
                                   ? 'bg-[#1d6de3] text-white font-semibold shadow-sm'
                                   : isDark
                                   ? 'text-neutral-200 hover:bg-[#2c2a27] hover:text-white'
-                                  : 'text-neutral-800 hover:bg-neutral-100 hover:text-neutral-950'
+                                  : 'text-neutral-800 hover:bg-[#f1f3f5] hover:text-neutral-950'
                               }`}
                             >
                               <span>{opt}</span>
@@ -296,7 +296,7 @@ export const ContactSection = () => {
                   className={`w-full px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl border text-sm sm:text-base outline-none transition-all min-h-[95px] resize-none select-text ${
                     isDark
                       ? 'bg-[#262422] border-white/10 text-white placeholder-[#6a6b6e] focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/20 shadow-xs'
-                      : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-sm hover:border-neutral-400'
+                      : 'bg-white border-black/10 text-neutral-900 placeholder-neutral-400 focus:border-[#1d6de3] focus:ring-4 focus:ring-[#1d6de3]/15 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:border-black/20'
                   }`}
                 />
               </div>

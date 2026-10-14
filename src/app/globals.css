@@ -37,11 +37,11 @@ html.light,
 [data-theme="light"] {
   color-scheme: light;
 
-  --bg-primary: #f6f5f3;
+  --bg-primary: #f8f9fa;
   --bg-secondary: #ffffff;
   --bg-card: #ffffff;
-  --bg-card-hover: #faf9f6;
-  --bg-card-subtle: #f0eee9;
+  --bg-card-hover: #fcfcfd;
+  --bg-card-subtle: #f1f3f5;
   
   --accent-primary: #1d6de3;
   --accent-primary-light: #2563eb;
@@ -55,12 +55,12 @@ html.light,
   --accent-orange: #f46c38;
   --accent-orange-dim: rgba(244, 108, 56, 0.12);
   
-  --text-primary: #151413;
-  --text-secondary: #57534e;
-  --text-muted: #847e77;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
   
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(0, 0, 0, 0.16);
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-strong: rgba(0, 0, 0, 0.12);
   --border-lime: rgba(29, 109, 227, 0.35);
 }
 
@@ -355,7 +355,7 @@ html.light h6 {
 
 /* Background overrides for Light Mode */
 html.light .bg-\[\#131211\] {
-  background-color: var(--bg-primary) !important;
+  background-color: #f1f3f5 !important;
 }
 
 html.light .bg-\[\#131211\]\/80 {
@@ -363,39 +363,53 @@ html.light .bg-\[\#131211\]\/80 {
 }
 
 html.light .bg-\[\#181715\] {
-  background-color: var(--bg-secondary) !important;
+  background-color: #ffffff !important;
 }
 
 html.light .bg-\[\#181715\]\/90 {
-  background-color: rgba(255, 255, 255, 0.92) !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
 html.light .bg-\[\#1c1b18\] {
-  background-color: var(--bg-card) !important;
-  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.07) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02) !important;
 }
 
 html.light .bg-\[\#181716\] {
-  background-color: var(--bg-card-subtle) !important;
+  background-color: #f8f9fa !important;
 }
 
 html.light .bg-\[\#151413\] {
-  background-color: #edeae3 !important;
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
 }
 
 html.light .bg-\[\#100f0e\] {
-  background-color: #eae7e0 !important;
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.07) !important;
 }
 
 html.light .bg-\[\#161d27\] {
-  background-color: #eff6ff !important;
+  background-color: #f0f7ff !important;
+  border-color: rgba(29, 109, 227, 0.25) !important;
+}
+
+html.light .bg-\[\#11181F\] {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .hover\:bg-\[\#16222c\]:hover {
+  background-color: #f8fafc !important;
 }
 
 html.light .hover\:bg-\[\#23211e\]:hover,
 html.light .hover\:bg-\[\#1f1e1b\]:hover,
 html.light .hover\:bg-\[\#252320\]:hover,
 html.light .hover\:bg-\[\#201f1c\]:hover {
-  background-color: #f7f5f0 !important;
+  background-color: #f8f9fa !important;
 }
 
 /* Text overrides in Light Mode */
@@ -448,14 +462,15 @@ html.light input:not([type="submit"]):not([type="button"]),
 html.light textarea,
 html.light select {
   background-color: #ffffff !important;
-  color: #151413 !important;
-  border-color: #d1d5db !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  color: #111827 !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
 }
 
 html.light input:not([type="submit"]):not([type="button"]):focus,
 html.light textarea:focus,
 html.light select:focus {
+  background-color: #ffffff !important;
   border-color: #1d6de3 !important;
   box-shadow: 0 0 0 3px rgba(29, 109, 227, 0.15) !important;
 }
@@ -467,22 +482,28 @@ html.light textarea::placeholder {
 
 html.light .bg-\[\#262422\] {
   background-color: #ffffff !important;
-  color: #151413 !important;
-  border-color: #d1d5db !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  color: #111827 !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
 }
 
 html.light .bg-\[\#201e1c\] {
   background-color: #ffffff !important;
-  color: #151413 !important;
-  border-color: #e5e7eb !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  color: #111827 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
 }
 
 html.light .bg-\[\#1c1a18\] {
   background-color: #ffffff !important;
-  color: #151413 !important;
-  border-color: #e5e7eb !important;
+  color: #111827 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .bg-\[\#121110\] {
+  background-color: #f8f9fa !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #111827 !important;
 }
 
 /* Light mode borders */

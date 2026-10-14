@@ -6,7 +6,8 @@ import { ArrowUp } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 
 export const Footer = () => {
-  const { data } = usePortfolio();
+  const { data, theme } = usePortfolio();
+  const isDark = theme === 'dark';
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -68,7 +69,11 @@ export const Footer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="w-full border-t border-white/10 bg-[#100f0e] py-12 px-6 sm:px-12 relative overflow-hidden"
+      className={`w-full border-t py-12 px-6 sm:px-12 relative overflow-hidden transition-colors ${
+        isDark
+          ? 'border-white/10 bg-[#100f0e]'
+          : 'border-black/6 bg-white shadow-[0_-4px_20px_rgba(0,0,0,0.02)]'
+      }`}
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left: Brand & Statement */}
@@ -94,7 +99,11 @@ export const Footer = () => {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-[#1c1b18] text-[#998f8f] hover:text-[#60a5fa] hover:bg-[#252320] border border-white/5 hover:border-[#1d6de3]/40 transition-all duration-300 hover:scale-110 active:scale-95"
+              className={`p-3 rounded-full transition-all duration-300 hover:scale-110 active:scale-95 ${
+                isDark
+                  ? 'bg-[#1c1b18] text-[#998f8f] hover:text-[#60a5fa] hover:bg-[#252320] border border-white/5 hover:border-[#1d6de3]/40'
+                  : 'bg-[#f1f3f5] text-neutral-600 hover:text-[#1d6de3] hover:bg-[#e9ecef] border border-black/5 hover:border-[#1d6de3]/30 shadow-xs'
+              }`}
               aria-label={social.platform}
             >
               {getSocialIcon(social.platform) || <span>{social.platform[0]}</span>}
@@ -107,10 +116,16 @@ export const Footer = () => {
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#998f8f] hover:text-[#60a5fa] transition-colors group cursor-pointer"
+            className={`flex items-center gap-2 text-xs font-semibold uppercase tracking-wider transition-colors group cursor-pointer ${
+              isDark ? 'text-[#998f8f] hover:text-[#60a5fa]' : 'text-neutral-600 hover:text-[#1d6de3]'
+            }`}
           >
             <span>Back to Top</span>
-            <div className="p-1.5 rounded-full bg-[#1c1b18] group-hover:bg-[#1d6de3] group-hover:text-white transition-colors">
+            <div className={`p-1.5 rounded-full transition-colors ${
+              isDark
+                ? 'bg-[#1c1b18] group-hover:bg-[#1d6de3] group-hover:text-white'
+                : 'bg-[#f1f3f5] border border-black/5 group-hover:bg-[#1d6de3] group-hover:text-white'
+            }`}>
               <ArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />
             </div>
           </button>

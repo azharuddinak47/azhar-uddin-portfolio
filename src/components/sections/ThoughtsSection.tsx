@@ -41,7 +41,11 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
               viewport={{ once: false, amount: 0.15 }}
               transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               onClick={() => onSelectThought(thought)}
-              className="group cursor-pointer p-5 sm:p-6 rounded-[24px] bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_25px_rgba(0,0,0,0.35)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_18px_rgba(29,109,227,0.18)] flex flex-col justify-between gap-5"
+              className={`group cursor-pointer p-5 sm:p-6 rounded-[24px] border transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between gap-5 ${
+                isDark
+                  ? 'bg-[#1c1b18] border-white/8 hover:border-[#1d6de3]/45 shadow-[0_10px_25px_rgba(0,0,0,0.35)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_18px_rgba(29,109,227,0.18)]'
+                  : 'bg-white border-black/7 hover:border-[#1d6de3]/40 shadow-sm hover:shadow-md'
+              }`}
             >
               <div>
                 {/* Metadata Row: Date & Read Time */}
