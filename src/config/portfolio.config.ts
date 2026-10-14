@@ -90,7 +90,7 @@ export const initialPortfolioData: PortfolioData = {
       "id": "proj-2",
       "title": "RINCE — Car Wash App",
       "tagline": "On-Demand Mobile Vehicle Care & Booking Platform",
-      "category": "Mobile App Design",
+      "category": "Mobile UI/UX",
       "image": "/assets/rince_carwash.png",
       "figmaLink": "https://www.behance.net/gallery/254676795/RINCE-On-Demand-Car-Wash-App-UIUX-Case-Study",
       "link": "https://www.behance.net/gallery/254676795/RINCE-On-Demand-Car-Wash-App-UIUX-Case-Study",
@@ -131,7 +131,7 @@ export const initialPortfolioData: PortfolioData = {
       "image": "/assets/extra_2.jpg",
       "figmaLink": "https://www.behance.net/azharuddin-uiux",
       "link": "https://www.behance.net/azharuddin-uiux",
-      "featured": false,
+      "featured": true,
       "year": "2026",
       "description": "Crafted an enterprise-level component library featuring design tokens, dark/light accessibility modes, WCAG AA compliance, and modular responsive UI components in Figma.",
       "tags": [
@@ -139,6 +139,80 @@ export const initialPortfolioData: PortfolioData = {
         "Tokens",
         "Figma v5",
         "Accessibility"
+      ]
+    },
+    {
+      "id": "proj-5",
+      "title": "Apex — Crypto & Web3 Trading Terminal",
+      "tagline": "High-Frequency Decentralized Asset Trading",
+      "category": "Fintech & Web3",
+      "image": "/assets/project_1.jpg",
+      "figmaLink": "https://www.behance.net/azharuddin-uiux",
+      "link": "https://www.behance.net/azharuddin-uiux",
+      "featured": false,
+      "year": "2025",
+      "description": "An ultra-low latency cryptocurrency analytics suite and trading terminal with live candlestick charting, real-time depth order books, and cross-chain wallet connections.",
+      "tags": [
+        "Fintech",
+        "Web3",
+        "Trading View",
+        "Figma",
+        "Dark Mode"
+      ]
+    },
+    {
+      "id": "proj-6",
+      "title": "Pulse — Fitness & Recovery Tracker",
+      "tagline": "Wearable Biometrics & AI Coaching App",
+      "category": "Mobile UI/UX",
+      "image": "/assets/rince_carwash.png",
+      "figmaLink": "https://www.behance.net/azharuddin-uiux",
+      "link": "https://www.behance.net/azharuddin-uiux",
+      "featured": false,
+      "year": "2025",
+      "description": "Comprehensive health tracking mobile app integrating heart rate variability, sleep cycle analytics, smart workout logging, and adaptive AI coach voice guidance.",
+      "tags": [
+        "HealthTech",
+        "Mobile App",
+        "Figma",
+        "Data Viz",
+        "iOS"
+      ]
+    },
+    {
+      "id": "proj-7",
+      "title": "Nova SaaS — AI Workflow Automation",
+      "tagline": "B2B Marketing & Product Landing Page",
+      "category": "Web Design & SaaS",
+      "image": "/assets/project_3.png",
+      "figmaLink": "https://www.behance.net/azharuddin-uiux",
+      "link": "https://www.behance.net/azharuddin-uiux",
+      "featured": false,
+      "year": "2026",
+      "description": "High-converting SaaS landing page with 3D product renders, dynamic pricing calculator, interactive customer stories, and frictionless team onboarding.",
+      "tags": [
+        "Landing Page",
+        "SaaS",
+        "Conversion Optimization",
+        "Figma"
+      ]
+    },
+    {
+      "id": "proj-8",
+      "title": "Komorebi — Minimalist E-Commerce",
+      "tagline": "Artisan Homeware & Furniture Shopping",
+      "category": "E-Commerce",
+      "image": "/assets/extra_2.jpg",
+      "figmaLink": "https://www.behance.net/azharuddin-uiux",
+      "link": "https://www.behance.net/azharuddin-uiux",
+      "featured": false,
+      "year": "2024",
+      "description": "Editorial e-commerce storefront for artisan furniture craft studios with 3D AR space preview, smooth checkout funnel, and high-resolution lookbooks.",
+      "tags": [
+        "E-Commerce",
+        "Editorial UI",
+        "Shopify",
+        "Figma"
       ]
     }
   ],
