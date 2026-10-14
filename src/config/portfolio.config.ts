@@ -218,9 +218,9 @@ export const initialPortfolioData: PortfolioData = {
     {
       "id": "cert-1",
       "title": "Google UX Design Professional Certificate",
-      "issuer": "Coursera (Google)",
-      "date": "Completed: May, 2025",
-      "link": "https://coursera.org"
+      "issuer": "Coursera",
+      "date": "Issued May 2025",
+      "link": "https://www.coursera.org/account/accomplishments/verify/G6LRKUOR1MSY"
     }
   ],
   "academics": [
