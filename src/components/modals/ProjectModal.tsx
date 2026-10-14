@@ -70,23 +70,6 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
             {/* Content Details */}
             <div className="p-6 sm:p-10 -mt-12 relative z-10">
-              {/* Category & Year */}
-              <div className="flex items-center gap-3 mb-3">
-                <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1d6de3] !text-white shadow-sm">
-                  {project.category}
-                </span>
-                {project.year && (
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-colors ${
-                    isDark
-                      ? 'bg-[#131211] border border-white/15 text-neutral-300'
-                      : 'bg-neutral-100 border border-neutral-300/80 text-neutral-800 shadow-xs'
-                  }`}>
-                    <Calendar size={13} className={isDark ? 'text-[#60a5fa]' : 'text-[#1d6de3]'} />
-                    {project.year}
-                  </span>
-                )}
-              </div>
-
               {/* Title & Tagline */}
               <h2 className={`text-3xl sm:text-4xl font-black uppercase font-[family-name:var(--font-poppins)] tracking-tight mb-2 ${
                 isDark ? 'text-white' : 'text-neutral-950'
@@ -100,7 +83,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               </p>
 
               {/* Description */}
-              <div className={`space-y-4 text-sm sm:text-base leading-relaxed mb-8 ${
+              <div className={`space-y-4 text-sm sm:text-base leading-relaxed mb-6 ${
                 isDark ? 'text-[#998f8f]' : 'text-neutral-600'
               }`}>
                 <p>{project.description}</p>
@@ -109,34 +92,8 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                 </p>
               </div>
 
-              {/* Technologies Tags */}
-              {project.tags && project.tags.length > 0 && (
-                <div className="mb-8">
-                  <span className={`text-xs font-bold tracking-wider uppercase block mb-3 ${
-                    isDark ? 'text-neutral-400' : 'text-neutral-700'
-                  }`}>
-                    Technologies & Stack
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${
-                          isDark
-                            ? 'bg-[#131211] border border-white/15 text-neutral-200 hover:border-white/25'
-                            : 'bg-neutral-100 hover:bg-neutral-200/80 border border-neutral-300 text-neutral-900 shadow-xs'
-                        }`}
-                      >
-                        <Tag size={12} className={isDark ? 'text-[#60a5fa]' : 'text-[#1d6de3]'} />
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {/* Action Buttons: Behance Case Study & Figma Direct Link */}
-              <div className={`flex flex-wrap items-center gap-3 sm:gap-4 pt-6 border-t ${
+              <div className={`flex flex-wrap items-center gap-3 sm:gap-4 pt-5 border-t ${
                 isDark ? 'border-white/10' : 'border-neutral-200'
               }`}>
                 {/* Behance Case Study Button */}
