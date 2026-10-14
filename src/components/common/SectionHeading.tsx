@@ -11,6 +11,9 @@ interface SectionHeadingProps {
   className?: string;
   action?: React.ReactNode;
   showDivider?: boolean;
+  size?: '90' | '80';
+  weight?: 'black' | 'semibold';
+  titleClassName?: string;
 }
 
 export const SectionHeading = ({
@@ -21,12 +24,25 @@ export const SectionHeading = ({
   className = '',
   action,
   showDivider = false,
+  size = '80',
+  weight = 'semibold',
+  titleClassName = '',
 }: SectionHeadingProps) => {
   const alignmentClasses = {
     left: 'text-left items-start',
     center: 'text-center items-center mx-auto',
     right: 'text-right items-end ml-auto',
   }[align];
+
+  const sizeClasses = size === '90'
+    ? 'text-4xl sm:text-6xl md:text-7xl lg:text-[90px]'
+    : 'text-3xl sm:text-5xl md:text-6xl lg:text-[80px]';
+
+  const weightClasses = weight === 'black'
+    ? 'font-black'
+    : 'font-semibold';
+
+  const leadingClasses = size === '90' ? 'leading-[0.88]' : 'leading-[0.92]';
 
   return (
     <div className={`flex flex-col ${alignmentClasses} ${className}`}>
@@ -37,7 +53,7 @@ export const SectionHeading = ({
             whileInView={{ opacity: 1 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-[90px] font-black tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] select-text cursor-text leading-[0.88] mt-0 pt-0 transition-colors duration-300"
+            className={`${sizeClasses} ${weightClasses} ${leadingClasses} tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] select-text cursor-text mt-0 pt-0 transition-colors duration-300 ${titleClassName}`}
           >
             {title}
           </motion.h2>

@@ -24,6 +24,8 @@ export const CredentialsSection = () => {
       <div>
         <SectionHeading
           title="CERTIFICATIONS & EDUCATION"
+          size="80"
+          weight="semibold"
           subtitle="Professional credentials, academic degrees, and multidisciplinary capabilities."
           className="mb-4"
         />

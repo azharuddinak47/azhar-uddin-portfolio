@@ -27,6 +27,8 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
       <div>
         <SectionHeading
           title="DESIGN THOUGHTS"
+          size="80"
+          weight="semibold"
           subtitle="Insights, essays, and technical reflections on modern web engineering, interface psychology, and creative tooling."
           className="mb-4"
         />

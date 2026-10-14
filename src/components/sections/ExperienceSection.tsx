@@ -27,6 +27,8 @@ export const ExperienceSection = () => {
       <div>
         <SectionHeading
           title={`${data.stats[0]?.value || '+3'} YEARS OF EXPERIENCE`}
+          size="80"
+          weight="semibold"
           subtitle="Track record of crafting intuitive digital products, component systems, and leading UX solutions."
           className="mb-4"
         />

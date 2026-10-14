@@ -30,6 +30,8 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4 sm:mb-5">
         <SectionHeading
           title="RECENT PROJECTS"
+          size="90"
+          weight="black"
           subtitle="Curated digital products, design systems, and mobile applications."
           className="mb-0"
           showDivider={false}

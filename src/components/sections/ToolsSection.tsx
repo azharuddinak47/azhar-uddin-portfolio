@@ -21,6 +21,8 @@ export const ToolsSection = () => {
       <div>
         <SectionHeading
           title="PREMIUM TOOLS"
+          size="80"
+          weight="semibold"
           subtitle="The primary software suite, modern frameworks, and platforms leveraged to create world-class products."
           className="mb-5 sm:mb-6"
           showDivider={false}
