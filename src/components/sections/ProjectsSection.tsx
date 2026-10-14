@@ -23,7 +23,7 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: false, amount: 0.15 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col pt-0 pb-4 scroll-mt-40 relative select-text"
+      className="flex flex-col pt-0 pb-4 scroll-mt-0 relative select-text"
     >
       {/* Top Header without line or extra spacing */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4 sm:mb-5">

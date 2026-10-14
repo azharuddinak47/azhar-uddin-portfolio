@@ -87,7 +87,7 @@ export const ContactSection = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: false, amount: 0.15 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col pt-0 pb-4 scroll-mt-40 relative select-text"
+      className="flex flex-col pt-0 pb-4 scroll-mt-0 relative select-text"
     >
       <div className="w-full max-w-3xl flex flex-col items-start">
         {/* Huge Display Headline matching Sawad Framer */}

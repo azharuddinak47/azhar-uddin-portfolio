@@ -32,7 +32,7 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPos = window.scrollY + 260;
+      const scrollPos = window.scrollY + 170;
       for (const item of NAV_ITEMS) {
         const el = document.getElementById(item.id);
         if (el) {
