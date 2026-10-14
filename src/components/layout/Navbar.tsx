@@ -59,8 +59,8 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
       const lenis = (window as unknown as { __lenis?: { scrollTo: (el: HTMLElement, opts: object) => void } }).__lenis;
       if (lenis) {
         lenis.scrollTo(targetEl, {
-          offset: -95,
-          duration: 1.35,
+          offset: -96,
+          duration: 1.2,
           easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
       } else {
