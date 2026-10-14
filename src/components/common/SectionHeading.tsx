@@ -37,7 +37,7 @@ export const SectionHeading = ({
             whileInView={{ opacity: 1 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl sm:text-4xl lg:text-[44px] xl:text-5xl font-black tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] select-text cursor-text leading-tight mt-0 pt-0 transition-colors duration-300"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-[90px] font-black tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] select-text cursor-text leading-[0.88] mt-0 pt-0 transition-colors duration-300"
           >
             {title}
           </motion.h2>
