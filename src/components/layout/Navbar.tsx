@@ -81,8 +81,8 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
           className={`relative z-10 flex items-center gap-4 sm:gap-8 px-4 sm:px-7 py-2.5 sm:py-3.5 rounded-[22px] border transition-all duration-500 max-w-[calc(100vw-1.5rem)] ${
             isDark
               ? isPlaying
-                ? 'border-white/25 shadow-[0_12px_32px_rgba(0,0,0,0.65)]'
-                : 'border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.65)]'
+                ? 'border-[#1d6de3]/40 shadow-[0_12px_32px_rgba(15,45,80,0.7)]'
+                : 'border-[#1d6de3]/25 shadow-[0_15px_40px_rgba(15,45,80,0.65)]'
               : isPlaying
                 ? 'border-black/10 shadow-[0_12px_32px_rgba(0,0,0,0.12)]'
                 : 'border-black/10 shadow-[0_8px_24px_rgba(0,0,0,0.08)]'
@@ -94,7 +94,7 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
             <div
               className={`absolute inset-0 transition-opacity duration-500 ${
                 isDark
-                  ? isPlaying ? 'bg-[#121110]/50' : 'bg-[#181715]/90'
+                  ? isPlaying ? 'bg-[#0F2D50]/70' : 'bg-[#0F2D50]/95'
                   : isPlaying ? 'bg-white/70' : 'bg-white/95'
               }`}
             />
@@ -107,8 +107,8 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
               className={`absolute inset-0 pointer-events-none transition-all duration-500 ${
                 isDark
                   ? isPlaying
-                    ? 'bg-[#121110]/40 backdrop-blur-md'
-                    : 'bg-[#181715]/90 backdrop-blur-xl'
+                    ? 'bg-[#0F2D50]/60 backdrop-blur-md'
+                    : 'bg-[#0F2D50]/95 backdrop-blur-xl'
                   : isPlaying
                     ? 'bg-white/45 backdrop-blur-md'
                     : 'bg-white/90 backdrop-blur-xl'
@@ -169,7 +169,7 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
                   transition={{ duration: 0.15 }}
                   className={`absolute top-full mt-2.5 px-2.5 py-1 rounded-lg border text-[11px] font-semibold tracking-wide uppercase shadow-lg pointer-events-none whitespace-nowrap z-50 ${
                     isDark
-                      ? 'bg-[#242220] border-white/15 text-white'
+                      ? 'bg-[#0F2D50] border-[#1d6de3]/30 text-white shadow-lg'
                       : 'bg-white border-neutral-200/90 text-neutral-900 shadow-md'
                   }`}
                 >
