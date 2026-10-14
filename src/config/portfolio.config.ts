@@ -173,51 +173,45 @@ export const initialPortfolioData: PortfolioData = {
   "tools": [
     {
       "id": "tool-1",
-      "name": "Figma",
-      "category": "Design & Prototyping",
-      "icon": "/assets/icon_1.png",
-      "description": "Design systems, auto-layout, component variants, wireframes, and interactive clickable prototypes.",
-      "level": "Expert"
+      "name": "Framer",
+      "category": "Website Builder",
+      "icon": "/assets/tools/framer.svg",
+      "description": "Interactive website design, responsive layouts, CMS, dynamic animations, and production deployment."
     },
     {
       "id": "tool-2",
-      "name": "User Research",
-      "category": "UX Methodology",
-      "icon": "/assets/icon_0.png",
-      "description": "User interviews, competitive analysis, journey mapping, empathy maps, and usability testing.",
-      "level": "Advanced"
+      "name": "Figma",
+      "category": "Design Tool",
+      "icon": "/assets/tools/figma-color.svg",
+      "description": "Design systems, auto-layout, component variants, wireframes, and interactive clickable prototypes."
     },
     {
       "id": "tool-3",
-      "name": "Design Systems",
-      "category": "Architecture",
-      "icon": "/assets/icon_4.png",
-      "description": "Design tokens, scalable typography scales, UI libraries, color variables, and developer handoff specs.",
-      "level": "Expert"
+      "name": "Lemon Squeezy",
+      "category": "Payments Provider",
+      "icon": "/assets/tools/lemonsqueezy.svg",
+      "description": "Global merchant of record, digital product sales, checkout integration, and subscription billing."
     },
     {
       "id": "tool-4",
-      "name": "HTML & CSS",
-      "category": "Frontend Code",
-      "icon": "/assets/icon_5.png",
-      "description": "Semantic markup, modern layout structures, CSS flexbox/grid, and developer feasibility validation.",
-      "level": "Proficient"
+      "name": "ChatGPT",
+      "category": "AI Assistant",
+      "icon": "/assets/tools/chatgpt.svg",
+      "description": "UX copy generation, concept ideation, user research synthesis, and workflow acceleration."
     },
     {
       "id": "tool-5",
-      "name": "Mobile App Design",
-      "category": "iOS & Android",
-      "icon": "/assets/icon_3.png",
-      "description": "Human Interface Guidelines (HIG), Material Design 3 guidelines, gestures, and responsive flows.",
-      "level": "Expert"
+      "name": "Notion",
+      "category": "Productivity Tool",
+      "icon": "/assets/tools/notion.svg",
+      "description": "Project roadmaps, user research databases, design documentation, and sprint tracking."
     },
     {
       "id": "tool-6",
-      "name": "Prototyping",
-      "category": "Micro-Animations",
-      "icon": "/assets/icon_2.png",
-      "description": "High-fidelity smart animation, interactive state switches, user test flows, and transitions.",
-      "level": "Master"
+      "name": "Nextjs",
+      "category": "React framework",
+      "icon": "/assets/tools/nextjs-wordmark.svg",
+      "description": "Server-side rendering, modern React web applications, optimized performance, and API routes."
     }
   ],
   "certifications": [

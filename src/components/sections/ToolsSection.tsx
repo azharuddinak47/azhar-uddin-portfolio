@@ -6,7 +6,8 @@ import { usePortfolio } from '@/context/PortfolioContext';
 import { SectionHeading } from '@/components/common/SectionHeading';
 
 export const ToolsSection = () => {
-  const { data } = usePortfolio();
+  const { data, theme } = usePortfolio();
+  const isDark = theme === 'dark';
 
   return (
     <motion.section
@@ -21,11 +22,12 @@ export const ToolsSection = () => {
         <SectionHeading
           title="PREMIUM TOOLS"
           subtitle="The primary software suite, modern frameworks, and platforms leveraged to create world-class products."
-          className="mb-4"
+          className="mb-5 sm:mb-6"
+          showDivider={false}
         />
 
-        {/* 6 Tools Grid: 2 rows of 3 columns calibrated for 682px frame */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4">
+        {/* 6 Tools Grid: 2 columns matching reference screenshot */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 md:gap-5">
           {data.tools.map((tool, index) => (
             <motion.div
               key={tool.id || index}
@@ -33,54 +35,41 @@ export const ToolsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.15 }}
               transition={{ duration: 0.45, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative p-4 sm:p-5 rounded-[22px] bg-[#1c1b18] border border-white/8 hover:border-[#1d6de3]/45 transition-all duration-300 hover:-translate-y-1 shadow-[0_8px_25px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.5),0_0_18px_rgba(29,109,227,0.18)] flex flex-col justify-between"
+              className={`group relative p-3.5 sm:p-4 rounded-[22px] sm:rounded-[24px] transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-4 sm:gap-4.5 cursor-pointer ${
+                isDark
+                  ? 'bg-[#161514] hover:bg-[#1c1b19] border border-white/[0.07] hover:border-white/20 shadow-[0_8px_25px_rgba(0,0,0,0.4)]'
+                  : 'bg-white hover:bg-[#faf9f6] border border-black/8 hover:border-black/15 shadow-sm hover:shadow-md'
+              }`}
             >
-              <div>
-                {/* Header: Icon & Level */}
-                <div className="flex items-center justify-between mb-3">
-                  <div className="w-11 h-11 rounded-xl bg-[#131211] border border-white/10 p-2 flex items-center justify-center group-hover:scale-110 group-hover:border-[#1d6de3]/50 transition-all duration-300 shadow-inner">
-                    <img
-                      src={tool.icon}
-                      alt={tool.name}
-                      className="w-full h-full object-contain filter group-hover:brightness-110 transition-all"
-                    />
-                  </div>
-
-                  {tool.level && (
-                    <span className="px-2.5 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase bg-[#131211] text-[#60a5fa] border border-[#1d6de3]/30">
-                      {tool.level}
-                    </span>
-                  )}
-                </div>
-
-                {/* Tool Name & Category */}
-                <h3 className="text-base sm:text-lg font-black text-white uppercase font-[family-name:var(--font-poppins)] tracking-tight group-hover:text-[#60a5fa] transition-colors mb-0.5">
-                  {tool.name}
-                </h3>
-                <p className="text-[10px] font-semibold tracking-wider text-[#998f8f] uppercase mb-2">
-                  {tool.category}
-                </p>
-
-                {/* Description */}
-                {tool.description && (
-                  <p className="text-xs text-neutral-400 line-clamp-2 leading-relaxed">
-                    {tool.description}
-                  </p>
-                )}
+              {/* Left: Squircle White Badge matching reference screenshot */}
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-[18px] sm:rounded-2xl bg-white flex items-center justify-center p-3 shadow-md shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <img
+                  src={tool.icon}
+                  alt={tool.name}
+                  className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
+                />
               </div>
 
-              {/* Bottom Subtle Indicator */}
-              <div className="mt-3 pt-2.5 border-t border-white/5 flex items-center justify-between text-[10px] text-neutral-500 group-hover:text-neutral-300 transition-colors">
-                <span>Production Ready</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#1d6de3]" />
+              {/* Right: Tool Name & Subtitle matching reference screenshot */}
+              <div className="flex-1 min-w-0">
+                <h3
+                  className={`text-lg sm:text-xl font-black tracking-tight font-[family-name:var(--font-poppins)] transition-colors truncate leading-tight ${
+                    isDark ? 'text-white group-hover:text-[#60a5fa]' : 'text-neutral-900 group-hover:text-[#1d6de3]'
+                  }`}
+                >
+                  {tool.name}
+                </h3>
+                <p
+                  className={`text-xs sm:text-sm font-medium truncate mt-1 ${
+                    isDark ? 'text-[#8a8a8e]' : 'text-neutral-600'
+                  }`}
+                >
+                  {tool.category}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
-      </div>
-
-      <div className="pt-4 text-center text-xs text-[#888888]">
-        Constantly exploring cutting-edge AI design systems, tokens, and 3D web tooling
       </div>
     </motion.section>
   );
