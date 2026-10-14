@@ -105,7 +105,7 @@ export default function ProjectsArchivePage() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight font-[family-name:var(--font-poppins)]">
+          <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-5xl font-black tracking-tight uppercase font-[family-name:var(--font-poppins)]">
             All Projects & Case Studies
           </h1>
           <p className={`text-sm sm:text-base max-w-2xl leading-relaxed ${

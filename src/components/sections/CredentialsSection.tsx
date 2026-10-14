@@ -39,10 +39,10 @@ export const CredentialsSection = () => {
               <div className={`flex items-center justify-between gap-3 mb-5 pb-3 border-b ${
                 isDark ? 'border-white/10' : 'border-black/[0.04]'
               }`}>
-                <h3 className={`text-base sm:text-lg font-bold font-[family-name:var(--font-poppins)] ${
+                <h3 className={`text-base sm:text-lg font-bold uppercase font-[family-name:var(--font-poppins)] ${
                   isDark ? 'text-white' : 'text-neutral-900'
                 }`}>
-                  Licenses & certifications
+                  Licenses & Certifications
                 </h3>
                 <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#1d6de3]/15 text-[#60a5fa] border border-[#1d6de3]/30">
                   Verified

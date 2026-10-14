@@ -6,6 +6,8 @@ import { ChevronDown, CheckCircle2, Send, Check } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { usePortfolio } from '@/context/PortfolioContext';
 
+import { SectionHeading } from '@/components/common/SectionHeading';
+
 const BUDGET_OPTIONS = [
   '< $2,000',
   '$2,000 - $5,000',
@@ -90,23 +92,13 @@ export const ContactSection = () => {
       className="flex flex-col pt-0 pb-4 scroll-mt-0 relative select-text"
     >
       <div className="w-full max-w-3xl flex flex-col items-start">
-        {/* Display Headline matching Sawad Framer */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-start leading-[0.88] mb-4 sm:mb-5 select-text"
-        >
-          <span className={`text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight uppercase font-[family-name:var(--font-poppins)] select-text cursor-text transition-colors duration-300 ${
-            isDark ? 'text-white' : 'text-neutral-900'
-          }`}>
-            LET&apos;S WORK
-          </span>
-          <span className="neon-stroke text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight uppercase font-[family-name:var(--font-poppins)] select-text cursor-text mt-0.5 sm:mt-1">
-            TOGETHER
-          </span>
-        </motion.div>
+        {/* Section Heading matching all other sections */}
+        <SectionHeading
+          title="LET'S WORK TOGETHER"
+          subtitle="Have a design project in mind or looking for a dedicated Lead Product Designer? Feel free to reach out directly."
+          className="mb-4 sm:mb-5 w-full"
+          showDivider={false}
+        />
 
         {/* Contact Form matching exact Sawad Framer design */}
         <motion.div
