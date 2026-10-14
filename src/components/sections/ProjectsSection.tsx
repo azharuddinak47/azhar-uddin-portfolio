@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Plus } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
@@ -99,7 +100,7 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
       {/* View All Projects CTA (Prevents Page Bloat) */}
       {data.projects.length > 4 && (
         <div className="pt-5 flex justify-center">
-          <a
+          <Link
             href="/projects"
             className={`group inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 active:scale-95 shadow-md ${
               isDark
@@ -111,7 +112,7 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
             <div className="w-6 h-6 rounded-full bg-[#1d6de3] text-white flex items-center justify-center transition-transform group-hover:translate-x-1">
               <ArrowUpRight size={14} />
             </div>
-          </a>
+          </Link>
         </div>
       )}
     </motion.section>
