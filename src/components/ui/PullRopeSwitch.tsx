@@ -113,8 +113,8 @@ export const PullRopeSwitch = () => {
             ],
           },
           {
-            duration: 650,
-            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            duration: 1100,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
             pseudoElement: '::view-transition-new(root)',
           }
         );
@@ -130,12 +130,12 @@ export const PullRopeSwitch = () => {
       // Switch theme mid-expansion
       setTimeout(() => {
         toggleTheme();
-      }, 250);
+      }, 450);
 
       // Clean up overlay after smooth expansion finishes
       setTimeout(() => {
         setRippleTransition(null);
-      }, 700);
+      }, 1150);
     }
   };
 
@@ -375,8 +375,8 @@ export const PullRopeSwitch = () => {
             }}
             exit={{ opacity: 0 }}
             transition={{
-              duration: 0.65,
-              ease: [0.16, 1, 0.3, 1],
+              duration: 1.1,
+              ease: [0.22, 1, 0.36, 1],
             }}
             className="fixed inset-0 pointer-events-none z-[9999]"
             style={{
