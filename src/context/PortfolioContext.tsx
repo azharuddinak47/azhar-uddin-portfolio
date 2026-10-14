@@ -19,7 +19,7 @@ interface PortfolioContextType {
   setTheme: (theme: 'dark' | 'light') => void;
 }
 
-const STORAGE_KEY = 'azhar_portfolio_custom_data_v3';
+const STORAGE_KEY = 'azhar_portfolio_custom_data_v4';
 const THEME_KEY = 'azhar_portfolio_theme';
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);
@@ -69,6 +69,10 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
           profile: {
             ...initialPortfolioData.profile,
             ...(parsed.profile || {}),
+            name: parsed.profile?.name?.trim() ? parsed.profile.name : initialPortfolioData.profile.name,
+            dribbbleUrl: parsed.profile?.dribbbleUrl && parsed.profile.dribbbleUrl !== 'https://dribbble.com' ? parsed.profile.dribbbleUrl : initialPortfolioData.profile.dribbbleUrl,
+            facebookUrl: parsed.profile?.facebookUrl && parsed.profile.facebookUrl !== 'https://facebook.com' ? parsed.profile.facebookUrl : initialPortfolioData.profile.facebookUrl,
+            instagramUrl: parsed.profile?.instagramUrl && parsed.profile.instagramUrl !== 'https://instagram.com' ? parsed.profile.instagramUrl : initialPortfolioData.profile.instagramUrl,
           },
           contact: {
             ...initialPortfolioData.contact,

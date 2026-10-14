@@ -12,10 +12,10 @@ export const initialPortfolioData: PortfolioData = {
     "phone": "+8801743484818",
     "behanceUrl": "https://www.behance.net/azharuddin-uiux",
     "linkedinUrl": "https://linkedin.com/in/azhar-uiux",
-    "dribbbleUrl": "https://dribbble.com",
+    "dribbbleUrl": "https://dribbble.com/azharuddin-uiux",
     "twitterUrl": "https://x.com",
-    "facebookUrl": "https://facebook.com",
-    "instagramUrl": "https://instagram.com",
+    "facebookUrl": "https://www.facebook.com/azharuddinak47/",
+    "instagramUrl": "https://www.instagram.com/azharuddinak47/",
     "statusBadge": "AVAILABLE FOR NEW PROJECTS & CONTRACTS",
     "isAvailable": true,
     "avatarUrl": "/assets/avatar.jpg",
@@ -311,9 +311,24 @@ export const initialPortfolioData: PortfolioData = {
   },
   "socials": [
     {
+      "platform": "Dribbble",
+      "url": "https://dribbble.com/azharuddin-uiux",
+      "icon": "dribbble"
+    },
+    {
       "platform": "Behance",
       "url": "https://www.behance.net/azharuddin-uiux",
       "icon": "behance"
+    },
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/azharuddinak47/",
+      "icon": "facebook"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/azharuddinak47/",
+      "icon": "instagram"
     },
     {
       "platform": "LinkedIn",

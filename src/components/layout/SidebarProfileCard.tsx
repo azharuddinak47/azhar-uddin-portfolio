@@ -68,7 +68,7 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal: () =>
 
         {/* Name matching Sawad typography */}
         <h2 className="text-2xl sm:text-[28px] font-black text-[#111111] tracking-tight font-[family-name:var(--font-poppins)] text-center mb-3 z-10 select-text cursor-text">
-          {profile.name}
+          {profile.name?.trim() || 'Md Azhar Uddin'}
         </h2>
 
         {/* Sparkle/Flame Badge and Connecting Dashed Arc */}
@@ -101,7 +101,7 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal: () =>
         {/* Social Media Row (Blue Brand Icons: Dribbble, Behance, Facebook, Instagram, LinkedIn) */}
         <div className="flex items-center justify-center gap-4 sm:gap-5 mb-6 z-10 text-[#1d6de3]">
           <a
-            href={profile.dribbbleUrl || 'https://dribbble.com'}
+            href={profile.dribbbleUrl && profile.dribbbleUrl !== 'https://dribbble.com' ? profile.dribbbleUrl : 'https://dribbble.com/azharuddin-uiux'}
             target="_blank"
             rel="noopener noreferrer"
             title="Dribbble Profile"
@@ -123,7 +123,7 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal: () =>
           </a>
 
           <a
-            href={profile.facebookUrl || 'https://facebook.com'}
+            href={profile.facebookUrl && profile.facebookUrl !== 'https://facebook.com' ? profile.facebookUrl : 'https://www.facebook.com/azharuddinak47/'}
             target="_blank"
             rel="noopener noreferrer"
             title="Facebook Profile"
@@ -134,7 +134,7 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal: () =>
           </a>
 
           <a
-            href={profile.instagramUrl || 'https://instagram.com'}
+            href={profile.instagramUrl && profile.instagramUrl !== 'https://instagram.com' ? profile.instagramUrl : 'https://www.instagram.com/azharuddinak47/'}
             target="_blank"
             rel="noopener noreferrer"
             title="Instagram Profile"
