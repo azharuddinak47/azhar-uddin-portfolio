@@ -272,72 +272,42 @@ export const PullRopeSwitch = () => {
         >
           {/* Metallic Connector Bead */}
           <div
-            className={`w-2.5 h-2 rounded-sm border shadow-xs ${
+            className={`w-3.5 h-2.5 rounded-sm border shadow-xs ${
               isDark
                 ? 'bg-gradient-to-b from-[#524d46] to-[#2e2a25] border-white/20'
                 : 'bg-gradient-to-b from-[#ffffff] to-[#cfcac2] border-black/20'
             }`}
           />
 
-          {/* Main Ergonomic Pull Handle */}
+          {/* Main Ergonomic Pull Handle - Round & Enlarged */}
           <div
-            className={`relative w-7 h-11 rounded-full flex flex-col items-center justify-between py-1.5 px-1 transition-all duration-300 shadow-md ${
+            className={`relative w-12 h-12 rounded-full flex items-center justify-center p-1.5 transition-all duration-300 shadow-xl cursor-pointer ${
               isDark
-                ? 'bg-gradient-to-b from-[#2e2c28] via-[#201e1b] to-[#151413] border border-amber-400/50 shadow-[0_6px_20px_rgba(0,0,0,0.6),0_0_14px_rgba(251,191,36,0.4)] group-hover/handle:shadow-[0_8px_25px_rgba(251,191,36,0.6)] group-hover/handle:border-amber-400'
-                : 'bg-gradient-to-b from-[#ffffff] via-[#f7f5f0] to-[#e4e0d7] border border-blue-500/50 shadow-[0_6px_20px_rgba(0,0,0,0.15),0_0_14px_rgba(29,109,227,0.35)] group-hover/handle:shadow-[0_8px_25px_rgba(29,109,227,0.5)] group-hover/handle:border-blue-500'
+                ? 'bg-[#16202a] border-2 border-white/20 shadow-[0_8px_25px_rgba(0,0,0,0.6),0_0_15px_rgba(255,255,255,0.15)] group-hover/handle:border-white/40 group-hover/handle:shadow-[0_10px_30px_rgba(0,0,0,0.8),0_0_20px_rgba(255,255,255,0.25)]'
+                : 'bg-white border-2 border-amber-400/60 shadow-[0_8px_25px_rgba(251,191,36,0.35),0_0_15px_rgba(251,191,36,0.2)] group-hover/handle:border-amber-500 group-hover/handle:shadow-[0_10px_30px_rgba(251,191,36,0.5)]'
             }`}
           >
-            {/* Grip grooves */}
-            <div className="flex flex-col gap-0.5 w-full items-center">
-              <span
-                className={`w-4 h-[1.5px] rounded-full ${
-                  isDark ? 'bg-white/25' : 'bg-black/20'
-                }`}
-              />
-              <span
-                className={`w-3.5 h-[1.5px] rounded-full ${
-                  isDark ? 'bg-white/20' : 'bg-black/15'
-                }`}
-              />
-            </div>
-
-            {/* Glowing Indicator Icon: Sun in dark mode, Moon in day mode */}
+            {/* Round Icon: Moon in night mode, Sun in day mode */}
             <motion.div
               animate={
                 isPulling
-                  ? { rotate: 180, scale: 0.9 }
-                  : { rotate: 0, scale: [1, 1.08, 1] }
+                  ? { rotate: 180, scale: 0.92 }
+                  : { rotate: [0, 4, -4, 0], scale: [1, 1.05, 1] }
               }
               transition={
                 isPulling
                   ? { duration: 0.3 }
-                  : { repeat: Infinity, duration: 2.8, ease: 'easeInOut' }
+                  : { repeat: Infinity, duration: 4.0, ease: 'easeInOut' }
               }
-              className="flex items-center justify-center my-auto"
+              className="w-full h-full rounded-full overflow-hidden flex items-center justify-center"
             >
-              {isDark ? (
-                <Sun
-                  size={16}
-                  strokeWidth={2.4}
-                  className="text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.95)]"
-                />
-              ) : (
-                <Moon
-                  size={16}
-                  strokeWidth={2.4}
-                  className="text-blue-600 drop-shadow-[0_0_8px_rgba(29,109,227,0.8)]"
-                />
-              )}
+              <img
+                src={isDark ? '/assets/moon_icon.png' : '/assets/sun_icon.png'}
+                alt={isDark ? 'Moon - Night Mode' : 'Sun - Day Mode'}
+                className="w-full h-full object-contain pointer-events-none drop-shadow-md select-none"
+                draggable={false}
+              />
             </motion.div>
-
-            {/* Bottom Accent Ring */}
-            <div
-              className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                isDark
-                  ? 'bg-amber-400 shadow-[0_0_10px_#fbbf24]'
-                  : 'bg-blue-600 shadow-[0_0_10px_#1d6de3]'
-              }`}
-            />
           </div>
 
           {/* Floating Helpful Tooltip on Hover */}
