@@ -80,7 +80,13 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
           },
           stats: parsed.stats && parsed.stats.length > 0 ? parsed.stats : initialPortfolioData.stats,
           projects: parsed.projects && parsed.projects.length > 0 ? parsed.projects : initialPortfolioData.projects,
-          experiences: parsed.experiences && parsed.experiences.length > 0 ? parsed.experiences : initialPortfolioData.experiences,
+          experiences: (parsed.experiences && parsed.experiences.length > 0 ? parsed.experiences : initialPortfolioData.experiences).map(
+            (exp: import('@/types/portfolio').ExperienceItem, i: number) => ({
+              ...(initialPortfolioData.experiences[i] || {}),
+              ...exp,
+              logo: exp.logo || initialPortfolioData.experiences[i]?.logo,
+            })
+          ),
           tools: parsed.tools && parsed.tools.length > 0 ? parsed.tools : initialPortfolioData.tools,
           certifications: parsed.certifications && parsed.certifications.length > 0 ? parsed.certifications : initialPortfolioData.certifications,
           academics: parsed.academics && parsed.academics.length > 0 ? parsed.academics : initialPortfolioData.academics,

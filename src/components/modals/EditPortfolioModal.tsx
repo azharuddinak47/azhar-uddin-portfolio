@@ -506,7 +506,7 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                 <div className="space-y-4">
                   {formData.experiences.map((exp, eIdx) => (
                     <div key={exp.id} className="p-4 sm:p-5 rounded-2xl bg-[#131211] border border-white/8 space-y-3">
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
                         <div>
                           <label className="block text-[11px] text-neutral-400 mb-1">Company</label>
                           <input
@@ -541,6 +541,20 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                             onChange={e => {
                               const updated = [...formData.experiences];
                               updated[eIdx].period = e.target.value;
+                              setFormData({ ...formData, experiences: updated });
+                            }}
+                            className="w-full px-3 py-1.5 rounded-lg bg-black border border-white/10 text-white text-xs"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[11px] text-neutral-400 mb-1">Logo URL</label>
+                          <input
+                            type="text"
+                            value={exp.logo || ''}
+                            placeholder="/assets/logo.png"
+                            onChange={e => {
+                              const updated = [...formData.experiences];
+                              updated[eIdx].logo = e.target.value;
                               setFormData({ ...formData, experiences: updated });
                             }}
                             className="w-full px-3 py-1.5 rounded-lg bg-black border border-white/10 text-white text-xs"

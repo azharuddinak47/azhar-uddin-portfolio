@@ -148,6 +148,7 @@ export const initialPortfolioData: PortfolioData = {
       "company": "Kodevio Limited",
       "role": "Lead UI/UX Designer",
       "period": "March 2026 - Present",
+      "logo": "/assets/kodevio_logo.png",
       "description": "Leading UI/UX design initiatives for web and mobile applications, translating client requirements into clear, intuitive, and user-friendly digital experiences.",
       "highlights": [
         "Lead UI/UX design for web and mobile applications, translating client requirements into clear and user-friendly experiences.",
@@ -160,6 +161,7 @@ export const initialPortfolioData: PortfolioData = {
       "company": "Sparktech Agency",
       "role": "UI/UX Designer",
       "period": "May 2025 - March 2026",
+      "logo": "/assets/sparktech_logo.png",
       "description": "Designed user-friendly web and mobile interfaces based on client requirements, design thinking principles, and business conversion goals.",
       "highlights": [
         "Designed user-friendly web and mobile interfaces based on client requirements and business goals.",
