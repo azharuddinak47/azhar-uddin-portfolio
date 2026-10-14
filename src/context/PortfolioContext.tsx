@@ -79,7 +79,21 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
             ...(parsed.contact || {}),
           },
           stats: parsed.stats && parsed.stats.length > 0 ? parsed.stats : initialPortfolioData.stats,
-          projects: parsed.projects && parsed.projects.length > 0 ? parsed.projects : initialPortfolioData.projects,
+          projects: (parsed.projects && parsed.projects.length > 0 ? parsed.projects : initialPortfolioData.projects).map(
+            (proj: import('@/types/portfolio').ProjectItem) => {
+              const initial = initialPortfolioData.projects.find(p => p.id === proj.id);
+              if (proj.id === 'proj-2') {
+                return {
+                  ...proj,
+                  title: initial?.title || proj.title,
+                  image: initial?.image || proj.image,
+                  link: initial?.link || proj.link,
+                  figmaLink: initial?.figmaLink || proj.figmaLink,
+                };
+              }
+              return proj;
+            }
+          ),
           experiences: (parsed.experiences && parsed.experiences.length > 0 ? parsed.experiences : initialPortfolioData.experiences).map(
             (exp: import('@/types/portfolio').ExperienceItem, i: number) => ({
               ...(initialPortfolioData.experiences[i] || {}),

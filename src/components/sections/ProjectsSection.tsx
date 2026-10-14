@@ -90,12 +90,19 @@ export const ProjectsSection = ({ onSelectProject, onOpenEditModal }: ProjectsSe
               </div>
 
               {/* Right: Orange Diagonal Arrow matching reference design */}
-              <div className="self-start sm:self-center pt-2 sm:pt-0 pr-1 sm:pr-3 shrink-0">
+              <a
+                href={project.link || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                title="Open Case Study"
+                className="self-start sm:self-center pt-2 sm:pt-0 pr-1 sm:pr-3 shrink-0"
+              >
                 <ArrowUpRight
                   size={24}
-                  className="text-[#f46c38] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+                  className="text-[#f46c38] group-hover:scale-110 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
                 />
-              </div>
+              </a>
             </motion.div>
           ))}
       </div>
