@@ -44,10 +44,10 @@ export const SectionHeading = ({
 
           {subtitle && (
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: 0.08 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
               className="mt-2 text-sm sm:text-base text-[#998f8f] max-w-2xl font-normal leading-relaxed select-text cursor-text"
             >
               {subtitle}
