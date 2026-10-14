@@ -37,7 +37,8 @@ const LinkedInIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
 );
 
 export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {}) => {
-  const { data } = usePortfolio();
+  const { data, theme } = usePortfolio();
+  const isDark = theme === 'dark';
   const { profile } = data;
 
   const cardDescription = profile.subHeadline || 'A Product Designer who has crafted intuitive and impactful digital solutions.';
@@ -48,7 +49,11 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal?: () =
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-[28px] sm:rounded-[32px] bg-white text-[#111111] p-5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] flex flex-col items-center relative overflow-hidden group border border-white/20 transition-all duration-300"
+        className={`rounded-[28px] sm:rounded-[32px] bg-white text-[#111111] p-5 sm:p-6 flex flex-col items-center relative overflow-hidden group border border-black/5 transition-all duration-300 ${
+          isDark
+            ? 'shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)]'
+            : 'shadow-[0_10px_30px_-5px_rgba(0,0,0,0.06),0_4px_12px_-2px_rgba(0,0,0,0.03)]'
+        }`}
       >
         {/* Top-Left Decorative Dashed Arc */}
         <div className="absolute -top-3 -left-3 w-40 h-24 pointer-events-none z-0">
