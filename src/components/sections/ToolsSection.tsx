@@ -22,7 +22,7 @@ export const ToolsSection = () => {
         <SectionHeading
           title="PREMIUM TOOLS"
           size="90"
-          weight="bold"
+          weight="black"
           subtitle="The primary software suite, modern frameworks, and platforms leveraged to create world-class products."
           className="mb-5 sm:mb-6"
           showDivider={false}

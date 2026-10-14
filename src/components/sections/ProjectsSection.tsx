@@ -31,7 +31,7 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
         <SectionHeading
           title="RECENT PROJECTS"
           size="90"
-          weight="bold"
+          weight="black"
           subtitle="Curated digital products, design systems, and mobile applications."
           className="mb-0"
           showDivider={false}

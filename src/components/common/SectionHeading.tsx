@@ -12,7 +12,7 @@ interface SectionHeadingProps {
   action?: React.ReactNode;
   showDivider?: boolean;
   size?: '90' | '80';
-  weight?: 'black' | 'bold' | 'semibold';
+  weight?: 'black' | 'extrabold' | 'bold' | 'semibold';
   titleClassName?: string;
 }
 
@@ -25,7 +25,7 @@ export const SectionHeading = ({
   action,
   showDivider = false,
   size = '90',
-  weight = 'bold',
+  weight = 'black',
   titleClassName = '',
 }: SectionHeadingProps) => {
   const alignmentClasses = {
@@ -38,11 +38,13 @@ export const SectionHeading = ({
     ? 'text-3xl sm:text-5xl md:text-6xl lg:text-[80px]'
     : 'text-4xl sm:text-6xl md:text-7xl lg:text-[90px]';
 
-  const weightClasses = weight === 'black'
-    ? 'font-black'
+  const weightClasses = weight === 'bold'
+    ? 'font-bold'
     : weight === 'semibold'
     ? 'font-semibold'
-    : 'font-bold';
+    : weight === 'extrabold'
+    ? 'font-extrabold'
+    : 'font-black';
 
   const leadingClasses = 'leading-[0.88]';
 
