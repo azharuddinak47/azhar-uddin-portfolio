@@ -12,7 +12,7 @@ interface SectionHeadingProps {
   action?: React.ReactNode;
   showDivider?: boolean;
   size?: '90' | '80';
-  weight?: 'black' | 'semibold';
+  weight?: 'black' | 'bold' | 'semibold';
   titleClassName?: string;
 }
 
@@ -24,8 +24,8 @@ export const SectionHeading = ({
   className = '',
   action,
   showDivider = false,
-  size = '80',
-  weight = 'semibold',
+  size = '90',
+  weight = 'bold',
   titleClassName = '',
 }: SectionHeadingProps) => {
   const alignmentClasses = {
@@ -34,15 +34,17 @@ export const SectionHeading = ({
     right: 'text-right items-end ml-auto',
   }[align];
 
-  const sizeClasses = size === '90'
-    ? 'text-4xl sm:text-6xl md:text-7xl lg:text-[90px]'
-    : 'text-3xl sm:text-5xl md:text-6xl lg:text-[80px]';
+  const sizeClasses = size === '80'
+    ? 'text-3xl sm:text-5xl md:text-6xl lg:text-[80px]'
+    : 'text-4xl sm:text-6xl md:text-7xl lg:text-[90px]';
 
   const weightClasses = weight === 'black'
     ? 'font-black'
-    : 'font-semibold';
+    : weight === 'semibold'
+    ? 'font-semibold'
+    : 'font-bold';
 
-  const leadingClasses = size === '90' ? 'leading-[0.88]' : 'leading-[0.92]';
+  const leadingClasses = 'leading-[0.88]';
 
   return (
     <div className={`flex flex-col ${alignmentClasses} ${className}`}>

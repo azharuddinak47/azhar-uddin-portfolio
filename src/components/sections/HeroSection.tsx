@@ -40,7 +40,7 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] leading-[0.95] mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[90px] font-bold tracking-tight text-white uppercase font-[family-name:var(--font-poppins)] leading-[0.95] mb-6"
             >
               {profile.heroHeadline.split(' ').map((word, i) => (
                 <span key={i} className="inline-block mr-3">
