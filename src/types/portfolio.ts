@@ -85,6 +85,7 @@ export interface ProfileConfig {
   twitterUrl?: string;
   facebookUrl?: string;
   instagramUrl?: string;
+  youtubeUrl?: string;
   statusBadge: string;
   isAvailable: boolean;
   avatarUrl: string;

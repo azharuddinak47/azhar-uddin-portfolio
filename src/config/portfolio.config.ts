@@ -16,6 +16,7 @@ export const initialPortfolioData: PortfolioData = {
     "twitterUrl": "https://x.com",
     "facebookUrl": "https://www.facebook.com/azharuddinak47/",
     "instagramUrl": "https://www.instagram.com/azharuddinak47/",
+    "youtubeUrl": "https://youtube.com",
     "statusBadge": "AVAILABLE FOR NEW PROJECTS & CONTRACTS",
     "isAvailable": true,
     "avatarUrl": "/assets/avatar.jpg",
