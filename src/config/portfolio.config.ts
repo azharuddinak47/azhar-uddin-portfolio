@@ -279,6 +279,13 @@ export const initialPortfolioData: PortfolioData = {
       "category": "Website Builder",
       "icon": "/assets/tools/antigravity.png",
       "description": "Agentic AI web development, generative interface engineering, full-stack prototyping, and rapid deployment."
+    },
+    {
+      "id": "tool-6",
+      "name": "Behance",
+      "category": "Design Showcase",
+      "icon": "/assets/tools/behance.svg",
+      "description": "Portfolio case studies, visual design presentation, creative community feedback, and client discovery."
     }
   ],
   "certifications": [
