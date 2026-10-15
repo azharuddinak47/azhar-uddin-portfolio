@@ -351,7 +351,7 @@ export const PullRopeSwitch = () => {
             className="fixed inset-0 pointer-events-none z-[9999]"
             style={{
               backgroundColor:
-                rippleTransition.targetTheme === 'dark' ? '#11181F' : '#f6f5f3',
+                rippleTransition.targetTheme === 'dark' ? '#151312' : '#f6f5f3',
               boxShadow:
                 rippleTransition.targetTheme === 'dark'
                   ? 'inset 0 0 100px rgba(0,0,0,0.5)'

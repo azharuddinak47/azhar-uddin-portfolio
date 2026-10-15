@@ -2,11 +2,11 @@
 
 :root {
   /* Framer Exact Design Tokens */
-  --bg-primary: #11181F;
-  --bg-secondary: #16202a;
-  --bg-card: #18232e;
-  --bg-card-hover: #1e2c3a;
-  --bg-card-subtle: #131c24;
+  --bg-primary: #151312;
+  --bg-secondary: #1a1817;
+  --bg-card: #1e1c1a;
+  --bg-card-hover: #262321;
+  --bg-card-subtle: #171514;
   
   --accent-primary: #1d6de3;
   --accent-primary-light: #60a5fa;
