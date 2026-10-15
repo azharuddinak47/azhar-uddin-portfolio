@@ -55,15 +55,15 @@ export const ToolsSection = () => {
               {/* Right: Tool Name & Subtitle matching reference screenshot */}
               <div className="flex-1 min-w-0">
                 <h3
-                  className={`text-lg sm:text-xl font-black tracking-tight font-[family-name:var(--font-poppins)] transition-colors truncate leading-tight ${
+                  className={`text-xl sm:text-[24px] font-semibold tracking-normal font-[family-name:var(--font-poppins)] transition-colors truncate leading-[1.2] ${
                     isDark ? 'text-white group-hover:text-[#60a5fa]' : 'text-neutral-900 group-hover:text-[#1d6de3]'
                   }`}
                 >
                   {tool.name}
                 </h3>
                 <p
-                  className={`text-xs sm:text-sm font-medium truncate mt-1 ${
-                    isDark ? 'text-[#8a8a8e]' : 'text-neutral-600'
+                  className={`text-sm sm:text-[16px] font-normal font-[family-name:var(--font-poppins)] truncate mt-1 leading-[1.4] ${
+                    isDark ? 'text-[#998F8F]' : 'text-neutral-600'
                   }`}
                 >
                   {tool.category}
