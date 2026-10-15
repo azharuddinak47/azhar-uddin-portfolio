@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Briefcase, Calendar, ChevronRight, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import { SectionHeading } from '@/components/common/SectionHeading';
 
@@ -120,11 +120,11 @@ export const ExperienceSection = () => {
                   )}
                 </div>
 
-                {/* Right: Diagonal Arrow Icon matching user reference screenshot */}
-                <div className="pt-1.5 shrink-0">
-                  <ChevronRight
-                    size={22}
-                    className="text-[#f46c38] group-hover:text-[#ff7b47] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 -rotate-45 transition-all duration-300"
+                {/* Right: Blue Diagonal Arrow Icon matching user request */}
+                <div className="pt-1.5 pr-1 sm:pr-2 shrink-0">
+                  <ArrowUpRight
+                    size={24}
+                    className="text-[#1d6de3] group-hover:text-[#60a5fa] group-hover:scale-110 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
                   />
                 </div>
               </motion.div>
