@@ -297,7 +297,7 @@ export default function Home() {
       <Navbar />
 
       {/* Two-Column Master Layout */}
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-28 lg:pt-36 pb-20 sm:pb-16 lg:pb-8 w-full">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-18 sm:pt-24 lg:pt-32 pb-16 sm:pb-14 lg:pb-10 w-full">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start w-full relative">
           {/* Left Column: Sticky Profile Card - always on desktop; on mobile shown on home section */}
           <SidebarProfileCard className={activeSection === 'home' ? 'block' : 'hidden lg:block'} />
@@ -305,7 +305,7 @@ export default function Home() {
           {/* Right Column: Single Section Screen with buttery smooth internal scroll and crossfade */}
           <main
             ref={scrollContainerRef}
-            className="flex-1 w-full min-w-0 relative lg:max-h-[calc(100vh-175px)] lg:overflow-y-auto lg:overflow-x-hidden custom-scrollbar no-scrollbar"
+            className="flex-1 w-full min-w-0 relative lg:max-h-[calc(100vh-165px)] lg:overflow-y-auto lg:overflow-x-hidden custom-scrollbar no-scrollbar"
             style={{ overscrollBehavior: 'contain' }}
           >
             <AnimatePresence mode="wait" custom={slideDirection}>
@@ -329,7 +329,7 @@ export default function Home() {
                   <ThoughtsSection onSelectThought={(thought) => setSelectedThought(thought)} />
                 )}
                 {activeSection === 'contact' && (
-                  <div className="flex flex-col gap-10 sm:gap-12">
+                  <div className="flex flex-col gap-6 sm:gap-8 pb-6">
                     <ContactSection />
                     <Footer />
                   </div>
@@ -341,7 +341,7 @@ export default function Home() {
       </div>
 
       {/* Sleek Floating Section Pagination & Navigation Controls */}
-      <aside aria-label="Section Navigation" className="fixed top-4 right-4 sm:top-auto sm:bottom-7 sm:right-7 z-40 pointer-events-auto">
+      <aside aria-label="Section Navigation" className="fixed top-4 right-4 sm:top-auto sm:bottom-6 sm:right-6 z-40 pointer-events-auto">
         <div className={`flex items-center gap-2 px-3.5 py-2 rounded-full border shadow-lg backdrop-blur-xl transition-all duration-300 ${
           isDark
             ? 'bg-[#16202a]/90 border-white/10 text-white'

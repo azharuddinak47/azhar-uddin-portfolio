@@ -20,7 +20,7 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col gap-7 sm:gap-9 pt-0 scroll-mt-0 relative select-text"
+      className="flex flex-col gap-5 sm:gap-6 pt-0 scroll-mt-0 relative select-text"
     >
       {/* Huge Display Headline matching Sawad Framer screenshot */}
       <div className="flex flex-col items-start leading-[0.88] select-text">
@@ -87,7 +87,7 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
         <a
           href="#projects"
           draggable={false}
-          className="rounded-[24px] bg-[#eb5e28] p-6 sm:p-7 min-h-[200px] sm:min-h-[220px] flex flex-col justify-between relative overflow-hidden group shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 select-text"
+          className="rounded-[24px] bg-[#eb5e28] p-5 sm:p-6 min-h-[175px] sm:min-h-[190px] flex flex-col justify-between relative overflow-hidden group shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 select-text"
         >
           {/* Subtle Decorative Wave Pattern */}
           <div className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
@@ -110,7 +110,7 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
           </div>
 
           {/* Bottom Content Row */}
-          <div className="flex items-end justify-between gap-4 relative z-10 pt-6">
+          <div className="flex items-end justify-between gap-4 relative z-10 pt-4">
             <span className="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-snug font-[family-name:var(--font-poppins)] max-w-[200px] select-text cursor-text">
               DYNAMIC ANIMATION, MOTION DESIGN
             </span>
@@ -125,7 +125,7 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
         <a
           href="#tools"
           draggable={false}
-          className="rounded-[24px] bg-gradient-to-br from-[#1d6de3] via-[#1a5fb4] to-[#104480] p-6 sm:p-7 min-h-[200px] sm:min-h-[220px] flex flex-col justify-between relative overflow-hidden group shadow-[0_15px_35px_rgba(29,109,227,0.3)] hover:shadow-[0_20px_45px_rgba(29,109,227,0.45)] hover:-translate-y-1 transition-all duration-300 select-text !text-white"
+          className="rounded-[24px] bg-gradient-to-br from-[#1d6de3] via-[#1a5fb4] to-[#104480] p-5 sm:p-6 min-h-[175px] sm:min-h-[190px] flex flex-col justify-between relative overflow-hidden group shadow-[0_15px_35px_rgba(29,109,227,0.3)] hover:shadow-[0_20px_45px_rgba(29,109,227,0.45)] hover:-translate-y-1 transition-all duration-300 select-text !text-white"
         >
           {/* Subtle Decorative Zig-Zag Pattern */}
           <div className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
