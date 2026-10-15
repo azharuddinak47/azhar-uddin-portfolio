@@ -41,7 +41,7 @@ export const CredentialsSection = () => {
               <div className={`flex items-center justify-between gap-3 mb-5 pb-3 border-b ${
                 isDark ? 'border-white/10' : 'border-black/[0.04]'
               }`}>
-                <h3 className={`text-base sm:text-lg font-bold uppercase font-[family-name:var(--font-poppins)] ${
+                <h3 className={`text-xl sm:text-[26px] font-semibold tracking-normal font-[family-name:var(--font-poppins)] ${
                   isDark ? 'text-white' : 'text-neutral-900'
                 }`}>
                   Licenses & Certifications
@@ -139,7 +139,7 @@ export const CredentialsSection = () => {
                   <GraduationCap size={19} />
                 </div>
                 <div>
-                  <h3 className={`text-base sm:text-lg font-bold uppercase font-[family-name:var(--font-poppins)] ${
+                  <h3 className={`text-xl sm:text-[26px] font-semibold tracking-normal font-[family-name:var(--font-poppins)] ${
                     isDark ? 'text-white' : 'text-neutral-900'
                   }`}>
                     Education

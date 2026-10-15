@@ -68,7 +68,7 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
                 </div>
 
                 {/* Article Title */}
-                <h3 className={`text-lg sm:text-xl font-bold tracking-tight mb-2.5 leading-snug transition-colors ${
+                <h3 className={`text-xl sm:text-[26px] font-semibold tracking-normal font-[family-name:var(--font-poppins)] mb-2.5 leading-[1.2] transition-colors ${
                   isDark ? 'text-white group-hover:text-[#60a5fa]' : 'text-neutral-900 group-hover:text-[#1d6de3]'
                 }`}>
                   {thought.title}

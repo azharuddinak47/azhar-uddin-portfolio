@@ -70,7 +70,7 @@ export const ExperienceSection = () => {
                 {/* Center / Body: Company Title, Description, Period */}
                 <div className="flex-1 min-w-0 pr-2">
                   <div className="flex items-center gap-2.5 flex-wrap">
-                    <h3 className={`text-xl sm:text-[24px] font-semibold tracking-normal font-[family-name:var(--font-poppins)] transition-colors leading-[1.2] ${
+                    <h3 className={`text-xl sm:text-[26px] font-semibold tracking-normal font-[family-name:var(--font-poppins)] transition-colors leading-[1.2] ${
                       isDark ? 'text-white group-hover:text-[#60a5fa]' : 'text-neutral-900 group-hover:text-[#1d6de3]'
                     }`}>
                       {exp.company}
