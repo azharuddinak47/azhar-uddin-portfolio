@@ -180,7 +180,13 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
           ),
           tools: parsed.tools && parsed.tools.length > 0 ? parsed.tools : initialPortfolioData.tools,
           certifications: parsed.certifications && parsed.certifications.length > 0 ? parsed.certifications : initialPortfolioData.certifications,
-          academics: parsed.academics && parsed.academics.length > 0 ? parsed.academics : initialPortfolioData.academics,
+          academics: (parsed.academics && parsed.academics.length > 0 ? parsed.academics : initialPortfolioData.academics).map(
+            (acad: import('@/types/portfolio').AcademicItem, i: number) => ({
+              ...(initialPortfolioData.academics[i] || {}),
+              ...acad,
+              logo: initialPortfolioData.academics[i]?.logo || acad.logo,
+            })
+          ),
           thoughts: parsed.thoughts && parsed.thoughts.length > 0 ? parsed.thoughts : initialPortfolioData.thoughts,
           socials: parsed.socials && parsed.socials.length > 0 ? parsed.socials : initialPortfolioData.socials,
         });
