@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef, ReactNode } from 'react';
 import { PortfolioData } from '@/types/portfolio';
 import { initialPortfolioData } from '@/config/portfolio.config';
 
@@ -49,59 +49,63 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [activeSection, setActiveSectionState] = useState<SectionId>('home');
   const [slideDirection, setSlideDirection] = useState<number>(1);
+  const activeSectionRef = useRef<SectionId>('home');
+
+  useEffect(() => {
+    activeSectionRef.current = activeSection;
+  }, [activeSection]);
 
   // Sync with URL hash on mount
   useEffect(() => {
     if (typeof window !== 'undefined' && window.location.hash) {
       const hash = window.location.hash.replace('#', '') as SectionId;
       if (SECTION_IDS.includes(hash)) {
+        activeSectionRef.current = hash;
         setActiveSectionState(hash);
       }
     }
   }, []);
 
   const setActiveSection = (section: SectionId, direction?: number) => {
-    setActiveSectionState((prev) => {
-      if (prev === section) return prev;
-      const oldIdx = SECTION_IDS.indexOf(prev);
-      const newIdx = SECTION_IDS.indexOf(section);
-      const dir = direction !== undefined ? direction : newIdx > oldIdx ? 1 : -1;
-      setSlideDirection(dir);
-      if (typeof window !== 'undefined') {
-        window.history.replaceState(null, '', '#' + section);
-      }
-      return section;
-    });
+    const current = activeSectionRef.current;
+    if (current === section) return;
+    const oldIdx = SECTION_IDS.indexOf(current);
+    const newIdx = SECTION_IDS.indexOf(section);
+    const dir = direction !== undefined ? direction : newIdx > oldIdx ? 1 : -1;
+    activeSectionRef.current = section;
+    setSlideDirection(dir);
+    setActiveSectionState(section);
+    if (typeof window !== 'undefined') {
+      window.history.replaceState(null, '', '#' + section);
+    }
   };
 
   const goToNextSection = () => {
-    setActiveSectionState((prev) => {
-      const idx = SECTION_IDS.indexOf(prev);
-      if (idx < SECTION_IDS.length - 1) {
-        setSlideDirection(1);
-        const nextId = SECTION_IDS[idx + 1];
-        if (typeof window !== 'undefined') {
-          window.history.replaceState(null, '', '#' + nextId);
-        }
-        return nextId;
+    const current = activeSectionRef.current;
+    const idx = SECTION_IDS.indexOf(current);
+    if (idx < SECTION_IDS.length - 1) {
+      const nextId = SECTION_IDS[idx + 1];
+      activeSectionRef.current = nextId;
+      setSlideDirection(1);
+      setActiveSectionState(nextId);
+      if (typeof window !== 'undefined') {
+        window.history.replaceState(null, '', '#' + nextId);
       }
-      return prev;
-    });
+    }
   };
 
   const goToPrevSection = () => {
-    setActiveSectionState((prev) => {
-      const idx = SECTION_IDS.indexOf(prev);
-      if (idx > 0) {
-        setSlideDirection(-1);
-        const prevId = SECTION_IDS[idx - 1];
-        if (typeof window !== 'undefined') {
-          window.history.replaceState(null, '', '#' + prevId);
-        }
-        return prevId;
+    const current = activeSectionRef.current;
+    const idx = SECTION_IDS.indexOf(current);
+    if (idx > 0) {
+      const prevId = SECTION_IDS[idx - 1];
+      activeSectionRef.current = prevId;
+      setSlideDirection(-1);
+      setActiveSectionState(prevId);
+      if (typeof window !== 'undefined') {
+        window.history.replaceState(null, '', '#' + prevId);
       }
-      return prev;
-    });
+    }
   };
 
   const applyTheme = (t: 'dark' | 'light') => {
