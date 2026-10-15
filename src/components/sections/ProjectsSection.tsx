@@ -39,8 +39,8 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
       </div>
 
       {/* Projects Showcase: Clean Horizontal Cards matching reference layout */}
-      <div className="flex flex-col gap-2.5 sm:gap-3">
-        {data.projects.slice(0, 4).map((project, index) => (
+      <div className="flex flex-col gap-3 sm:gap-3.5">
+        {data.projects.slice(0, 3).map((project, index) => (
           <motion.div
             key={project.id}
             initial={{ opacity: 0, y: 15 }}
@@ -48,14 +48,14 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.35, delay: index * 0.05 }}
             onClick={() => onSelectProject(project)}
-            className={`group relative cursor-pointer flex items-center justify-between gap-4 sm:gap-6 rounded-[18px] sm:rounded-[22px] p-2.5 sm:p-3 md:p-3.5 transition-all duration-300 hover:-translate-y-0.5 ${
+            className={`group relative cursor-pointer flex items-center justify-between gap-4 sm:gap-6 rounded-[20px] sm:rounded-[24px] p-3 sm:p-3.5 md:p-4 transition-all duration-300 hover:-translate-y-0.5 ${
               isDark
                 ? 'bg-[#16202a] hover:bg-[#1e2c3a] border border-[#1d6de3]/15 hover:border-[#1d6de3]/35 shadow-[0_10px_25px_rgba(0,0,0,0.45)]'
                 : 'bg-white hover:bg-[#fcfcfd] border border-black/[0.04] hover:border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
             }`}
           >
             {/* Left: Project Image Thumbnail */}
-            <div className="relative w-20 h-15 sm:w-24 sm:h-18 md:w-28 md:h-20 rounded-xl overflow-hidden shrink-0 bg-[#11181F] border border-white/10 group-hover:border-[#1d6de3]/40 transition-all duration-300">
+            <div className="relative w-22 h-16 sm:w-26 sm:h-19 md:w-30 md:h-21 rounded-xl sm:rounded-2xl overflow-hidden shrink-0 bg-[#11181F] border border-white/10 group-hover:border-[#1d6de3]/40 transition-all duration-300">
               <img
                 src={project.image}
                 alt={project.title}
@@ -100,8 +100,8 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
       </div>
 
       {/* View All Projects CTA (Prevents Page Bloat) */}
-      {data.projects.length > 4 && (
-        <div className="pt-3 flex justify-center">
+      {data.projects.length > 3 && (
+        <div className="pt-4 flex justify-center">
           <Link
             href="/projects"
             className={`group inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 active:scale-95 shadow-md ${
