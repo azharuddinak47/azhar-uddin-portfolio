@@ -38,12 +38,8 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
         />
       </div>
 
-      {/* Projects Showcase Container matching reference screenshot */}
-      <div className={`rounded-[26px] sm:rounded-[30px] p-3 sm:p-4.5 md:p-5 flex flex-col gap-2.5 sm:gap-3 transition-colors ${
-        isDark
-          ? 'bg-[#151c24]'
-          : 'bg-[#f4f5f7]'
-      }`}>
+      {/* Projects List without card box style, only subtle hover effect */}
+      <div className="flex flex-col gap-2 sm:gap-2.5">
         {data.projects.slice(0, 3).map((project, index) => (
           <motion.div
             key={project.id}
@@ -52,7 +48,9 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.35, delay: index * 0.05 }}
             onClick={() => onSelectProject(project)}
-            className="group relative cursor-pointer flex items-center justify-between gap-4 sm:gap-6 rounded-[20px] p-2 sm:p-2.5 md:p-3 transition-all duration-300 hover:bg-white/[0.04]"
+            className={`group relative cursor-pointer flex items-center justify-between gap-4 sm:gap-6 rounded-[22px] p-2.5 sm:p-3 transition-all duration-300 ${
+              isDark ? 'hover:bg-white/[0.05]' : 'hover:bg-black/[0.03]'
+            }`}
           >
             {/* Left: Project Image Thumbnail */}
             <div className="relative w-22 h-16 sm:w-26 sm:h-19 md:w-30 md:h-21 rounded-xl sm:rounded-2xl overflow-hidden shrink-0 bg-[#11181F]">

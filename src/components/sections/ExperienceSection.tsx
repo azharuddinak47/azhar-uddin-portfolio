@@ -33,12 +33,8 @@ export const ExperienceSection = () => {
           className="mb-4"
         />
 
-        {/* Experience Timeline Rows matching Sawad reference */}
-        <div className={`rounded-[26px] sm:rounded-[30px] p-3 sm:p-5 md:p-6 flex flex-col gap-5 sm:gap-6 transition-colors ${
-          isDark
-            ? 'bg-[#151c24]'
-            : 'bg-[#f4f5f7]'
-        }`}>
+        {/* Experience Timeline Rows without card box style, only hover effect */}
+        <div className="flex flex-col gap-4 sm:gap-5">
           {data.experiences.map((exp, index) => {
             const isExpanded = expandedId === exp.id;
 
@@ -50,7 +46,9 @@ export const ExperienceSection = () => {
                 viewport={{ once: false, amount: 0.15 }}
                 transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => toggleExpand(exp.id)}
-                className="group relative cursor-pointer flex items-start justify-between gap-4 sm:gap-6 rounded-[20px] p-2 sm:p-3 transition-all duration-300 hover:bg-white/[0.04]"
+                className={`group relative cursor-pointer flex items-start justify-between gap-4 sm:gap-6 rounded-[22px] p-2.5 sm:p-3 transition-all duration-300 ${
+                  isDark ? 'hover:bg-white/[0.05]' : 'hover:bg-black/[0.03]'
+                }`}
               >
                 {/* Left: Company Logo / Icon */}
                 <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105 p-2 shadow-sm ${
