@@ -79,21 +79,8 @@ export const SidebarProfileCard = ({ className = '', onOpenEditModal }: { classN
           {profile.name?.trim() || 'Md Azhar Uddin'}
         </h2>
 
-        {/* Sparkle/Flame Badge and Connecting Dashed Arc */}
+        {/* Sparkle/Flame Badge */}
         <div className="relative flex items-center justify-center w-full mb-2 z-10 pointer-events-none">
-          {/* Dashed blue arc leading from the left edge to the badge */}
-          <div className="absolute right-[50%] mr-4 w-28 h-10 pointer-events-none">
-            <svg viewBox="0 0 120 50" className="w-full h-full overflow-visible">
-              <path
-                d="M -15,40 C 35,40 70,25 115,10"
-                fill="none"
-                stroke="#1b61a9"
-                strokeWidth="2.5"
-                strokeDasharray="4 4"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
 
           {/* Badge */}
           <div className="w-7 h-7 rounded-full bg-[#1d6de3] text-white flex items-center justify-center shadow-[0_4px_14px_rgba(29,109,227,0.45)] relative z-10 transition-transform duration-300 hover:scale-110 pointer-events-auto">
