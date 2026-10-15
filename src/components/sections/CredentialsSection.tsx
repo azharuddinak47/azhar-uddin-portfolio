@@ -149,23 +149,30 @@ export const CredentialsSection = () => {
               </div>
 
               <div className="space-y-3">
-                {academics.slice(0, 2).map((edu) => (
-                  <div
-                    key={edu.id}
-                    className={`p-3.5 rounded-xl border flex items-center gap-3.5 transition-colors ${
-                      isDark ? 'bg-[#11181F] border-white/5' : 'bg-[#f8f9fa] border-black/6'
-                    }`}
-                  >
-                    {edu.logo && (
-                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 shadow-xs border border-black/5 overflow-hidden">
-                        <img
-                          src={edu.logo}
-                          alt={edu.institution}
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                    )}
-                    <div className="flex-1 min-w-0 space-y-1">
+                {academics.slice(0, 2).map((edu) => {
+                  const collegeLogo = edu.id === 'acad-1' || edu.institution.toLowerCase().includes('titumir')
+                    ? '/assets/titumir_college_logo.png'
+                    : edu.id === 'acad-2' || edu.institution.toLowerCase().includes('kalatia')
+                    ? '/assets/kalatia_college_logo.png'
+                    : edu.logo;
+
+                  return (
+                    <div
+                      key={edu.id}
+                      className={`p-3.5 rounded-xl border flex items-center gap-3.5 transition-colors ${
+                        isDark ? 'bg-[#11181F] border-white/5' : 'bg-[#f8f9fa] border-black/6'
+                      }`}
+                    >
+                        {collegeLogo && (
+                          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 shadow-xs border border-black/5 overflow-hidden">
+                            <img
+                              src={collegeLogo}
+                              alt={edu.institution}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        )}
+                        <div className="flex-1 min-w-0 space-y-1">
                       <div className="flex items-start justify-between gap-2">
                         <span className={`text-xs sm:text-sm font-bold leading-snug truncate ${
                           isDark ? 'text-white' : 'text-neutral-900'
@@ -184,7 +191,8 @@ export const CredentialsSection = () => {
                       </div>
                     </div>
                   </div>
-                ))}
+                );
+              })}
               </div>
             </div>
           </div>
