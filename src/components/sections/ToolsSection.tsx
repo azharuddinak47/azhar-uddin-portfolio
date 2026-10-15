@@ -43,8 +43,14 @@ export const ToolsSection = () => {
                   : 'bg-white hover:bg-[#fcfcfd] border border-black/[0.04] hover:border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
               }`}
             >
-              {/* Left: Squircle White Badge matching reference screenshot */}
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-[18px] sm:rounded-2xl bg-white flex items-center justify-center p-3 shadow-md shrink-0 group-hover:scale-105 transition-transform duration-300">
+              {/* Left: Squircle Badge with subtle off-white styling for clarity */}
+              <div
+                className={`w-14 h-14 sm:w-16 sm:h-16 rounded-[18px] sm:rounded-2xl flex items-center justify-center p-3 shrink-0 group-hover:scale-105 transition-all duration-300 ${
+                  isDark
+                    ? 'bg-[#f4f4f6] shadow-md border border-white/10'
+                    : 'bg-[#f3f4f6] border border-black/[0.08] shadow-[0_2px_8px_rgba(0,0,0,0.06)]'
+                }`}
+              >
                 <img
                   src={tool.icon}
                   alt={tool.name}
