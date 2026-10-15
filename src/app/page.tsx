@@ -297,7 +297,7 @@ export default function Home() {
       <Navbar />
 
       {/* Two-Column Master Layout */}
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-24 lg:pt-28 pb-20 sm:pb-16 lg:pb-8 h-full flex flex-col justify-center">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-24 lg:pt-28 pb-20 sm:pb-16 lg:pb-8 w-full">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start w-full relative">
           {/* Left Column: Sticky Profile Card - always on desktop; on mobile shown on home section */}
           <SidebarProfileCard className={activeSection === 'home' ? 'block' : 'hidden lg:block'} />
@@ -316,7 +316,7 @@ export default function Home() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="w-full min-h-[480px] lg:min-h-[560px] flex flex-col"
+                className="w-full flex flex-col justify-start"
               >
                 {activeSection === 'home' && <RightHeroSection />}
                 {activeSection === 'projects' && (
