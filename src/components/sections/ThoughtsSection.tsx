@@ -33,8 +33,8 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
           className="mb-4"
         />
 
-        {/* Stack of Thought Cards matching reference screenshot */}
-        <div className="flex flex-col gap-4 sm:gap-5">
+        {/* List of Thought Rows without card box style, only subtle hover effect */}
+        <div className="flex flex-col gap-2 sm:gap-3">
           {data.thoughts.slice(0, 2).map((thought, index) => (
             <motion.div
               key={thought.id || index}
@@ -43,17 +43,15 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
               viewport={{ once: false, amount: 0.15 }}
               transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               onClick={() => onSelectThought(thought)}
-              className={`group cursor-pointer p-6 sm:p-7 md:p-8 rounded-[24px] sm:rounded-[28px] transition-all duration-300 flex flex-col justify-between ${
-                isDark
-                  ? 'bg-[#1e1c1a] hover:bg-[#252220] border border-white/5'
-                  : 'bg-white hover:bg-[#fafafa] border border-black/5 shadow-sm'
+              className={`group cursor-pointer p-4 sm:p-5 md:p-6 rounded-[22px] transition-all duration-300 flex flex-col justify-between ${
+                isDark ? 'hover:bg-white/[0.05]' : 'hover:bg-black/[0.03]'
               }`}
             >
-              {/* Top: Title & Orange Diagonal Arrow */}
+              {/* Top: Title & Blue Diagonal Arrow */}
               <div className="flex items-start justify-between gap-4">
                 <h3
                   className={`text-xl sm:text-[26px] md:text-[28px] font-semibold tracking-normal font-[family-name:var(--font-poppins)] leading-[1.25] transition-colors max-w-xl ${
-                    isDark ? 'text-white' : 'text-neutral-900'
+                    isDark ? 'text-white group-hover:text-[#60a5fa]' : 'text-neutral-900 group-hover:text-[#1d6de3]'
                   }`}
                 >
                   {thought.title}
@@ -61,7 +59,7 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
                 <div className="pt-1 shrink-0">
                   <ArrowUpRight
                     size={24}
-                    className="text-[#f46c38] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+                    className="text-[#1d6de3] group-hover:text-[#60a5fa] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
                   />
                 </div>
               </div>
