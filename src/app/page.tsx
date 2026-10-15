@@ -297,7 +297,7 @@ export default function Home() {
       <Navbar />
 
       {/* Two-Column Master Layout */}
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-24 lg:pt-28 pb-20 sm:pb-16 lg:pb-8 w-full">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-28 lg:pt-36 pb-20 sm:pb-16 lg:pb-8 w-full">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start w-full relative">
           {/* Left Column: Sticky Profile Card - always on desktop; on mobile shown on home section */}
           <SidebarProfileCard className={activeSection === 'home' ? 'block' : 'hidden lg:block'} />
@@ -305,7 +305,7 @@ export default function Home() {
           {/* Right Column: Single Section Screen with buttery smooth internal scroll and crossfade */}
           <main
             ref={scrollContainerRef}
-            className="flex-1 w-full min-w-0 relative lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto lg:overflow-x-hidden custom-scrollbar no-scrollbar"
+            className="flex-1 w-full min-w-0 relative lg:max-h-[calc(100vh-175px)] lg:overflow-y-auto lg:overflow-x-hidden custom-scrollbar no-scrollbar"
             style={{ overscrollBehavior: 'contain' }}
           >
             <AnimatePresence mode="wait" custom={slideDirection}>
