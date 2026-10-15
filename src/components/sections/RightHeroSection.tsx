@@ -63,7 +63,7 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
       >
         {stats.map((stat, index) => (
           <div key={stat.id || index} className="flex flex-col items-start select-text">
-            <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-white font-[family-name:var(--font-poppins)] tracking-tight leading-none mb-1.5 select-text cursor-text">
+            <span className="text-4xl sm:text-5xl lg:text-[70px] font-medium text-white font-[family-name:var(--font-poppins)] tracking-tight leading-none mb-1.5 select-text cursor-text">
               {stat.value}
             </span>
             <span className="text-[11px] sm:text-xs font-bold tracking-wider text-[#998f8f] uppercase leading-tight font-[family-name:var(--font-poppins)] select-text cursor-text">
