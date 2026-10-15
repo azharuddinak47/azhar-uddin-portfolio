@@ -53,24 +53,28 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
         </motion.p>
       </div>
 
-      {/* 3 Stats Numbers Row (Clean horizontal numbers matching screenshot) */}
+      {/* 3 Stats Numbers Row matching Sawad Framer specs */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
         transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="flex items-start gap-8 sm:gap-14 lg:gap-16 pt-1 select-text"
+        className="flex items-start gap-8 sm:gap-10 md:gap-10 pt-1 select-text"
       >
         {stats.map((stat, index) => (
           <div key={stat.id || index} className="flex flex-col items-start select-text">
-            <span className="text-4xl sm:text-5xl lg:text-[70px] font-medium text-white font-[family-name:var(--font-poppins)] tracking-tight leading-none mb-1.5 select-text cursor-text">
+            <p className={`text-4xl sm:text-5xl lg:text-[70px] font-medium font-[family-name:var(--font-poppins)] tracking-[-0.01em] leading-[1.1] sm:leading-[84px] mb-1 select-text cursor-text ${
+              isDark ? 'text-white' : 'text-[#111827]'
+            }`}>
               {stat.value}
-            </span>
-            <span className="text-[11px] sm:text-xs font-bold tracking-wider text-[#998f8f] uppercase leading-tight font-[family-name:var(--font-poppins)] select-text cursor-text">
+            </p>
+            <p className={`text-xs sm:text-[16px] font-normal tracking-[-0.01em] uppercase leading-[1.25] font-[family-name:var(--font-poppins)] select-text cursor-text ${
+              isDark ? 'text-[#998F8F]' : 'text-neutral-600'
+            }`}>
               {stat.label}
               <br />
               {stat.sublabel}
-            </span>
+            </p>
           </div>
         ))}
       </motion.div>
