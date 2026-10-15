@@ -37,15 +37,15 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
   };
 
   return (
-    <header className="fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-auto">
+    <header className="fixed bottom-3 sm:bottom-auto sm:top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-auto pb-[env(safe-area-inset-bottom)]">
       <motion.div
-        initial={{ y: -30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="relative"
       >
         <nav
-          className={`relative z-10 flex items-center gap-4 sm:gap-8 px-4 sm:px-7 py-2.5 sm:py-3.5 rounded-[22px] border transition-all duration-500 max-w-[calc(100vw-1.5rem)] ${
+          className={`relative z-10 flex items-center gap-2 sm:gap-7 px-3 sm:px-7 py-2 sm:py-3.5 rounded-[22px] sm:rounded-[24px] border transition-all duration-500 max-w-[calc(100vw-1rem)] sm:max-w-[calc(100vw-1.5rem)] ${
             isDark
               ? isPlaying
                 ? 'border-[#1d6de3]/40 shadow-[0_12px_32px_rgba(15,45,80,0.7)]'
@@ -121,20 +121,20 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
                 {isActive && (
                   <motion.span
                     layoutId="activeNavDot"
-                    className="absolute -bottom-1.5 w-1.5 h-1.5 rounded-full bg-[#1d6de3] shadow-[0_0_10px_#1d6de3]"
+                    className="absolute -top-1 sm:top-auto sm:-bottom-1.5 w-1.5 h-1.5 rounded-full bg-[#1d6de3] shadow-[0_0_10px_#1d6de3]"
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
                 )}
               </a>
 
-              {/* Floating Tooltip */}
+              {/* Floating Tooltip (opens upward on mobile bottom nav, downward on desktop top nav) */}
               {isHovered && (
                 <motion.div
                   initial={{ opacity: 0, y: 8, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.9 }}
                   transition={{ duration: 0.15 }}
-                  className={`absolute top-full mt-2.5 px-2.5 py-1 rounded-lg border text-[11px] font-semibold tracking-wide uppercase shadow-lg pointer-events-none whitespace-nowrap z-50 ${
+                  className={`absolute bottom-full mb-2.5 sm:bottom-auto sm:top-full sm:mt-2.5 px-2.5 py-1 rounded-lg border text-[11px] font-semibold tracking-wide uppercase shadow-lg pointer-events-none whitespace-nowrap z-50 ${
                     isDark
                       ? 'bg-[#0F2D50] border-[#1d6de3]/30 text-white shadow-lg'
                       : 'bg-white border-neutral-200/90 text-neutral-900 shadow-md'

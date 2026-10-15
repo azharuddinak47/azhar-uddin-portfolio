@@ -36,7 +36,7 @@ const YoutubeOutlineIcon = ({ className = 'w-[22px] h-[22px]' }: { className?: s
   </svg>
 );
 
-export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {}) => {
+export const SidebarProfileCard = ({ className = '', onOpenEditModal }: { className?: string; onOpenEditModal?: () => void } = {}) => {
   const { data, theme } = usePortfolio();
   const isDark = theme === 'dark';
   const { profile } = data;
@@ -44,7 +44,7 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal?: () =
   const cardDescription = profile.subHeadline || 'A Product Designer who has developed countless innovative solutions.';
 
   return (
-    <aside className="w-full lg:w-[350px] shrink-0 static lg:sticky lg:top-40 lg:self-start z-40">
+    <aside className={`w-full lg:w-[350px] shrink-0 static lg:sticky lg:top-40 lg:self-start z-40 ${className}`}>
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}

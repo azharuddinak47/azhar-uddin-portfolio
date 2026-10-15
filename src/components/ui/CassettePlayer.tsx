@@ -170,7 +170,7 @@ export const CassettePlayer = ({ onPlayingChange }: CassettePlayerProps) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.9 }}
             transition={{ duration: 0.15 }}
-            className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-lg border text-[11px] font-semibold tracking-wide uppercase shadow-lg pointer-events-none whitespace-nowrap z-50 ${
+            className={`absolute bottom-full mb-3 sm:bottom-auto sm:top-full sm:mt-3 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-lg border text-[11px] font-semibold tracking-wide uppercase shadow-lg pointer-events-none whitespace-nowrap z-50 ${
               isDark
                 ? 'bg-[#242220] border-white/15 text-white'
                 : 'bg-white border-neutral-200/90 text-neutral-900 shadow-md'

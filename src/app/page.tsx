@@ -181,10 +181,10 @@ export default function Home() {
       <Navbar />
 
       {/* Two-Column Master Layout */}
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-28 sm:pt-32 lg:pt-36 pb-20">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-32 lg:pt-36 pb-28 sm:pb-20">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start w-full relative">
-          {/* Left Column: Sticky Profile Card */}
-          <SidebarProfileCard />
+          {/* Left Column: Sticky Profile Card - always on desktop; on mobile shown on home section */}
+          <SidebarProfileCard className={activeSection === 'home' ? 'block' : 'hidden lg:block'} />
 
           {/* Right Column: Single Section Screen with crossfade */}
           <main className="flex-1 w-full min-w-0 relative">
@@ -221,7 +221,7 @@ export default function Home() {
       </div>
 
       {/* Sleek Floating Section Pagination & Navigation Controls */}
-      <aside aria-label="Section Navigation" className="fixed bottom-5 sm:bottom-7 right-4 sm:right-7 z-40 pointer-events-auto">
+      <aside aria-label="Section Navigation" className="fixed top-4 right-4 sm:top-auto sm:bottom-7 sm:right-7 z-40 pointer-events-auto">
         <div className={`flex items-center gap-2 px-3.5 py-2 rounded-full border shadow-lg backdrop-blur-xl transition-all duration-300 ${
           isDark
             ? 'bg-[#16202a]/90 border-white/10 text-white'
