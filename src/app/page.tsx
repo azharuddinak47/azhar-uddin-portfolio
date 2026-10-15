@@ -328,12 +328,7 @@ export default function Home() {
                 {activeSection === 'thoughts' && (
                   <ThoughtsSection onSelectThought={(thought) => setSelectedThought(thought)} />
                 )}
-                {activeSection === 'contact' && (
-                  <div className="flex flex-col gap-6 sm:gap-8 pb-6">
-                    <ContactSection />
-                    <Footer />
-                  </div>
-                )}
+                {activeSection === 'contact' && <ContactSection />}
               </motion.div>
             </AnimatePresence>
           </main>
