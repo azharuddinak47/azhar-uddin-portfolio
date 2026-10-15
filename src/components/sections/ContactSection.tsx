@@ -192,8 +192,8 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              {/* Row 2: Message */}
-              <div className="flex flex-col gap-1.5 flex-1">
+              {/* Row 2: Message (Expanded to fill available space) */}
+              <div className="flex flex-col gap-1.5 flex-1 min-h-[160px] sm:min-h-[220px]">
                 <label
                   htmlFor="contact-message"
                   className={`text-xs font-semibold select-text transition-colors duration-200 ${
@@ -204,12 +204,12 @@ export const ContactSection = () => {
                 </label>
                 <textarea
                   id="contact-message"
-                  rows={4}
+                  rows={8}
                   required
                   placeholder="Message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className={`w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl border text-xs sm:text-sm outline-none transition-all min-h-[96px] sm:min-h-[120px] resize-none select-text ${
+                  className={`w-full flex-1 px-3.5 py-3 sm:px-4 sm:py-3.5 rounded-xl border text-xs sm:text-sm outline-none transition-all min-h-[150px] sm:min-h-[200px] resize-none select-text ${
                     isDark
                       ? 'bg-[#16222f] border-white/10 text-white placeholder-[#8a99a8] focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/25 shadow-xs'
                       : 'bg-white border-black/10 text-neutral-900 placeholder-neutral-400 focus:border-[#1d6de3] focus:ring-2 focus:ring-[#1d6de3]/15 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:border-black/20'
