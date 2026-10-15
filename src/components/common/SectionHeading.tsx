@@ -25,7 +25,7 @@ export const SectionHeading = ({
   action,
   showDivider = false,
   size = '90',
-  weight = 'black',
+  weight = 'bold',
   titleClassName = '',
 }: SectionHeadingProps) => {
   const alignmentClasses = {
@@ -36,15 +36,15 @@ export const SectionHeading = ({
 
   const sizeClasses = size === '80'
     ? 'text-3xl sm:text-5xl md:text-6xl lg:text-[80px]'
-    : 'text-4xl sm:text-6xl md:text-7xl lg:text-[90px]';
+    : 'text-4xl sm:text-6xl md:text-7xl lg:text-[94px]';
 
-  const weightClasses = weight === 'bold'
-    ? 'font-bold'
+  const weightClasses = weight === 'black'
+    ? 'font-black'
     : weight === 'semibold'
     ? 'font-semibold'
     : weight === 'extrabold'
     ? 'font-extrabold'
-    : 'font-black';
+    : 'font-bold';
 
   const leadingClasses = 'leading-[0.88]';
 

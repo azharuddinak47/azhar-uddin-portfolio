@@ -117,12 +117,12 @@ export const ContactSection = () => {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-start leading-[0.88] mb-4 sm:mb-5 select-text shrink-0"
         >
-          <span className={`text-4xl sm:text-6xl md:text-7xl lg:text-[90px] font-black tracking-tight uppercase font-[family-name:var(--font-poppins)] select-text cursor-text transition-colors duration-300 leading-[0.88] ${
+          <span className={`text-4xl sm:text-6xl md:text-7xl lg:text-[94px] font-bold tracking-tight uppercase font-[family-name:var(--font-poppins)] select-text cursor-text transition-colors duration-300 leading-[0.88] ${
             isDark ? 'text-white' : 'text-neutral-900'
           }`}>
             LET&apos;S WORK
           </span>
-          <span className="neon-stroke text-4xl sm:text-6xl md:text-7xl lg:text-[90px] font-black tracking-tight uppercase font-[family-name:var(--font-poppins)] select-text cursor-text leading-[0.88] mt-1 sm:mt-1.5">
+          <span className="neon-stroke text-4xl sm:text-6xl md:text-7xl lg:text-[94px] font-bold tracking-tight uppercase font-[family-name:var(--font-poppins)] select-text cursor-text leading-[0.88] mt-1 sm:mt-1.5">
             TOGETHER
           </span>
         </motion.div>
