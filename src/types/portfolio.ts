@@ -81,6 +81,7 @@ export interface ProfileConfig {
   phone: string;
   behanceUrl: string;
   linkedinUrl: string;
+  githubUrl?: string;
   dribbbleUrl?: string;
   twitterUrl?: string;
   facebookUrl?: string;

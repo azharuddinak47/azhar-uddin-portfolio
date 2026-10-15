@@ -12,6 +12,7 @@ export const initialPortfolioData: PortfolioData = {
     "phone": "+8801743484818",
     "behanceUrl": "https://www.behance.net/azharuddin-uiux",
     "linkedinUrl": "https://linkedin.com/in/azhar-uiux",
+    "githubUrl": "https://github.com/azharuddinak47",
     "dribbbleUrl": "https://dribbble.com/azharuddin-uiux",
     "twitterUrl": "https://x.com",
     "facebookUrl": "https://www.facebook.com/azharuddinak47/",
