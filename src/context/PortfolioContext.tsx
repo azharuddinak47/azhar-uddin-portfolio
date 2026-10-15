@@ -4,6 +4,18 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { PortfolioData } from '@/types/portfolio';
 import { initialPortfolioData } from '@/config/portfolio.config';
 
+export const SECTION_IDS = [
+  'home',
+  'projects',
+  'experience',
+  'tools',
+  'credentials',
+  'thoughts',
+  'contact',
+] as const;
+
+export type SectionId = typeof SECTION_IDS[number];
+
 interface PortfolioContextType {
   data: PortfolioData;
   isEditMode: boolean;
@@ -17,6 +29,11 @@ interface PortfolioContextType {
   theme: 'dark' | 'light';
   toggleTheme: () => void;
   setTheme: (theme: 'dark' | 'light') => void;
+  activeSection: SectionId;
+  setActiveSection: (section: SectionId, direction?: number) => void;
+  slideDirection: number;
+  goToNextSection: () => void;
+  goToPrevSection: () => void;
 }
 
 const STORAGE_KEY = 'azhar_portfolio_custom_data_v8';
@@ -30,6 +47,62 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
   const [hasCustomChanges, setHasCustomChanges] = useState<boolean>(false);
   const [theme, setThemeState] = useState<'dark' | 'light'>('dark');
   const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [activeSection, setActiveSectionState] = useState<SectionId>('home');
+  const [slideDirection, setSlideDirection] = useState<number>(1);
+
+  // Sync with URL hash on mount
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const hash = window.location.hash.replace('#', '') as SectionId;
+      if (SECTION_IDS.includes(hash)) {
+        setActiveSectionState(hash);
+      }
+    }
+  }, []);
+
+  const setActiveSection = (section: SectionId, direction?: number) => {
+    setActiveSectionState((prev) => {
+      if (prev === section) return prev;
+      const oldIdx = SECTION_IDS.indexOf(prev);
+      const newIdx = SECTION_IDS.indexOf(section);
+      const dir = direction !== undefined ? direction : newIdx > oldIdx ? 1 : -1;
+      setSlideDirection(dir);
+      if (typeof window !== 'undefined') {
+        window.history.replaceState(null, '', '#' + section);
+      }
+      return section;
+    });
+  };
+
+  const goToNextSection = () => {
+    setActiveSectionState((prev) => {
+      const idx = SECTION_IDS.indexOf(prev);
+      if (idx < SECTION_IDS.length - 1) {
+        setSlideDirection(1);
+        const nextId = SECTION_IDS[idx + 1];
+        if (typeof window !== 'undefined') {
+          window.history.replaceState(null, '', '#' + nextId);
+        }
+        return nextId;
+      }
+      return prev;
+    });
+  };
+
+  const goToPrevSection = () => {
+    setActiveSectionState((prev) => {
+      const idx = SECTION_IDS.indexOf(prev);
+      if (idx > 0) {
+        setSlideDirection(-1);
+        const prevId = SECTION_IDS[idx - 1];
+        if (typeof window !== 'undefined') {
+          window.history.replaceState(null, '', '#' + prevId);
+        }
+        return prevId;
+      }
+      return prev;
+    });
+  };
 
   const applyTheme = (t: 'dark' | 'light') => {
     if (typeof document === 'undefined') return;
@@ -213,7 +286,12 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
         hasCustomChanges,
         theme,
         toggleTheme,
-        setTheme
+        setTheme,
+        activeSection,
+        setActiveSection,
+        slideDirection,
+        goToNextSection,
+        goToPrevSection,
       }}
     >
       {children}

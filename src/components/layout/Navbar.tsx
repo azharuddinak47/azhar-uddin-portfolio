@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Folder, Briefcase, Wrench, SquarePen, Mail } from 'lucide-react';
+import { Home, Folder, Briefcase, Wrench, Award, SquarePen, Mail } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import { CassettePlayer } from '@/components/ui/CassettePlayer';
 import { MeshGradientGlow } from '@/components/ui/MeshGradientGlow';
@@ -19,54 +19,21 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'projects', label: 'Projects', href: '#projects', icon: Folder },
   { id: 'experience', label: 'Experience', href: '#experience', icon: Briefcase },
   { id: 'tools', label: 'Tools', href: '#tools', icon: Wrench },
+  { id: 'credentials', label: 'Credentials', href: '#credentials', icon: Award },
   { id: 'thoughts', label: 'Thoughts', href: '#thoughts', icon: SquarePen },
   { id: 'contact', label: 'Contact', href: '#contact', icon: Mail },
 ];
 
 export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {}) => {
-  const { theme } = usePortfolio();
+  const { theme, activeSection, setActiveSection } = usePortfolio();
   const isDark = theme === 'dark';
-  const [activeSection, setActiveSection] = useState('home');
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + 170;
-      for (const item of NAV_ITEMS) {
-        const el = document.getElementById(item.id);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(item.id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
-    const targetEl = document.getElementById(targetId);
-    if (targetEl) {
-      setActiveSection(targetId);
-      const lenis = (window as unknown as { __lenis?: { scrollTo: (el: HTMLElement, opts: object) => void } }).__lenis;
-      if (lenis) {
-        lenis.scrollTo(targetEl, {
-          offset: -160,
-          duration: 1.2,
-          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        });
-      } else {
-        targetEl.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    const targetId = href.replace('#', '') as any;
+    setActiveSection(targetId);
   };
 
   return (

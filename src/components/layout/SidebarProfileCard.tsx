@@ -41,7 +41,7 @@ export const SidebarProfileCard = ({ onOpenEditModal }: { onOpenEditModal?: () =
   const isDark = theme === 'dark';
   const { profile } = data;
 
-  const cardDescription = profile.cardBio || 'A Product Designer who has developed countless innovative solutions.';
+  const cardDescription = profile.subHeadline || 'A Product Designer who has developed countless innovative solutions.';
 
   return (
     <aside className="w-full lg:w-[350px] shrink-0 static lg:sticky lg:top-40 lg:self-start z-40">
