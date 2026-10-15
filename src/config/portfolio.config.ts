@@ -304,13 +304,15 @@ export const initialPortfolioData: PortfolioData = {
       "id": "acad-1",
       "degree": "BBA in Management",
       "institution": "Government Titumir College",
-      "period": "2021 - Present"
+      "period": "2021 - Present",
+      "logo": "/assets/titumir_college_logo.png"
     },
     {
       "id": "acad-2",
       "degree": "Higher Secondary Certificate (H.S.C)",
       "institution": "Kalatia Degree College",
-      "period": "2020"
+      "period": "2020",
+      "logo": "/assets/kalatia_college_logo.png"
     }
   ],
   "thoughts": [

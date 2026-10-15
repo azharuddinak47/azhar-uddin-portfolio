@@ -51,6 +51,7 @@ export interface AcademicItem {
   degree: string;
   institution: string;
   period: string;
+  logo?: string;
 }
 
 export interface ThoughtItem {
