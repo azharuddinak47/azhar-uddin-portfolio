@@ -174,15 +174,10 @@ export const CredentialsSection = () => {
                         )}
                         <div className="flex-1 min-w-0 space-y-1">
                       <div className="flex items-start justify-between gap-2">
-                        <span className={`text-xs sm:text-sm font-bold leading-snug truncate ${
+                        <span className={`text-xs sm:text-sm font-bold leading-snug ${
                           isDark ? 'text-white' : 'text-neutral-900'
                         }`}>
                           {edu.degree}
-                        </span>
-                        <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold uppercase shrink-0 ${
-                          isDark ? 'bg-white/10 text-neutral-300' : 'bg-black/5 text-neutral-700 border border-black/5'
-                        }`}>
-                          Degree
                         </span>
                       </div>
                       <div className="flex items-center justify-between text-[11px] text-[#998f8f] gap-2">
