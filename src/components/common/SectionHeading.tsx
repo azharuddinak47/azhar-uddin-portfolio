@@ -36,7 +36,7 @@ export const SectionHeading = ({
 
   const sizeClasses = size === '80'
     ? 'text-3xl sm:text-5xl md:text-6xl lg:text-[80px]'
-    : 'text-4xl sm:text-6xl md:text-7xl lg:text-[94px]';
+    : 'text-4xl sm:text-6xl md:text-7xl lg:text-[90px]';
 
   const weightClasses = weight === 'black'
     ? 'font-black'

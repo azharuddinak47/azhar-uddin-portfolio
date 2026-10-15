@@ -31,12 +31,12 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
           className="flex flex-col items-start tracking-tight uppercase font-[family-name:var(--font-poppins)] select-text"
         >
           {/* Line 1: Solid Crisp White */}
-          <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[94px] font-bold text-white leading-[0.88] select-text cursor-text">
+          <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[90px] font-bold text-white leading-[0.88] select-text cursor-text">
             {solidPart}
           </span>
 
           {/* Line 2: Neon Light Only Stroke Mode */}
-          <span className="neon-stroke text-5xl sm:text-7xl md:text-8xl lg:text-[94px] font-bold leading-[0.88] select-text cursor-text mt-1 sm:mt-1.5">
+          <span className="neon-stroke text-5xl sm:text-7xl md:text-8xl lg:text-[90px] font-bold leading-[0.88] select-text cursor-text mt-1 sm:mt-1.5">
             {mutedPart}
           </span>
         </motion.h1>
