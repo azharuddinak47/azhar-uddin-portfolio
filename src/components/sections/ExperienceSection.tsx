@@ -33,8 +33,12 @@ export const ExperienceSection = () => {
           className="mb-4"
         />
 
-        {/* Experience Timeline Cards */}
-        <div className="flex flex-col gap-3.5">
+        {/* Experience Timeline Rows matching Sawad reference */}
+        <div className={`rounded-[26px] sm:rounded-[30px] p-3 sm:p-5 md:p-6 flex flex-col gap-5 sm:gap-6 transition-colors ${
+          isDark
+            ? 'bg-[#151c24]'
+            : 'bg-[#f4f5f7]'
+        }`}>
           {data.experiences.map((exp, index) => {
             const isExpanded = expandedId === exp.id;
 
@@ -46,98 +50,85 @@ export const ExperienceSection = () => {
                 viewport={{ once: false, amount: 0.15 }}
                 transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => toggleExpand(exp.id)}
-                className={`group cursor-pointer rounded-[22px] border transition-all duration-300 p-5 sm:p-6 ${
-                  isDark
-                    ? isExpanded
-                      ? 'border-[#1d6de3]/50 bg-[#16202a] shadow-[0_12px_30px_rgba(0,0,0,0.5),0_0_20px_rgba(29,109,227,0.18)]'
-                      : 'border-[#1d6de3]/15 hover:border-[#1d6de3]/35 bg-[#16202a] hover:bg-[#1e2c3a] shadow-md'
-                    : isExpanded
-                      ? 'border-[#1d6de3]/30 bg-[#f0f7ff] shadow-[0_4px_16px_rgba(29,109,227,0.06)]'
-                      : 'border-black/[0.04] hover:border-black/[0.08] bg-white hover:bg-[#fcfcfd] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
-                }`}
+                className="group relative cursor-pointer flex items-start justify-between gap-4 sm:gap-6 rounded-[20px] p-2 sm:p-3 transition-all duration-300 hover:bg-white/[0.04]"
               >
-                {/* Header row */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                  <div className="flex items-center gap-3.5">
-                    <div className={`w-11 h-11 rounded-xl border flex items-center justify-center text-[#3b82f6] shrink-0 group-hover:border-[#1d6de3]/40 transition-colors overflow-hidden p-1 ${
-                      isDark ? 'bg-[#11181F] border-white/10' : 'bg-[#f1f3f5] border-black/8'
-                    }`}>
-                      {exp.logo ? (
-                        <img
-                          src={exp.logo}
-                          alt={exp.company}
-                          className="w-full h-full object-contain rounded-lg"
-                        />
-                      ) : (
-                        <Briefcase size={18} />
-                      )}
-                    </div>
-
-                    <div>
-                      <div className="flex items-center gap-2.5 flex-wrap">
-                        <h3 className={`text-lg sm:text-xl font-black uppercase font-[family-name:var(--font-poppins)] tracking-tight transition-colors ${
-                          isDark ? 'text-white group-hover:text-[#60a5fa]' : 'text-neutral-900 group-hover:text-[#1d6de3]'
-                        }`}>
-                          {exp.company}
-                        </h3>
-                        {index === 0 && (
-                          <span className="px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase bg-[#1d6de3]/15 text-[#60a5fa] border border-[#1d6de3]/30">
-                            Current
-                          </span>
-                        )}
-                      </div>
-                      <p className={`text-xs sm:text-sm font-medium ${isDark ? 'text-neutral-300' : 'text-neutral-600'}`}>
-                        {exp.role}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Period Badge & Expand Trigger */}
-                  <div className="flex items-center justify-between sm:justify-end gap-2.5 shrink-0">
-                    <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold ${
-                      isDark ? 'bg-[#11181F] border border-white/5 text-[#998f8f]' : 'bg-[#f1f3f5] border border-black/5 text-neutral-600'
-                    }`}>
-                      <Calendar size={12} className="text-[#3b82f6]" />
-                      <span>{exp.period}</span>
-                    </div>
-
-                    <div className={`p-1.5 rounded-full transition-transform duration-300 ${
-                      isDark ? 'bg-white/5 text-neutral-400 group-hover:text-white' : 'bg-black/5 text-neutral-600 group-hover:text-neutral-950'
-                    } ${isExpanded ? 'rotate-90 text-[#3b82f6]' : ''}`}>
-                      <ChevronRight size={14} />
-                    </div>
-                  </div>
+                {/* Left: Company Logo / Icon */}
+                <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105 p-2 shadow-sm ${
+                  isDark ? 'bg-[#11181F] border border-white/10' : 'bg-white border border-black/8'
+                }`}>
+                  {exp.logo ? (
+                    <img
+                      src={exp.logo}
+                      alt={exp.company}
+                      className="w-full h-full object-contain rounded-xl"
+                    />
+                  ) : (
+                    <Briefcase size={22} className="text-[#3b82f6]" />
+                  )}
                 </div>
 
-                {/* Description Body */}
-                <p className={`mt-3 text-xs sm:text-sm leading-relaxed ${isDark ? 'text-[#998f8f]' : 'text-neutral-600'}`}>
-                  {exp.description}
-                </p>
+                {/* Center / Body: Company Title, Description, Period */}
+                <div className="flex-1 min-w-0 pr-2">
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    <h3 className={`text-xl sm:text-[24px] font-semibold tracking-normal font-[family-name:var(--font-poppins)] transition-colors leading-[1.2] ${
+                      isDark ? 'text-white group-hover:text-[#60a5fa]' : 'text-neutral-900 group-hover:text-[#1d6de3]'
+                    }`}>
+                      {exp.company}
+                    </h3>
+                    {index === 0 && (
+                      <span className="px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase bg-[#1d6de3]/15 text-[#60a5fa] border border-[#1d6de3]/30">
+                        Current
+                      </span>
+                    )}
+                  </div>
 
-                {/* Expanded Highlights */}
-                {isExpanded && exp.highlights && exp.highlights.length > 0 && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className={`mt-3.5 pt-3.5 border-t flex flex-col gap-2 ${
-                      isDark ? 'border-white/5' : 'border-black/6'
-                    }`}
-                  >
-                    <span className={`text-[10px] font-bold tracking-wider uppercase ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>
-                      Key Highlights:
-                    </span>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-0.5">
-                      {exp.highlights.map((h, hIdx) => (
-                        <div key={hIdx} className={`flex items-start gap-2 text-xs ${isDark ? 'text-neutral-300' : 'text-neutral-700'}`}>
-                          <CheckCircle2 size={14} className="text-[#3b82f6] shrink-0 mt-0.5" />
-                          <span>{h}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
+                  {/* Role & Description */}
+                  <p className={`mt-2 text-sm sm:text-[15px] font-normal leading-relaxed font-[family-name:var(--font-poppins)] ${
+                    isDark ? 'text-[#998F8F]' : 'text-neutral-600'
+                  }`}>
+                    {exp.description}
+                  </p>
+
+                  {/* Period */}
+                  <p className={`mt-2.5 text-xs sm:text-sm font-normal font-[family-name:var(--font-poppins)] ${
+                    isDark ? 'text-[#7e7a7a]' : 'text-neutral-500'
+                  }`}>
+                    {exp.period}
+                  </p>
+
+                  {/* Expanded Highlights */}
+                  {isExpanded && exp.highlights && exp.highlights.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className={`mt-3 pt-3 border-t flex flex-col gap-2 ${
+                        isDark ? 'border-white/5' : 'border-black/6'
+                      }`}
+                    >
+                      <span className={`text-[10px] font-bold tracking-wider uppercase ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>
+                        Key Highlights:
+                      </span>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-0.5">
+                        {exp.highlights.map((h, hIdx) => (
+                          <div key={hIdx} className={`flex items-start gap-2 text-xs ${isDark ? 'text-neutral-300' : 'text-neutral-700'}`}>
+                            <CheckCircle2 size={14} className="text-[#3b82f6] shrink-0 mt-0.5" />
+                            <span>{h}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </div>
+
+                {/* Right: Diagonal Arrow Icon matching user reference screenshot */}
+                <div className="pt-1.5 shrink-0">
+                  <ChevronRight
+                    size={22}
+                    className="text-[#f46c38] group-hover:text-[#ff7b47] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 -rotate-45 transition-all duration-300"
+                  />
+                </div>
               </motion.div>
             );
           })}
