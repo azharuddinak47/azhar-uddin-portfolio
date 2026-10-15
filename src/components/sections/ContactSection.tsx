@@ -42,6 +42,15 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const recipient = contact?.email || 'azharuddin.au543@gmail.com';
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Hi Azhar,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n`
+    );
+
+    // Open user's default email client pre-addressed to your Gmail
+    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
     try {
       await fetch('/api/contact', {
         method: 'POST',
