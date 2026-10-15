@@ -305,7 +305,7 @@ export default function Home() {
           {/* Right Column: Single Section Screen with buttery smooth internal scroll and crossfade */}
           <main
             ref={scrollContainerRef}
-            className="flex-1 w-full min-w-0 relative lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto lg:overflow-x-hidden pr-1.5 custom-scrollbar"
+            className="flex-1 w-full min-w-0 relative lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto lg:overflow-x-hidden custom-scrollbar no-scrollbar"
             style={{ overscrollBehavior: 'contain' }}
           >
             <AnimatePresence mode="wait" custom={slideDirection}>
