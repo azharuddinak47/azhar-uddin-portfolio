@@ -23,24 +23,21 @@ import { ChevronUp, ChevronDown } from 'lucide-react';
 const sectionVariants: Variants = {
   enter: (direction: number) => ({
     opacity: 0,
-    y: direction > 0 ? 35 : -35,
-    filter: 'blur(8px)',
+    y: direction > 0 ? 20 : -20,
   }),
   center: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: {
-      duration: 0.5,
+      duration: 0.38,
       ease: [0.16, 1, 0.3, 1] as const,
     },
   },
   exit: (direction: number) => ({
     opacity: 0,
-    y: direction > 0 ? -35 : 35,
-    filter: 'blur(8px)',
+    y: direction > 0 ? -20 : 20,
     transition: {
-      duration: 0.35,
+      duration: 0.22,
       ease: [0.16, 1, 0.3, 1] as const,
     },
   }),
@@ -65,32 +62,111 @@ export default function Home() {
   const currentFormattedIndex = String(currentIndex + 1).padStart(2, '0');
   const totalFormattedSections = String(totalSections).padStart(2, '0');
 
-  // Cooldown and wheel lock to prevent rapid skipping
+  // Dedicated container ref for buttery smooth internal scrolling of long sections
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const lastScrollTimeRef = useRef(0);
+  const isTransitioningRef = useRef(false);
+  const boundaryHitRef = useRef<'top' | 'bottom' | null>(null);
+
+  // Reset scroll position and transition locks on section change
+  useEffect(() => {
+    isTransitioningRef.current = true;
+    boundaryHitRef.current = null;
+
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    const timer = setTimeout(() => {
+      isTransitioningRef.current = false;
+    }, 450);
+
+    return () => clearTimeout(timer);
+  }, [activeSection]);
 
   useEffect(() => {
-    const WHEEL_COOLDOWN = 750; // ms
-    const WHEEL_THRESHOLD = 25; // px
+    const TRANSITION_COOLDOWN = 600; // ms
+    const WHEEL_THRESHOLD = 22; // px
 
     const handleWheel = (e: WheelEvent) => {
       // If modal open, do not transition sections
       if (selectedProject || selectedThought) return;
 
-      const now = Date.now();
-      if (now - lastScrollTimeRef.current < WHEEL_COOLDOWN) return;
-
-      // Allow internal scrolling if target element has overflow
-      const target = e.target as HTMLElement;
-      const scrollable = target.closest('.overflow-y-auto, .overflow-auto') as HTMLElement | null;
-      if (scrollable && scrollable.scrollHeight > scrollable.clientHeight) {
-        const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 5;
-        const atTop = scrollable.scrollTop <= 5;
-        if (e.deltaY > 0 && !atBottom) return;
-        if (e.deltaY < 0 && !atTop) return;
+      if (isTransitioningRef.current) {
+        return;
       }
+
+      const now = Date.now();
+      if (now - lastScrollTimeRef.current < TRANSITION_COOLDOWN) return;
 
       if (Math.abs(e.deltaY) < WHEEL_THRESHOLD) return;
 
+      const container = scrollContainerRef.current;
+      const isDesktop = window.innerWidth >= 1024;
+
+      if (isDesktop && container) {
+        const scrollHeight = container.scrollHeight;
+        const clientHeight = container.clientHeight;
+        const scrollTop = container.scrollTop;
+        const isScrollable = scrollHeight > clientHeight + 15;
+
+        if (isScrollable) {
+          const atBottom = scrollTop + clientHeight >= scrollHeight - 12;
+          const atTop = scrollTop <= 8;
+
+          // User is scrolling DOWN
+          if (e.deltaY > 0) {
+            if (!atBottom) {
+              // Not at bottom yet -> allow user to view full section down to bottom!
+              boundaryHitRef.current = null;
+              if (!container.contains(e.target as Node)) {
+                container.scrollBy({ top: e.deltaY, behavior: 'smooth' });
+              }
+              return;
+            }
+            // User reached the bottom of this section
+            if (boundaryHitRef.current !== 'bottom') {
+              // First time touching bottom on this stroke - register boundary, wait for next intentional scroll
+              boundaryHitRef.current = 'bottom';
+              return;
+            }
+          }
+
+          // User is scrolling UP
+          if (e.deltaY < 0) {
+            if (!atTop) {
+              // Not at top yet -> scroll up through section
+              boundaryHitRef.current = null;
+              if (!container.contains(e.target as Node)) {
+                container.scrollBy({ top: e.deltaY, behavior: 'smooth' });
+              }
+              return;
+            }
+            // User reached the top of this section
+            if (boundaryHitRef.current !== 'top') {
+              boundaryHitRef.current = 'top';
+              return;
+            }
+          }
+        }
+      } else {
+        // Mobile / fallback window scroll check
+        const docHeight = document.documentElement.scrollHeight;
+        const winHeight = window.innerHeight;
+        const winScrollY = window.scrollY;
+        const isWinScrollable = docHeight > winHeight + 25;
+
+        if (isWinScrollable) {
+          const atWinBottom = winScrollY + winHeight >= docHeight - 20;
+          const atWinTop = winScrollY <= 10;
+
+          if (e.deltaY > 0 && !atWinBottom) return;
+          if (e.deltaY < 0 && !atWinTop) return;
+        }
+      }
+
+      // Transition to next or prev section cleanly
       if (e.deltaY > 0) {
         lastScrollTimeRef.current = now;
         goToNextSection();
@@ -107,33 +183,73 @@ export default function Home() {
 
     const handleTouchEnd = (e: TouchEvent) => {
       if (selectedProject || selectedThought) return;
+      if (isTransitioningRef.current) return;
+
       const now = Date.now();
-      if (now - lastScrollTimeRef.current < WHEEL_COOLDOWN) return;
+      if (now - lastScrollTimeRef.current < TRANSITION_COOLDOWN) return;
 
       const touchEndY = e.changedTouches[0].clientY;
       const diff = touchStartY - touchEndY;
-      if (Math.abs(diff) > 45) {
-        lastScrollTimeRef.current = now;
-        if (diff > 0) {
-          goToNextSection();
-        } else {
-          goToPrevSection();
-        }
+      if (Math.abs(diff) < 45) return;
+
+      // On mobile, check window scroll boundary
+      const docHeight = document.documentElement.scrollHeight;
+      const winHeight = window.innerHeight;
+      const winScrollY = window.scrollY;
+      const isWinScrollable = docHeight > winHeight + 30;
+
+      if (isWinScrollable) {
+        const atWinBottom = winScrollY + winHeight >= docHeight - 25;
+        const atWinTop = winScrollY <= 15;
+
+        // Swiping up to scroll down
+        if (diff > 0 && !atWinBottom) return;
+        // Swiping down to scroll up
+        if (diff < 0 && !atWinTop) return;
+      }
+
+      lastScrollTimeRef.current = now;
+      if (diff > 0) {
+        goToNextSection();
+      } else {
+        goToPrevSection();
       }
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
       if (selectedProject || selectedThought) return;
+      if (isTransitioningRef.current) return;
 
       const now = Date.now();
-      if (now - lastScrollTimeRef.current < WHEEL_COOLDOWN) return;
+      if (now - lastScrollTimeRef.current < TRANSITION_COOLDOWN) return;
+
+      const container = scrollContainerRef.current;
+      const isDesktop = window.innerWidth >= 1024;
 
       if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        if (isDesktop && container) {
+          const isScrollable = container.scrollHeight > container.clientHeight + 15;
+          const atBottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 15;
+          if (isScrollable && !atBottom) {
+            e.preventDefault();
+            container.scrollBy({ top: 140, behavior: 'smooth' });
+            return;
+          }
+        }
         e.preventDefault();
         lastScrollTimeRef.current = now;
         goToNextSection();
       } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        if (isDesktop && container) {
+          const isScrollable = container.scrollHeight > container.clientHeight + 15;
+          const atTop = container.scrollTop <= 10;
+          if (isScrollable && !atTop) {
+            e.preventDefault();
+            container.scrollBy({ top: -140, behavior: 'smooth' });
+            return;
+          }
+        }
         e.preventDefault();
         lastScrollTimeRef.current = now;
         goToPrevSection();
@@ -170,7 +286,7 @@ export default function Home() {
   }, [selectedProject, selectedThought, goToNextSection, goToPrevSection, setActiveSection]);
 
   return (
-    <div className="relative min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] selection:bg-[#1d6de3] selection:text-white transition-colors duration-300 overflow-x-hidden">
+    <div className="relative min-h-screen lg:h-screen lg:overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)] selection:bg-[#1d6de3] selection:text-white transition-colors duration-300">
       {/* Precision Custom Cursor */}
       <CustomCursor />
 
@@ -181,13 +297,17 @@ export default function Home() {
       <Navbar />
 
       {/* Two-Column Master Layout */}
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-32 lg:pt-36 pb-28 sm:pb-20">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10 pt-16 sm:pt-24 lg:pt-28 pb-20 sm:pb-16 lg:pb-8 h-full flex flex-col justify-center">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start w-full relative">
           {/* Left Column: Sticky Profile Card - always on desktop; on mobile shown on home section */}
           <SidebarProfileCard className={activeSection === 'home' ? 'block' : 'hidden lg:block'} />
 
-          {/* Right Column: Single Section Screen with crossfade */}
-          <main className="flex-1 w-full min-w-0 relative">
+          {/* Right Column: Single Section Screen with buttery smooth internal scroll and crossfade */}
+          <main
+            ref={scrollContainerRef}
+            className="flex-1 w-full min-w-0 relative lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto lg:overflow-x-hidden pr-1.5 custom-scrollbar"
+            style={{ overscrollBehavior: 'contain' }}
+          >
             <AnimatePresence mode="wait" custom={slideDirection}>
               <motion.div
                 key={activeSection}
@@ -196,7 +316,7 @@ export default function Home() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="w-full"
+                className="w-full min-h-[480px] lg:min-h-[560px] flex flex-col"
               >
                 {activeSection === 'home' && <RightHeroSection />}
                 {activeSection === 'projects' && (

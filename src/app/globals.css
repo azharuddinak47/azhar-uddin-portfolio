@@ -71,6 +71,43 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color-scheme: dark;
+  scrollbar-gutter: stable;
+}
+
+/* Custom Sleek Scrollbar for Section Panels (prevents page shaking & layout shifting) */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(29, 109, 227, 0.3) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(29, 109, 227, 0.25);
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(29, 109, 227, 0.55);
+}
+
+html.light .custom-scrollbar {
+  scrollbar-color: rgba(0, 0, 0, 0.18) transparent;
+}
+
+html.light .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+html.light .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
 }
 
 html.light {

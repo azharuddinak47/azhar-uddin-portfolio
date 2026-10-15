@@ -9,7 +9,7 @@ import { SectionHeading } from '@/components/common/SectionHeading';
 export const ExperienceSection = () => {
   const { data, theme } = usePortfolio();
   const isDark = theme === 'dark';
-  const [expandedId, setExpandedId] = useState<string | null>(data.experiences[0]?.id || null);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const toggleExpand = (id: string) => {
     setExpandedId(prev => (prev === id ? null : id));
