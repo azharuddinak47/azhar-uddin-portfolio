@@ -33,8 +33,8 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
           className="mb-4"
         />
 
-        {/* 2 Featured Thought Cards Side-by-Side Sized to Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        {/* Stack of Thought Cards matching reference screenshot */}
+        <div className="flex flex-col gap-4 sm:gap-5">
           {data.thoughts.slice(0, 2).map((thought, index) => (
             <motion.div
               key={thought.id || index}
@@ -43,57 +43,46 @@ export const ThoughtsSection = ({ onSelectThought }: ThoughtsSectionProps) => {
               viewport={{ once: false, amount: 0.15 }}
               transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               onClick={() => onSelectThought(thought)}
-              className={`group cursor-pointer p-5 sm:p-6 rounded-[24px] border transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between gap-5 ${
+              className={`group cursor-pointer p-6 sm:p-7 md:p-8 rounded-[24px] sm:rounded-[28px] transition-all duration-300 flex flex-col justify-between ${
                 isDark
-                  ? 'bg-[#16202a] hover:bg-[#1e2c3a] border-[#1d6de3]/15 hover:border-[#1d6de3]/35 shadow-[0_10px_25px_rgba(0,0,0,0.35)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_18px_rgba(29,109,227,0.18)]'
-                  : 'bg-white border-black/[0.04] hover:border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
+                  ? 'bg-[#1e1c1a] hover:bg-[#252220] border border-white/5'
+                  : 'bg-white hover:bg-[#fafafa] border border-black/5 shadow-sm'
               }`}
             >
-              <div>
-                {/* Metadata Row: Date & Read Time */}
-                <div className={`flex items-center gap-2.5 text-xs mb-3 ${isDark ? 'text-neutral-400' : 'text-neutral-600'}`}>
-                  <span className="flex items-center gap-1.5 font-medium">
-                    <Calendar size={12} className={isDark ? 'text-[#60a5fa]' : 'text-[#1d6de3]'} />
-                    {thought.date}
-                  </span>
-                  <span>•</span>
-                  <span className={`flex items-center gap-1 font-semibold px-2 py-0.5 rounded-full text-[11px] transition-colors ${
-                    isDark
-                      ? 'bg-[#11181F] border border-white/5 text-neutral-300'
-                      : 'bg-neutral-100 border border-neutral-300/80 text-neutral-800 shadow-xs'
-                  }`}>
-                    <Clock size={11} className={isDark ? 'text-[#60a5fa]' : 'text-[#1d6de3]'} />
-                    {thought.readTime}
-                  </span>
-                </div>
-
-                {/* Article Title */}
-                <h3 className={`text-xl sm:text-[26px] font-semibold tracking-normal font-[family-name:var(--font-poppins)] mb-2.5 leading-[1.2] transition-colors ${
-                  isDark ? 'text-white group-hover:text-[#60a5fa]' : 'text-neutral-900 group-hover:text-[#1d6de3]'
-                }`}>
+              {/* Top: Title & Orange Diagonal Arrow */}
+              <div className="flex items-start justify-between gap-4">
+                <h3
+                  className={`text-xl sm:text-[26px] md:text-[28px] font-semibold tracking-normal font-[family-name:var(--font-poppins)] leading-[1.25] transition-colors max-w-xl ${
+                    isDark ? 'text-white' : 'text-neutral-900'
+                  }`}
+                >
                   {thought.title}
                 </h3>
-
-                {/* Excerpt */}
-                <p className={`text-xs sm:text-sm leading-relaxed line-clamp-3 ${
-                  isDark ? 'text-neutral-400' : 'text-neutral-600'
-                }`}>
-                  {thought.excerpt}
-                </p>
+                <div className="pt-1 shrink-0">
+                  <ArrowUpRight
+                    size={24}
+                    className="text-[#f46c38] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+                  />
+                </div>
               </div>
 
-              {/* Action Button */}
-              <div className={`pt-3 border-t flex items-center justify-between text-xs font-semibold transition-colors ${
-                isDark ? 'border-white/5 text-[#1d6de3] group-hover:text-[#60a5fa]' : 'border-neutral-200 text-[#1d6de3] group-hover:text-[#2563eb]'
-              }`}>
-                <span>Read Full Essay</span>
-                <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
-                  isDark
-                    ? 'bg-[#11181F] border border-white/10 text-white group-hover:bg-[#1d6de3] group-hover:border-[#1d6de3]'
-                    : 'bg-neutral-100 border border-neutral-300 text-neutral-800 group-hover:bg-[#1d6de3] group-hover:text-white group-hover:border-[#1d6de3]'
-                }`}>
-                  <ArrowUpRight size={13} />
-                </div>
+              {/* Middle: Excerpt */}
+              <p
+                className={`mt-3 sm:mt-4 text-sm sm:text-[15px] md:text-base leading-relaxed font-[family-name:var(--font-poppins)] max-w-2xl ${
+                  isDark ? 'text-[#998F8F]' : 'text-neutral-600'
+                }`}
+              >
+                {thought.excerpt}
+              </p>
+
+              {/* Bottom: Date on Left, Read Time on Right */}
+              <div
+                className={`mt-5 sm:mt-6 flex items-center justify-between text-xs sm:text-sm font-normal font-[family-name:var(--font-poppins)] ${
+                  isDark ? 'text-[#998F8F]' : 'text-neutral-500'
+                }`}
+              >
+                <span>{thought.date}</span>
+                <span>{thought.readTime}</span>
               </div>
             </motion.div>
           ))}
