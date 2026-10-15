@@ -38,8 +38,12 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
         />
       </div>
 
-      {/* Projects Showcase: Clean Horizontal Cards matching reference layout */}
-      <div className="flex flex-col gap-3 sm:gap-3.5">
+      {/* Projects Showcase Container matching reference screenshot */}
+      <div className={`rounded-[26px] sm:rounded-[30px] p-3 sm:p-4.5 md:p-5 flex flex-col gap-2.5 sm:gap-3 transition-colors ${
+        isDark
+          ? 'bg-[#151c24]'
+          : 'bg-[#f4f5f7]'
+      }`}>
         {data.projects.slice(0, 3).map((project, index) => (
           <motion.div
             key={project.id}
@@ -48,14 +52,10 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.35, delay: index * 0.05 }}
             onClick={() => onSelectProject(project)}
-            className={`group relative cursor-pointer flex items-center justify-between gap-4 sm:gap-6 rounded-[20px] sm:rounded-[24px] p-3 sm:p-3.5 md:p-4 transition-all duration-300 hover:-translate-y-0.5 ${
-              isDark
-                ? 'bg-[#16202a] hover:bg-[#1e2c3a] border border-[#1d6de3]/15 hover:border-[#1d6de3]/35 shadow-[0_10px_25px_rgba(0,0,0,0.45)]'
-                : 'bg-white hover:bg-[#fcfcfd] border border-black/[0.04] hover:border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
-            }`}
+            className="group relative cursor-pointer flex items-center justify-between gap-4 sm:gap-6 rounded-[20px] p-2 sm:p-2.5 md:p-3 transition-all duration-300 hover:bg-white/[0.04]"
           >
             {/* Left: Project Image Thumbnail */}
-            <div className="relative w-22 h-16 sm:w-26 sm:h-19 md:w-30 md:h-21 rounded-xl sm:rounded-2xl overflow-hidden shrink-0 bg-[#11181F] border border-white/10 group-hover:border-[#1d6de3]/40 transition-all duration-300">
+            <div className="relative w-22 h-16 sm:w-26 sm:h-19 md:w-30 md:h-21 rounded-xl sm:rounded-2xl overflow-hidden shrink-0 bg-[#11181F]">
               <img
                 src={project.image}
                 alt={project.title}
@@ -81,7 +81,7 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
               </p>
             </div>
 
-            {/* Right: Orange Diagonal Arrow matching reference design */}
+            {/* Right: Blue Diagonal Arrow matching user request */}
             <a
               href={project.link || '#'}
               target="_blank"
@@ -92,7 +92,7 @@ export const ProjectsSection = ({ onSelectProject }: ProjectsSectionProps) => {
             >
               <ArrowUpRight
                 size={24}
-                className="text-[#f46c38] group-hover:scale-110 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+                className="text-[#1d6de3] group-hover:text-[#60a5fa] group-hover:scale-110 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
               />
             </a>
           </motion.div>
