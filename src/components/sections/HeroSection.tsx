@@ -7,6 +7,7 @@ import { usePortfolio } from '@/context/PortfolioContext';
 import { Badge } from '@/components/common/Badge';
 import { Button } from '@/components/common/Button';
 import { Marquee } from '@/components/common/Marquee';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }) => {
   const { data, isEditMode } = usePortfolio();
@@ -175,8 +176,8 @@ export const HeroSection = ({ onOpenEditModal }: { onOpenEditModal: () => void }
               className="relative p-6 sm:p-8 rounded-[24px] bg-[#16202a] border border-[#1d6de3]/15 hover:border-[#1d6de3]/35 transition-all duration-300 hover:-translate-y-1.5 group shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
             >
               <div className="flex flex-col">
-                <span className="text-4xl sm:text-5xl lg:text-[70px] font-medium tracking-tight text-[#1d6de3] font-[family-name:var(--font-poppins)] mb-2 group-hover:scale-105 transition-transform origin-left">
-                  {stat.value}
+                <span className="text-4xl sm:text-5xl lg:text-[70px] font-bold tracking-tight text-[#1d6de3] font-[family-name:var(--font-poppins)] mb-2 group-hover:scale-105 transition-transform origin-left">
+                  <AnimatedCounter value={stat.value} duration={1300} delay={index * 120} />
                 </span>
                 <span className="text-xs sm:text-sm font-bold tracking-wider text-white uppercase">
                   {stat.label}

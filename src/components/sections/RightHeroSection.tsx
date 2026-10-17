@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Layers, PanelsTopLeft, ArrowRight } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {}) => {
   const { data, theme } = usePortfolio();
@@ -63,10 +64,10 @@ export const RightHeroSection = ({ onOpenEditModal }: { onOpenEditModal?: () => 
       >
         {stats.map((stat, index) => (
           <div key={stat.id || index} className="flex flex-col items-start select-text">
-            <p className={`text-4xl sm:text-5xl lg:text-[70px] font-medium font-[family-name:var(--font-poppins)] tracking-[-0.01em] leading-[1.1] sm:leading-[84px] mb-1 select-text cursor-text ${
+            <p className={`text-4xl sm:text-5xl lg:text-[70px] font-bold font-[family-name:var(--font-poppins)] tracking-[-0.01em] leading-[1.1] sm:leading-[84px] mb-1 select-text cursor-text ${
               isDark ? 'text-white' : 'text-[#111827]'
             }`}>
-              {stat.value}
+              <AnimatedCounter value={stat.value} duration={1300} delay={index * 120} />
             </p>
             <p className={`text-xs sm:text-[16px] font-normal tracking-[-0.01em] uppercase leading-[1.25] font-[family-name:var(--font-poppins)] select-text cursor-text ${
               isDark ? 'text-[#998F8F]' : 'text-neutral-600'

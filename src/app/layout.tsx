@@ -89,7 +89,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen selection:bg-[#1d6de3] selection:text-white transition-colors duration-300">
+      <body suppressHydrationWarning className="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen selection:bg-[#1d6de3] selection:text-white transition-colors duration-300">
         <PortfolioProvider>
           {children}
         </PortfolioProvider>
