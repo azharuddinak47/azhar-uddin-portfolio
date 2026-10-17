@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
 import { SidebarProfileCard } from '@/components/layout/SidebarProfileCard';
 import { RightHeroSection } from '@/components/sections/RightHeroSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
@@ -90,8 +89,9 @@ export default function Home() {
     const WHEEL_THRESHOLD = 22; // px
 
     const handleWheel = (e: WheelEvent) => {
-      // If modal open, do not transition sections
+      // If modal open or interacting with rope switch, do not transition sections
       if (selectedProject || selectedThought) return;
+      if ((e.target as HTMLElement | null)?.closest('[data-rope-switch]')) return;
 
       if (isTransitioningRef.current) {
         return;
@@ -177,11 +177,31 @@ export default function Home() {
     };
 
     let touchStartY = 0;
+    let isRopeInteraction = false;
+
     const handleTouchStart = (e: TouchEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target?.closest('[data-rope-switch]')) {
+        isRopeInteraction = true;
+        touchStartY = 0;
+        return;
+      }
+      isRopeInteraction = false;
       touchStartY = e.touches[0].clientY;
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
+      if (isRopeInteraction) {
+        isRopeInteraction = false;
+        touchStartY = 0;
+        return;
+      }
+      const target = e.target as HTMLElement | null;
+      if (target?.closest('[data-rope-switch]')) {
+        touchStartY = 0;
+        return;
+      }
+      if (touchStartY === 0) return;
       if (selectedProject || selectedThought) return;
       if (isTransitioningRef.current) return;
 

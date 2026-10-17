@@ -15,9 +15,9 @@ interface VinylTurntableProps {
 
 const VinylTurntable: React.FC<VinylTurntableProps> = ({ isPlaying }) => {
   return (
-    <div className="relative w-[46px] h-[36px] sm:w-[52px] sm:h-[40px] flex items-center select-none group/turntable">
+    <div className="relative w-[34px] h-[28px] sm:w-[52px] sm:h-[40px] flex items-center select-none group/turntable">
       {/* Vinyl Record: spins continuously 360° when playing, stops when paused */}
-      <div className="relative w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] shrink-0">
+      <div className="relative w-[26px] h-[26px] sm:w-[38px] sm:h-[38px] shrink-0">
         <motion.img
           src="/assets/vinyl_record.png"
           alt="Vinyl Record"
@@ -34,7 +34,7 @@ const VinylTurntable: React.FC<VinylTurntableProps> = ({ isPlaying }) => {
 
       {/* Tonearm ("Hook"): pivots onto the vinyl when playing, stays still while record spins, removes when paused */}
       <motion.div
-        className="absolute right-0.5 -top-0.5 w-[20px] h-[28px] sm:w-[23px] sm:h-[32px] pointer-events-none z-10"
+        className="absolute right-0.5 -top-0.5 w-[15px] h-[22px] sm:w-[23px] sm:h-[32px] pointer-events-none z-10"
         style={{ transformOrigin: '76.7% 15.8%' }}
         animate={{
           rotate: isPlaying ? 5 : -32,
@@ -106,7 +106,7 @@ export const CassettePlayer = ({ onPlayingChange }: CassettePlayerProps) => {
     if (isHovered) {
       t = setTimeout(() => setShowTooltip(true), 350);
     } else {
-      setShowTooltip(false);
+      t = setTimeout(() => setShowTooltip(false), 0);
     }
     return () => clearTimeout(t);
   }, [isHovered]);
@@ -118,7 +118,7 @@ export const CassettePlayer = ({ onPlayingChange }: CassettePlayerProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Divider */}
-      <span className={`w-px h-5 mr-3 sm:mr-4 flex-shrink-0 transition-colors ${isDark ? 'bg-white/15' : 'bg-black/15'}`} />
+      <span className={`w-px h-3.5 sm:h-5 mr-1.5 sm:mr-4 flex-shrink-0 transition-colors ${isDark ? 'bg-white/15' : 'bg-black/15'}`} />
 
       {/* Hidden YouTube iframe (autoplay off by default) */}
       <iframe
@@ -151,7 +151,7 @@ export const CassettePlayer = ({ onPlayingChange }: CassettePlayerProps) => {
         {/* Play / Pause icon */}
         <svg
           viewBox="0 0 24 24"
-          className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors duration-200"
+          className="w-3.5 h-3.5 sm:w-5 sm:h-5 flex-shrink-0 transition-colors duration-200"
           style={{ fill: isPlaying ? '#e0534c' : (isDark ? '#888' : '#333') }}
         >
           {isPlaying ? (

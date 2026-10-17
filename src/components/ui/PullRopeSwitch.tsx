@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
-import { Sun, Moon } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 
 // Synthesize a tactile mechanical lamp pull-cord click via Web Audio API
@@ -176,6 +175,7 @@ export const PullRopeSwitch = () => {
 
   return (
     <div
+      data-rope-switch="true"
       className="fixed top-0 z-50 pointer-events-auto select-none"
       style={{ left: isMobile ? '1rem' : 'max(1.5rem, calc(50% - 615px))' }}
       onMouseEnter={() => setIsHovered(true)}
@@ -255,6 +255,7 @@ export const PullRopeSwitch = () => {
         {/* Draggable Pull Handle / Bobble at end of cord */}
         <motion.div
           ref={handleRef}
+          data-rope-switch="true"
           drag="y"
           dragConstraints={{ top: 0, bottom: 70 }}
           dragElastic={0.18}
@@ -262,6 +263,10 @@ export const PullRopeSwitch = () => {
           onDragStart={() => setIsPulling(true)}
           onDragEnd={handleDragEnd}
           onClick={handleClick}
+          onTouchStart={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
+          onTouchEnd={(e) => e.stopPropagation()}
+          onPointerDown={(e) => e.stopPropagation()}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center group/handle"

@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Home, Folder, Briefcase, Wrench, Award, SquarePen, Mail } from 'lucide-react';
-import { usePortfolio } from '@/context/PortfolioContext';
+import { usePortfolio, SectionId } from '@/context/PortfolioContext';
 import { CassettePlayer } from '@/components/ui/CassettePlayer';
 import { MeshGradientGlow } from '@/components/ui/MeshGradientGlow';
 
@@ -32,12 +32,12 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const targetId = href.replace('#', '') as any;
+    const targetId = href.replace('#', '') as SectionId;
     setActiveSection(targetId);
   };
 
   return (
-    <header className="fixed bottom-3 sm:bottom-auto sm:top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-auto pb-[env(safe-area-inset-bottom)]">
+    <header className="fixed bottom-2.5 sm:bottom-auto sm:top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-auto pb-[env(safe-area-inset-bottom)]">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -45,7 +45,7 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
         className="relative"
       >
         <nav
-          className={`relative z-10 flex items-center gap-2 sm:gap-7 px-3 sm:px-7 py-2 sm:py-3.5 rounded-[22px] sm:rounded-[24px] border transition-all duration-500 max-w-[calc(100vw-1rem)] sm:max-w-[calc(100vw-1.5rem)] ${
+          className={`relative z-10 flex items-center gap-1.5 sm:gap-7 px-2.5 sm:px-7 py-1.5 sm:py-3.5 rounded-[20px] sm:rounded-[24px] border transition-all duration-500 max-w-[calc(100vw-1.5rem)] ${
             isDark
               ? isPlaying
                 ? 'border-[#1d6de3]/40 shadow-[0_12px_32px_rgba(15,45,80,0.7)]'
@@ -56,7 +56,7 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
           }`}
         >
           {/* Background layer strictly under the navbar — clips mesh gradient to the pill shape */}
-          <div className="absolute inset-0 rounded-[22px] overflow-hidden pointer-events-none -z-10">
+          <div className="absolute inset-0 rounded-[20px] sm:rounded-[22px] overflow-hidden pointer-events-none -z-10">
             {/* Base fill when paused / playing */}
             <div
               className={`absolute inset-0 transition-opacity duration-500 ${
@@ -105,23 +105,22 @@ export const Navbar = ({ onOpenEditModal }: { onOpenEditModal?: () => void } = {
                 onMouseEnter={() => setHoveredItem(item.id)}
                 onMouseLeave={() => setHoveredItem(null)}
                 aria-label={item.label}
-                className={`relative p-1.5 transition-all duration-200 flex items-center justify-center group ${
+                className={`relative p-1 sm:p-1.5 transition-all duration-200 flex items-center justify-center group ${
                   isActive
-                    ? isDark ? 'text-white scale-110' : 'text-[#151413] scale-110'
+                    ? isDark ? 'text-white scale-105 sm:scale-110' : 'text-[#151413] scale-105 sm:scale-110'
                     : isDark ? 'text-neutral-400 hover:text-white hover:scale-105' : 'text-neutral-500 hover:text-black hover:scale-105'
                 }`}
               >
                 <Icon
-                  size={20}
                   strokeWidth={1.8}
-                  className="transition-colors duration-200"
+                  className="w-[17px] h-[17px] sm:w-5 sm:h-5 transition-colors duration-200"
                 />
 
                 {/* Subtle active glow dot */}
                 {isActive && (
                   <motion.span
                     layoutId="activeNavDot"
-                    className="absolute -top-1 sm:top-auto sm:-bottom-1.5 w-1.5 h-1.5 rounded-full bg-[#1d6de3] shadow-[0_0_10px_#1d6de3]"
+                    className="absolute -top-0.5 sm:top-auto sm:-bottom-1.5 w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#1d6de3] shadow-[0_0_8px_#1d6de3]"
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
                 )}
