@@ -68,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${poppins.variable} ${inter.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`dark ${poppins.variable} ${inter.variable}`} data-theme="dark">
       <head>
         <link rel="icon" href="/assets/avatar.jpg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="/assets/avatar.jpg" />

@@ -64,6 +64,38 @@ html.light,
   --border-lime: rgba(29, 109, 227, 0.25);
 }
 
+/* Dark Mode Theme Tokens (Default) */
+html.dark,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-primary: #151312;
+  --bg-secondary: #1a1817;
+  --bg-card: #1e1c1a;
+  --bg-card-hover: #262321;
+  --bg-card-subtle: #171514;
+  
+  --accent-primary: #1d6de3;
+  --accent-primary-light: #60a5fa;
+  --accent-primary-dim: rgba(29, 109, 227, 0.15);
+  --accent-primary-glow: rgba(29, 109, 227, 0.35);
+
+  --accent-lime: #1d6de3;
+  --accent-lime-dim: rgba(29, 109, 227, 0.15);
+  --accent-lime-glow: rgba(29, 109, 227, 0.35);
+  
+  --accent-orange: #f46c38;
+  --accent-orange-dim: rgba(244, 108, 56, 0.15);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #998f8f;
+  --text-muted: #6a6b6e;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-lime: rgba(29, 109, 227, 0.4);
+}
+
 html {
   background-color: var(--bg-primary);
   color: var(--text-primary);
