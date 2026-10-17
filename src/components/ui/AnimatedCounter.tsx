@@ -43,7 +43,6 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
     if (!parsed.isValid) return;
 
     const startValue = parsed.target > 1 ? 1 : 0;
-    let timeoutId: NodeJS.Timeout;
 
     const startAnimation = () => {
       setHasCompleted(false);
@@ -71,7 +70,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       rafIdRef.current = requestAnimationFrame(animate);
     };
 
-    timeoutId = setTimeout(startAnimation, delay);
+    const timeoutId = setTimeout(startAnimation, delay);
 
     return () => {
       clearTimeout(timeoutId);
