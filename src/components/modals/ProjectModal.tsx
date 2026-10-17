@@ -123,19 +123,6 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                 >
                   App Store
                 </Button>
-
-                {/* Close Preview */}
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className={`px-5 py-3 text-sm font-semibold rounded-full transition-all duration-300 active:scale-[0.98] cursor-pointer ml-auto ${
-                    isDark
-                      ? 'bg-[#16202a] text-white hover:bg-[#1e2c3a] border border-[#1d6de3]/20'
-                      : 'bg-neutral-100 text-neutral-800 hover:bg-neutral-200 border border-neutral-300 shadow-xs'
-                  }`}
-                >
-                  Close Preview
-                </button>
               </div>
             </div>
           </div>
