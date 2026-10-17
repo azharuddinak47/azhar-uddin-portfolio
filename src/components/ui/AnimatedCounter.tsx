@@ -42,13 +42,12 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   useEffect(() => {
     if (!parsed.isValid) return;
 
-    setHasCompleted(false);
     const startValue = parsed.target > 1 ? 1 : 0;
-    setDisplayCount(startValue);
-
     let timeoutId: NodeJS.Timeout;
 
     const startAnimation = () => {
+      setHasCompleted(false);
+      setDisplayCount(startValue);
       const startTime = performance.now();
 
       const animate = (currentTime: number) => {
@@ -72,14 +71,10 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       rafIdRef.current = requestAnimationFrame(animate);
     };
 
-    if (delay > 0) {
-      timeoutId = setTimeout(startAnimation, delay);
-    } else {
-      startAnimation();
-    }
+    timeoutId = setTimeout(startAnimation, delay);
 
     return () => {
-      if (timeoutId) clearTimeout(timeoutId);
+      clearTimeout(timeoutId);
       if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
     };
   }, [parsed, duration, delay]);
