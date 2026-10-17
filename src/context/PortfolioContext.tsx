@@ -165,6 +165,7 @@ export const PortfolioProvider = ({ children }: { children: ReactNode }) => {
                   title: initial?.title || proj.title,
                   image: initial?.image || proj.image,
                   link: initial?.link || proj.link,
+                  appStoreLink: initial?.appStoreLink || proj.appStoreLink,
                   figmaLink: initial?.figmaLink || proj.figmaLink,
                 };
               }

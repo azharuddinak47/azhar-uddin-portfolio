@@ -13,6 +13,8 @@ export interface ProjectItem {
   image: string;
   link?: string;
   figmaLink?: string;
+  appStoreLink?: string;
+  appLink?: string;
   featured?: boolean;
   year?: string;
   description?: string;

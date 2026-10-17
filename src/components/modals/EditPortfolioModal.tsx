@@ -494,16 +494,18 @@ export const EditPortfolioModal = ({ isOpen, onClose }: EditPortfolioModalProps)
                           />
                         </div>
                         <div>
-                          <label className="block text-[11px] text-neutral-400 mb-1">Direct Figma Link URL</label>
+                          <label className="block text-[11px] text-neutral-400 mb-1">App Store Link URL</label>
                           <input
                             type="text"
-                            value={proj.figmaLink || ''}
+                            value={proj.appStoreLink || proj.appLink || proj.figmaLink || ''}
                             onChange={e => {
                               const updated = [...formData.projects];
+                              updated[pIdx].appStoreLink = e.target.value;
+                              updated[pIdx].appLink = e.target.value;
                               updated[pIdx].figmaLink = e.target.value;
                               setFormData({ ...formData, projects: updated });
                             }}
-                            placeholder="https://www.figma.com/design/..."
+                            placeholder="https://apps.apple.com/app/..."
                             className="w-full px-3 py-1.5 rounded-lg bg-black border border-white/10 text-white text-xs"
                           />
                         </div>
